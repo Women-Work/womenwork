@@ -2,7 +2,7 @@ import { IsNotEmpty } from "class-validator";
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
 
-@Entity({name: "tb_produto"})
+@Entity({name: "tb_produtos"})
 export class Produto{
 
     @PrimaryGeneratedColumn()
@@ -20,7 +20,6 @@ export class Produto{
     @Column({length:300, nullable: false})
     descricao: string;
 
-    @IsNotEmpty()
-    @Column({length: 1000, nullable: false})
+    @Column({length: 1000, nullable: true})
     compradores: string;
 }
