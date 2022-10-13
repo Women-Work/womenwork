@@ -34,7 +34,11 @@ export class ProdutoService{
             where:{
                 titulo: ILike(`%${titulo}%`)
             }
-        })
+        });
+    }
+
+    async create(produto: Produto): Promise<Produto>{
+        return await this.produtoRepository.save(produto);
     }
 }
 
