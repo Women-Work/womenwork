@@ -38,7 +38,7 @@ export class ProductController{
     update(@Body() product: Product): Promise<Product> {
         return this.productService.update(product);
     }
-    @Delete()
+    @Delete('/:id')
     @HttpCode(HttpStatus.OK)
     delete(@Param('id', ParseIntPipe) id: number){
         return this.productService.delete(id);
