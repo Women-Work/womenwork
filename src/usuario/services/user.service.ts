@@ -24,7 +24,16 @@ export class UserService {
 
         if (!user)
             throw new HttpException('Postagem não encontrada!', HttpStatus.NOT_FOUND);
+            
         return user;
+    }
+
+    async findByEmail(email: string): Promise<User[]> {
+        return await this.userRepository.find({
+            where:{
+                email: ILike(`%${email}%`)
+            }
+        });
     }
 
     async create(users: User): Promise<User> {
@@ -37,16 +46,8 @@ export class UserService {
 
         if (!userService || !users.id)
             throw new HttpException('Usuario não encontrado!', HttpStatus.NOT_FOUND);
-        return await this.userRepository.save(users);
-        
-    }
 
-    async findByEmail(email: string): Promise<User[]> {
-        return await this.userRepository.find({
-            where:{
-                email: ILike(`%${email}%`)
-            }
-        });
+        return await this.userRepository.save(users);    
     }
 
     async delete(id: number): Promise<DeleteResult> {
@@ -55,6 +56,7 @@ export class UserService {
 
         if(!buscaUser)
             throw new HttpException ('Usuário não encontrado!', HttpStatus.NOT_FOUND);
+
         return await this.userRepository.delete(id);
     }
 }
