@@ -27,9 +27,7 @@ export class ProductController{
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
-    create(
-        @Body() product: Product
-    ): Promise<Product>{
+    create(@Body() product: Product): Promise<Product>{
         return this.productService.create(product);
     }
 

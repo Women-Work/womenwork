@@ -22,9 +22,9 @@ export class ProductService{
             }
         }); 
 
-        if(!product){
+        if(!product)
             throw new HttpException('Produto não encontrado.', HttpStatus.NOT_FOUND);
-        }
+        
 
         return product;
     }
@@ -56,6 +56,7 @@ export class ProductService{
 
         if (!searchProduct)
             throw new HttpException('Produto não encontrado', HttpStatus.NOT_FOUND);
+
         return await this.productRepository.delete(id);
 
     }
