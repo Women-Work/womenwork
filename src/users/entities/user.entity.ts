@@ -2,7 +2,7 @@ import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 import { IsNotEmpty } from "class-validator";
 
 
-@Entity({name: 'tb_user'})
+@Entity({name: 'tb_users'})
 export class User {
 
     @PrimaryGeneratedColumn()
@@ -10,7 +10,7 @@ export class User {
 
     @IsNotEmpty()
     @Column({length: 45, nullable: false})
-    name: string
+    username: string
 
     @IsNotEmpty()
     @Column({length: 60, nullable: false, unique: true})
