@@ -9,7 +9,7 @@ import { CategoryModule } from './category/category.module';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot ({
+    TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
       port: 3306,
@@ -17,11 +17,11 @@ import { CategoryModule } from './category/category.module';
       password: 'root',
       database: 'db_womenwork',
       entities: [User, Product, Category],
-      synchronize: true
+      synchronize: true,
     }),
     UserOrmModule,
     ProductModule,
-    CategoryModule
+    CategoryModule,
   ],
   controllers: [],
   providers: [],
