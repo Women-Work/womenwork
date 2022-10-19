@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { IsNotEmpty } from 'class-validator';
 
 @Entity({ name: 'tb_users' })
@@ -21,4 +21,5 @@ export class User {
   @IsNotEmpty()
   @Column({ length: 255, nullable: true })
   photo: string;
+
 }
