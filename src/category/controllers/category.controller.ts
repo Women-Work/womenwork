@@ -7,11 +7,14 @@ import {
   Param,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common/decorators';
 import { HttpStatus } from '@nestjs/common/enums';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { Category } from '../entities/category.entity';
 import { CategoryService } from '../services/category.service';
 
+@UseGuards(JwtAuthGuard)
 @Controller('/categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}

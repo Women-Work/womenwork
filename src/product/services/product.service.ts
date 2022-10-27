@@ -41,7 +41,7 @@ export class ProductService {
       where: { title: ILike(`%${title}%`) 
     },
     relations:{
-      category:true,
+      category: true,
       user: true
     }
     });
