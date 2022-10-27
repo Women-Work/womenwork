@@ -1,12 +1,5 @@
 import { Delete, Param, ParseIntPipe } from '@nestjs/common';
-import {
-  Body,
-  Controller,
-  Get,
-  HttpCode,
-  Post,
-  Put,
-} from '@nestjs/common/decorators';
+import { Body,Controller,Get,HttpCode,Post,Put } from '@nestjs/common/decorators';
 import { HttpStatus } from '@nestjs/common/enums';
 import { User } from '../entities/user.entity';
 import { UserService } from '../services/user.service';
@@ -15,39 +8,21 @@ import { UserService } from '../services/user.service';
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
-  @Get()
+  @Get('/all')
   @HttpCode(HttpStatus.OK)
   findAll(): Promise<User[]> {
     return this.userService.findAll();
   }
 
-  @Get('/:id')
-  @HttpCode(HttpStatus.OK)
-  findById(@Param('id', ParseIntPipe) id: number): Promise<User> {
-    return this.userService.findById(id);
-  }
-
-  @Post()
+  @Post('/register')
   @HttpCode(HttpStatus.CREATED)
-  create(@Body() users: User): Promise<User> {
-    return this.userService.create(users);
+  create(@Body() user: User): Promise<User> {
+    return this.userService.create(user);
   }
 
-  @Get('/email/:email')
+  @Put('/update')
   @HttpCode(HttpStatus.OK)
-  findByEmail(@Param('email') email: string): Promise<User[]> {
-    return this.userService.findByEmail(email);
-  }
-
-  @Put()
-  @HttpCode(HttpStatus.OK)
-  update(@Body() users: User): Promise<User> {
-    return this.userService.update(users);
-  }
-
-  @Delete('/:id')
-  @HttpCode(HttpStatus.NO_CONTENT)
-  delete(@Param('id', ParseIntPipe) id: number) {
-    return this.userService.delete(id);
+  update(@Body() user: User): Promise<User> {
+    return this.userService.update(user);
   }
 }
