@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
-import { UserOrmModule } from './users/user.module';
+import { UserModule } from './users/user.module';
 import { Product } from './product/entities/product.entity';
 import { ProductModule } from './product/product.module';
 import { Category } from './category/entities/category.entity';
@@ -19,7 +19,7 @@ import { CategoryModule } from './category/category.module';
       entities: [User, Product, Category],
       synchronize: true,
     }),
-    UserOrmModule,
+    UserModule,
     ProductModule,
     CategoryModule,
   ],
