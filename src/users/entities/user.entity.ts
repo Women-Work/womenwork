@@ -22,7 +22,7 @@ export class User {
   password: string;
 
   @IsNotEmpty()
-  @Column({ length: 400, nullable: true })
+  @Column({ length: 5000, nullable: true })
   photo: string;
 
   @OneToMany(() => Product, (product) => product.user)
