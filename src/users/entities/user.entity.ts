@@ -18,11 +18,11 @@ export class User {
 
   @IsNotEmpty()
   @MinLength(8)
-  @Column({ length: 16, nullable: false })
+  @Column({ length: 255, nullable: false })
   password: string;
 
   @IsNotEmpty()
-  @Column({ length: 400, nullable: true })
+  @Column({ length: 5000, nullable: true })
   photo: string;
 
   @OneToMany(() => Product, (product) => product.user)
