@@ -11,7 +11,7 @@ export class Product {
   id: number;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   title: string;
 
@@ -21,11 +21,11 @@ export class Product {
   price: number;
 
   @IsNotEmpty()
-  @Column({ length: 300, nullable: false })
+  @Column({ length: 1000, nullable: false })
   @ApiProperty()
   description: string;
 
-  @Column({ length: 1000, nullable: true })
+  @Column({ length: 2000, nullable: true })
   @ApiProperty()
   buyers: string;
 

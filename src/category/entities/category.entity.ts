@@ -10,12 +10,12 @@ export class Category {
   id: number;
 
   @IsNotEmpty()
-  @Column({ length: 20, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   name: string;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   icon: string;
 
