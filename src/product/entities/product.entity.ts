@@ -1,8 +1,9 @@
-import { IsNotEmpty } from 'class-validator';
-import { User } from 'src/users/entities/user.entity';
-import { Category } from '../../category/entities/category.entity';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty } from 'class-validator';
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Category } from '../../category/entities/category.entity';
+import { User } from '../../users/entities/user.entity';
 
 @Entity({ name: 'tb_products' })
 export class Product {
@@ -11,7 +12,7 @@ export class Product {
   id: number;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   title: string;
 
@@ -21,23 +22,23 @@ export class Product {
   price: number;
 
   @IsNotEmpty()
-  @Column({ length: 300, nullable: false })
+  @Column({ length: 1000, nullable: false })
   @ApiProperty()
   description: string;
 
-  @Column({ length: 1000, nullable: true })
+  @Column({ length: 2000, nullable: true })
   @ApiProperty()
   buyers: string;
 
-  @ApiProperty({ type: () => Category})
-  @ManyToOne(() => Category, (category) => category.product,{
-    onDelete: "CASCADE"
-})
-category: Category
+  @ApiProperty({ type: () => Category })
+  @ManyToOne(() => Category, (category) => category.product, {
+    onDelete: 'CASCADE',
+  })
+  category: Category;
 
-  @ApiProperty({ type: () => User})
+  @ApiProperty({ type: () => User })
   @ManyToOne(() => User, (user) => user.product, {
-    onDelete: "CASCADE"
+    onDelete: 'CASCADE',
   })
   user: User;
 }

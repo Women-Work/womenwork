@@ -1,7 +1,8 @@
-import { IsNotEmpty } from 'class-validator';
-import { Product } from '../../product/entities/product.entity';
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { ApiProperty } from '@nestjs/swagger';
+import { IsNotEmpty } from 'class-validator';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Product } from '../../product/entities/product.entity';
 
 @Entity({ name: 'tb_categories' })
 export class Category {
@@ -10,12 +11,12 @@ export class Category {
   id: number;
 
   @IsNotEmpty()
-  @Column({ length: 20, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   name: string;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
   @ApiProperty()
   icon: string;
 

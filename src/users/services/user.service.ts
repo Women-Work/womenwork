@@ -10,14 +10,14 @@ export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private bcrypt: Bcrypt
+    private bcrypt: Bcrypt,
   ) {}
 
-  async findByUser(user: string): Promise<User>{
+  async findByUser(user: string): Promise<User> {
     return await this.userRepository.findOne({
       where: {
-        user
-      }
+        user,
+      },
     });
   }
 
@@ -28,45 +28,55 @@ export class UserService {
   async findById(id: string): Promise<User> {
     const user = await this.userRepository.findOne({
       where: {
-        id
+        id,
       },
-      relations:{
-        product: true
-      }
+      relations: {
+        product: true,
+      },
     });
 
     if (!user)
-      throw new HttpException(MessagesHelper.USER_NOT_FOUND, HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
     return user;
   }
 
   async create(data: User): Promise<User> {
-    
-    let userSearch = await this.findByUser(data.user);
+    const userSearch = await this.findByUser(data.user);
 
     if (!userSearch) {
-      data.password = await this.bcrypt.hashPassword(data.password)
+      data.password = await this.bcrypt.hashPassword(data.password);
       const user = this.userRepository.create(data);
       return await this.userRepository.save(user);
     }
 
-    throw new HttpException(MessagesHelper.EXISTING_USER, HttpStatus.BAD_REQUEST)
+    throw new HttpException(
+      MessagesHelper.EXISTING_USER,
+      HttpStatus.BAD_REQUEST,
+    );
   }
 
   async update(user: User): Promise<User> {
+    const userUpdate: User = await this.findById(user.id);
+    const userSearch = await this.findByUser(user.user);
 
-    let userUpdate: User = await this.findById(user.id);
-    let userSearch = await this.findByUser(user.user);
+    if (!userUpdate)
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
-    if(!userUpdate)
-      throw new HttpException(MessagesHelper.USER_NOT_FOUND, HttpStatus.NOT_FOUND);
-
-    if(userSearch && userSearch.id != user.id)
-      throw new HttpException(MessagesHelper.EXISTING_USER, HttpStatus.BAD_REQUEST);
+    if (userSearch && userSearch.id != user.id)
+      throw new HttpException(
+        MessagesHelper.EXISTING_USER,
+        HttpStatus.BAD_REQUEST,
+      );
 
     user.password = await this.bcrypt.hashPassword(user.password);
-    this.userRepository.merge(userUpdate, user)
+    this.userRepository.merge(userUpdate, user);
     return await this.userRepository.save(userUpdate);
   }
 }
