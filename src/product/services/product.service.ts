@@ -69,7 +69,7 @@ export class ProductService {
    * @returns a promise that the product was registered in the database
    */
   async create(product: Product): Promise<Product> {
-    return await this.productRepository.save(pHttpException in case the id is not found in the databaseroduct);
+    return await this.productRepository.save(product);
   }
 
   /**

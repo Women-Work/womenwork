@@ -84,7 +84,7 @@ export class CategoryService {
     if (!searchCategory || !category.id)
       throw new HttpException(
         'Categoria não encontrada.',
-        HttpStatus.NOT_FOUND,
+        HttpStatus.NOT_FOUND
       );
 
     return await this.categoryRepository.save(category);
@@ -92,7 +92,7 @@ export class CategoryService {
 
   /**
    * @desc HttpException in case the id is not found in the databaseremove a category by id from the database
-   * @param id parameter to remove the category from the database
+   * @param  parameter to remove the category from the database
    * @throw HttpException in case the id is not found in the database
    * @returns a promise that the  has been removed from the database
    */
@@ -102,7 +102,7 @@ export class CategoryService {
     if (!searchCategory)
       throw new HttpException(
         'Categoria não encontrada.',
-        HttpStatus.NOT_FOUND,
+        HttpStatus.NOT_FOUND
       );
 
     return await this.categoryRepository.delete(id);
