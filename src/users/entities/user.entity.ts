@@ -1,24 +1,27 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
+import { BeforeInsert, Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { IsEmail, IsNotEmpty, Matches, MinLength } from 'class-validator';
 import { Product } from 'src/product/entities/product.entity';
+import { RegExHelper } from 'src/helpers/regex.helper';
+import { MessagesHelper } from 'src/helpers/messages.helpers';
+import { hashSync } from 'bcrypt';
 
 @Entity({ name: 'tb_users' })
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
   name: string;
  
   @IsNotEmpty()
   @IsEmail()
-  @Column({ length: 60, nullable: false, unique: true })
+  @Column({ nullable: false, unique: true })
   user: string;
 
   @IsNotEmpty()
-  @MinLength(8)
-  @Column({ length: 255, nullable: false })
+  @Matches(RegExHelper.password, { message: MessagesHelper.PASSWORD_VALID})
+  @Column({ nullable: false })
   password: string;
 
   @IsNotEmpty()
@@ -27,4 +30,5 @@ export class User {
 
   @OneToMany(() => Product, (product) => product.user)
   product: Product[];
+
 }
