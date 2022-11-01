@@ -1,12 +1,15 @@
 import { Controller, ParseIntPipe } from '@nestjs/common';
 import { Body, Delete, Get, HttpCode,Param, Post, Put, UseGuards } from '@nestjs/common/decorators';
 import { HttpStatus } from '@nestjs/common/enums';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { Category } from '../entities/category.entity';
 import { CategoryService } from '../services/category.service';
 
+@ApiTags('Category')
 @UseGuards(JwtAuthGuard)
 @Controller('/categories')
+@ApiBearerAuth()
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 

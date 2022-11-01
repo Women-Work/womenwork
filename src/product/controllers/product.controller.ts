@@ -11,12 +11,15 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { Product } from '../entities/product.entity';
 import { ProductService } from '../services/product.service';
 
+@ApiTags('Product')
 @UseGuards(JwtAuthGuard)
 @Controller('/products')
+@ApiBearerAuth()
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
