@@ -12,9 +12,9 @@ export class CategoryService {
 
   async findAll(): Promise<Category[]> {
     return await this.categoryRepository.find({
-      relations:{
-        product:true
-      }
+      relations: {
+        product: true,
+      },
     });
   }
 
@@ -23,9 +23,9 @@ export class CategoryService {
       where: {
         id,
       },
-      relations:{
-        product:true
-      }
+      relations: {
+        product: true,
+      },
     });
     if (!category) {
       throw new HttpException(
@@ -42,9 +42,9 @@ export class CategoryService {
       where: {
         name: ILike(`%${name}%`),
       },
-      relations:{
-        product:true
-      }
+      relations: {
+        product: true,
+      },
     });
   }
 
