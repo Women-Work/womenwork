@@ -10,18 +10,22 @@ export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private bcrypt: Bcrypt
+    private bcrypt: Bcrypt,
   ) {}
 
+<<<<<<< HEAD
   /**
    * @desc search for a registered user in the database
    * @returns the promise to see a one user
    */
   async findByUser(user: string): Promise<User>{
+=======
+  async findByUser(user: string): Promise<User> {
+>>>>>>> 7b526e267b0cca0a5beeb5ef5a55a4f68f1b0876
     return await this.userRepository.findOne({
       where: {
-        user
-      }
+        user,
+      },
     });
   }
 
@@ -42,15 +46,18 @@ export class UserService {
   async findById(id: string): Promise<User> {
     const user = await this.userRepository.findOne({
       where: {
-        id
+        id,
       },
-      relations:{
-        product: true
-      }
+      relations: {
+        product: true,
+      },
     });
 
     if (!user)
-      throw new HttpException(MessagesHelper.USER_NOT_FOUND, HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
     return user;
   }
@@ -61,16 +68,18 @@ export class UserService {
    * @returns a promise that the user was registered in the database
    */
   async create(data: User): Promise<User> {
-    
-    let userSearch = await this.findByUser(data.user);
+    const userSearch = await this.findByUser(data.user);
 
     if (!userSearch) {
-      data.password = await this.bcrypt.hashPassword(data.password)
+      data.password = await this.bcrypt.hashPassword(data.password);
       const user = this.userRepository.create(data);
       return await this.userRepository.save(user);
     }
 
-    throw new HttpException(MessagesHelper.EXISTING_USER, HttpStatus.BAD_REQUEST)
+    throw new HttpException(
+      MessagesHelper.EXISTING_USER,
+      HttpStatus.BAD_REQUEST,
+    );
   }
 
   /**
@@ -79,18 +88,23 @@ export class UserService {
    * @returns a promise that the user has been updated in the database
    */
   async update(user: User): Promise<User> {
+    const userUpdate: User = await this.findById(user.id);
+    const userSearch = await this.findByUser(user.user);
 
-    let userUpdate: User = await this.findById(user.id);
-    let userSearch = await this.findByUser(user.user);
+    if (!userUpdate)
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
-    if(!userUpdate)
-      throw new HttpException(MessagesHelper.USER_NOT_FOUND, HttpStatus.NOT_FOUND);
-
-    if(userSearch && userSearch.id != user.id)
-      throw new HttpException(MessagesHelper.EXISTING_USER, HttpStatus.BAD_REQUEST);
+    if (userSearch && userSearch.id != user.id)
+      throw new HttpException(
+        MessagesHelper.EXISTING_USER,
+        HttpStatus.BAD_REQUEST,
+      );
 
     user.password = await this.bcrypt.hashPassword(user.password);
-    this.userRepository.merge(userUpdate, user)
+    this.userRepository.merge(userUpdate, user);
     return await this.userRepository.save(userUpdate);
   }
 }

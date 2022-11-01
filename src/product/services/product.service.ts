@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { DeleteResult, ILike, Repository } from 'typeorm';
+
 import { Product } from '../entities/product.entity';
 
 @Injectable()
@@ -16,17 +17,16 @@ export class ProductService {
    */
   async findAll(): Promise<Product[]> {
     return await this.productRepository.find({
-      relations:{
-        category:true,
-        user: true
-      }
+      relations: {
+        category: true,
+        user: true,
+      },
     });
   }
 
-
   /**
    * @desc Search product by id registered in the database
-   * @returns A promise to search for a product id 
+   * @returns A promise to search for a product id
    * @Param id that will be searched in the database
    * @throw HttpException in case the id is not found in the database.
    */
@@ -35,10 +35,10 @@ export class ProductService {
       where: {
         id,
       },
-      relations:{
-        category:true,
-        user: true
-      }
+      relations: {
+        category: true,
+        user: true,
+      },
     });
 
     if (!product)
@@ -47,6 +47,7 @@ export class ProductService {
     return product;
   }
 
+
 /**
  * @desc Search product by title registered in the database
  * @param title that will be searched in the database
@@ -54,12 +55,11 @@ export class ProductService {
  */
   async findByTitle(title: string): Promise<Product[]> {
     return await this.productRepository.find({
-      where: { title: ILike(`%${title}%`) 
-    },
-    relations:{
-      category: true,
-      user: true
-    }
+      where: { title: ILike(`%${title}%`) },
+      relations: {
+        category: true,
+        user: true,
+      },
     });
   }
 
