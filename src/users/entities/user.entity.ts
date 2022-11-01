@@ -29,8 +29,7 @@ export class User {
   @ApiProperty() 
   password: string;
 
-  @IsNotEmpty()
-  @Column({ length: 5000, nullable: true })
+  @Column({ length: 5000, default: 'default.jpg' })
   @ApiProperty() 
   photo: string;
 
