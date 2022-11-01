@@ -47,11 +47,12 @@ export class ProductService {
     return product;
   }
 
-  /**
-   * @desc Search product by name registered in the database
-   * @returns A promise to search for a product title
-   * @Param name that will be searched in the database
-   */
+
+/**
+ * @desc Search product by title registered in the database
+ * @param title that will be searched in the database
+ * @returns A promise to search for a product title
+ */
   async findByTitle(title: string): Promise<Product[]> {
     return await this.productRepository.find({
       where: { title: ILike(`%${title}%`) },
@@ -86,9 +87,10 @@ export class ProductService {
   }
 
   /**
-   * @desc remove a product from the database
-   * @param id parameter to remove the user from the database
-   * @returns a promise that the user has been removed from the database
+   * @desc remove a product by id from the database
+   * @param id parameter to remove the product from the database
+   * @returns a promise that the product has been removed from the database
+   * @throw HttpException in case the id is not found in the database
    */
   async delete(id: number): Promise<DeleteResult> {
     const searchProduct = await this.findById(id);
