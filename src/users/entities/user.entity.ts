@@ -1,30 +1,38 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { IsEmail, IsNotEmpty, MinLength } from 'class-validator';
-import { Product } from 'src/product/entities/product.entity';
+import { IsEmail, IsNotEmpty, Matches } from 'class-validator';
+import { Product } from '../../product/entities/product.entity';
+import { RegExHelper } from '../../helpers/regex.helper';
+import { MessagesHelper } from '../../helpers/messages.helpers';
+import { ApiProperty } from '@nestjs/swagger';
 
 @Entity({ name: 'tb_users' })
 export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  @ApiProperty()
+  id: string;
 
   @IsNotEmpty()
-  @Column({ length: 45, nullable: false })
+  @Column({ nullable: false })
+  @ApiProperty()
   name: string;
- 
+
   @IsNotEmpty()
   @IsEmail()
-  @Column({ length: 60, nullable: false, unique: true })
+  @Column({ nullable: false, unique: true })
+  @ApiProperty({ example: 'email@email.com.br' })
   user: string;
 
   @IsNotEmpty()
-  @MinLength(8)
-  @Column({ length: 16, nullable: false })
+  @Matches(RegExHelper.password, { message: MessagesHelper.PASSWORD_VALID })
+  @Column({ nullable: false })
+  @ApiProperty()
   password: string;
 
-  @IsNotEmpty()
-  @Column({ length: 400, nullable: true })
+  @Column({ length: 5000, default: 'default.jpg' })
+  @ApiProperty()
   photo: string;
 
+  @ApiProperty()
   @OneToMany(() => Product, (product) => product.user)
   product: Product[];
 }

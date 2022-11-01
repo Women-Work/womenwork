@@ -10,12 +10,16 @@ import {
   UseGuards,
 } from '@nestjs/common/decorators';
 import { HttpStatus } from '@nestjs/common/enums';
-import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
+import { JwtAuthGuard } from '../../auth/guard/jwt-auth.guard';
+
 import { Category } from '../entities/category.entity';
 import { CategoryService } from '../services/category.service';
 
+@ApiTags('Category')
 @UseGuards(JwtAuthGuard)
 @Controller('/categories')
+@ApiBearerAuth()
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
 
@@ -50,7 +54,7 @@ export class CategoryController {
   }
 
   @Delete('/:id')
-  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.categoryService.delete(id);
   }

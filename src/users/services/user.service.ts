@@ -1,6 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Bcrypt } from 'src/auth/bcrypt/bcrypt';
+import { MessagesHelper } from 'src/helpers/messages.helpers';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 
@@ -9,61 +10,101 @@ export class UserService {
   constructor(
     @InjectRepository(User)
     private userRepository: Repository<User>,
-    private bcrypt: Bcrypt
+    private bcrypt: Bcrypt,
   ) {}
 
+<<<<<<< HEAD
+  /**
+   * @desc search for a registered user in the database
+   * @returns the promise to see a one user
+   */
   async findByUser(user: string): Promise<User>{
+=======
+  async findByUser(user: string): Promise<User> {
+>>>>>>> 7b526e267b0cca0a5beeb5ef5a55a4f68f1b0876
     return await this.userRepository.findOne({
       where: {
-        user: user
-      }
-    })
+        user,
+      },
+    });
   }
 
+  /**
+   * @desc search for all users registered in the database
+   * @returns the promise to see all users
+   */
   async findAll(): Promise<User[]> {
     return await this.userRepository.find();
   }
 
-  async findById(id: number): Promise<User> {
+  /**
+   * @desc search for user by ID
+   * @throw HttpException in case the id is not found in the database
+   * @param id that will be searched in the database
+   * @returns a promise to search for the user id
+   */
+  async findById(id: string): Promise<User> {
     const user = await this.userRepository.findOne({
       where: {
         id,
       },
-      relations:{
-        product: true
-      }
+      relations: {
+        product: true,
+      },
     });
 
     if (!user)
-      throw new HttpException('Postagem não encontrada!', HttpStatus.NOT_FOUND);
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
     return user;
   }
 
-  async create(user: User): Promise<User> {
-    
-    let userSearch = await this.findByUser(user.user);
+  /**
+   * @desc add new user to database
+   * @Body where the order should be placed
+   * @returns a promise that the user was registered in the database
+   */
+  async create(data: User): Promise<User> {
+    const userSearch = await this.findByUser(data.user);
 
     if (!userSearch) {
-      user.password = await this.bcrypt.hashPassword(user.password)
-      return await this.userRepository.save(user)
+      data.password = await this.bcrypt.hashPassword(data.password);
+      const user = this.userRepository.create(data);
+      return await this.userRepository.save(user);
     }
 
-    throw new HttpException('O usuário já existe!', HttpStatus.BAD_REQUEST)
+    throw new HttpException(
+      MessagesHelper.EXISTING_USER,
+      HttpStatus.BAD_REQUEST,
+    );
   }
 
+  /**
+   * @desc updates a user that is registered in the database through the ID
+   @ @Body where the order should be placed
+   * @returns a promise that the user has been updated in the database
+   */
   async update(user: User): Promise<User> {
+    const userUpdate: User = await this.findById(user.id);
+    const userSearch = await this.findByUser(user.user);
 
-    let userUpdate: User = await this.findById(user.id);
-    let userSearch = await this.findByUser(user.user);
+    if (!userUpdate)
+      throw new HttpException(
+        MessagesHelper.USER_NOT_FOUND,
+        HttpStatus.NOT_FOUND,
+      );
 
-    if(!userUpdate)
-      throw new HttpException('Usuário não encontrado!', HttpStatus.NOT_FOUND);
+    if (userSearch && userSearch.id != user.id)
+      throw new HttpException(
+        MessagesHelper.EXISTING_USER,
+        HttpStatus.BAD_REQUEST,
+      );
 
-    if(userSearch && userSearch.id != user.id)
-      throw new HttpException('Usuário já existe no sistema!', HttpStatus.BAD_REQUEST);
-
-      user.password = await this.bcrypt.hashPassword(user.password)
-      return await this.userRepository.save(user)
+    user.password = await this.bcrypt.hashPassword(user.password);
+    this.userRepository.merge(userUpdate, user);
+    return await this.userRepository.save(userUpdate);
   }
 }

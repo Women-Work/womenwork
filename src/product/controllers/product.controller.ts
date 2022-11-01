@@ -11,12 +11,15 @@ import {
   Put,
   UseGuards,
 } from '@nestjs/common';
+import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { Product } from '../entities/product.entity';
 import { ProductService } from '../services/product.service';
 
+@ApiTags('Product')
 @UseGuards(JwtAuthGuard)
 @Controller('/products')
+@ApiBearerAuth()
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
@@ -50,7 +53,7 @@ export class ProductController {
     return this.productService.update(product);
   }
   @Delete('/:id')
-  @HttpCode(HttpStatus.OK)
+  @HttpCode(HttpStatus.NO_CONTENT)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.productService.delete(id);
   }
