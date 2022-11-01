@@ -12,16 +12,12 @@ export class UserService {
     private userRepository: Repository<User>,
     private bcrypt: Bcrypt,
   ) {}
-
-<<<<<<< HEAD
+  
   /**
    * @desc search for a registered user in the database
    * @returns the promise to see a one user
    */
   async findByUser(user: string): Promise<User>{
-=======
-  async findByUser(user: string): Promise<User> {
->>>>>>> 7b526e267b0cca0a5beeb5ef5a55a4f68f1b0876
     return await this.userRepository.findOne({
       where: {
         user,
