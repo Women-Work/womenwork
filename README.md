@@ -24,7 +24,7 @@
 [**Features**](#-features) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Tecnologias e ferramentas utilizadas**](#-tecnologias-e-ferramentas-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Layout**](#-layout) &nbsp;&nbsp;**|**&nbsp;&nbsp;
-[**Instalação e execução**](#-instalacao-e-execucao) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Instalação e execução**](#-instalação-e-execução) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Colaboradores**](#-colaboradores) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 
 </div>
