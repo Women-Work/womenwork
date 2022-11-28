@@ -1,6 +1,6 @@
 
 <div align="center">
-   <img alt="NLW Copa" src=".github/assets/nlw-copa-logo.svg" width="40%"/>
+   <img alt="WomenWork" src=".github/assets/ww-logo.png" width="40%"/>
 </div>
 <br/>
 <div align="center">
@@ -24,6 +24,7 @@
 [**Features**](#-features) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Tecnologias e ferramentas utilizadas**](#-tecnologias-e-ferramentas-utilizadas) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Layout**](#-layout) &nbsp;&nbsp;**|**&nbsp;&nbsp;
+[**Instalação e execução**](#-instalacao-e-execucao) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 [**Colaboradores**](#-colaboradores) &nbsp;&nbsp;**|**&nbsp;&nbsp;
 
 </div>
@@ -83,12 +84,14 @@ O projeto, um e-commerce pautado na [ODS 4 da ONU](https://brasil.un.org/pt-br/s
 
 ## 📟 Layout
 
-O layout das telas da aplicação **WomenWork** foi desenvolvido pela nossa equipe através da ferramenta [**Figma**](https://www.figma.com).
-<!--Você pode acessar o layout através deste link: [**NLW Copa**](https://www.figma.com/community/file/1169028343875283461).-->
+🚧 Em desenvolvimento 🚧
+<!--O layout das telas da aplicação **WomenWork** foi desenvolvido pela nossa equipe através da ferramenta [**Figma**](https://www.figma.com).
+Você pode acessar o layout através deste link: [**WomenWork**](https://www.figma.com/).-->
 
-<!--## 🔧 Instalação e execução
+## 🔧 Instalação e execução
 
-Para baixar o código-fonte do projeto em sua máquina, primeiramente terá que ter instalado o [**Git**](https://git-scm.com/).
+🚧 Em desenvolvimento 🚧
+<!--Para baixar o código-fonte do projeto em sua máquina, primeiramente terá que ter instalado o [**Git**](https://git-scm.com/).
 
 Com o Git instalado, em seu terminal execute o seguinte comando:
 
