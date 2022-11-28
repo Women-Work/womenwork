@@ -35,7 +35,7 @@
 
 **WomenWork** é um projeto desenvolvido durante o Bootcamp JavaScript FullStack da Generation Brasil. 
 
-O projeto, um e-commerce pautado na [ODS 4 da ONU](https://brasil.un.org/pt-br/sdgs/5), voltado a oferecer cursos de tecnologia com preços acessíveis para mulheres em situação de vulnerabilidade social.
+O projeto, um e-commerce pautado na [ODS 5 da ONU](https://brasil.un.org/pt-br/sdgs/5), voltado a oferecer cursos de tecnologia com preços acessíveis para mulheres em situação de vulnerabilidade social.
 
 ## ✨ Features
 
