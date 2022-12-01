@@ -1,2 +1,54 @@
 
 
+.img{
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+
+
+.titulo{
+    display: flex;
+    justify-content: center ;
+}
+
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+
+
+.c2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+}
+
+.border{
+    border: 5px;
+}
+
+.membros{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+   ;
+    
+    
+
+}
+
+.p{
+    padding: 10px;
+
+}
+
+.nome{
+    text-align: center;
+}
