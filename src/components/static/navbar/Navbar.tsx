@@ -4,6 +4,8 @@ import { alpha, makeStyles, styled } from '@material-ui/core/styles';
 import { AppBar, Button, createStyles, IconButton, InputBase, Theme, Toolbar, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
+import { Link } from 'react-router-dom';
+import './Navbar.css';
 
 const styles = makeStyles((theme: Theme) => createStyles({
   navbar: {
@@ -110,7 +112,7 @@ function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" className={classes.navbar}>
+      <AppBar className={classes.navbar}>
         <Toolbar>
           <Typography
             variant="h6"
@@ -119,16 +121,23 @@ function Navbar() {
             className={classes.buttons}
           >
 
+            <Link to="/" color="primary">
+              <Button color="inherit">home</Button> 
+            </Link>
+            
+            <Link to="/courses">
+              <Button color="inherit">cursos</Button> 
+            </Link>
 
-            <Button color="inherit">home</Button>
-
-            <Button color="inherit">cursos</Button>
-
-            <Button color="inherit">sobre</Button>
+            <Link to="/about">
+              <Button color="inherit">sobre</Button> 
+            </Link>
           </Typography>
 
           <Typography>
-            <Button color="inherit">Login</Button>
+            <Link to="/login">
+              <Button color="inherit">login</Button> 
+            </Link>
 
             <IconButton >
               <ShoppingCartRoundedIcon className={classes.cartIcon} />
