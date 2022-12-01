@@ -3,8 +3,8 @@ import './Signup.css';
 
 export default function Singup() {
   return(
-    <>
-      <div className="container">
+
+    <div className="container">
         <div className="form">
             <form action="#">
                 <div className="form-header">
@@ -83,7 +83,7 @@ export default function Singup() {
             </form>
         </div>
     </div>
-    </>
+    
     
   );
 }
