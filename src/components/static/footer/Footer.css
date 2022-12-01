@@ -1,0 +1,22 @@
+.footer{
+    position: absolute;
+    bottom: 0px;
+}
+.footer-color{
+    background-color: #766B8D;
+
+}
+
+.footer-copy{
+background-color: #766B8D;
+
+}
+
+.text-color{
+    color: #ffffff;
+}
+
+.social{
+    font-size: 25px;
+    color: white;
+}
