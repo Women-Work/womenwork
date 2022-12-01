@@ -4,7 +4,7 @@
     margin: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
-} */
+} 
 
 body {
     width: 100%;
@@ -13,16 +13,18 @@ body {
     justify-content: center;
     align-items: center;
     background: #f7f0ef;
-}
+}*/
 
 .container {
     width: 80%;
-    height: 80vh;
+    height: 100vh;
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
-    margin-left: 300px;
+    margin-left: 25%;
+    margin-top: 7%;
+    margin-bottom: 7%;
 }
-
+/*
 .form-image {
     width: 50%;
     display: flex;
@@ -33,8 +35,9 @@ body {
 }
 
 .form-image img {
-    width: 31rem;
-}
+    width: 30px;
+
+}*/
 
 .form {
     width: 50%;
@@ -171,9 +174,9 @@ body {
 }
 
 @media screen and (max-width: 1330px) {
-    .form-image {
+    /*.form-image {
         display: none;
-    }
+    }*/
     .container {
         width: 50%;
     }

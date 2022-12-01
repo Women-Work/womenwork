@@ -1,13 +1,10 @@
 import React from 'react';
 import './Signup.css';
 
-export default function Form() {
+export default function Singup() {
   return(
-    
+    <>
       <div className="container">
-        <div className="form-image">
-            <img src="assets/img/background.png" alt="Cadastro"/>
-        </div>
         <div className="form">
             <form action="#">
                 <div className="form-header">
@@ -86,6 +83,7 @@ export default function Form() {
             </form>
         </div>
     </div>
+    </>
     
   );
 }
