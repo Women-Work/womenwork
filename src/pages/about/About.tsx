@@ -8,7 +8,7 @@ function About(){
         <>
     <Grid container justifyContent='center' >
         <Grid xs={12} sm={12} className='titulo'>
-            <h1>Woman Work</h1>
+            <h1>Women Work</h1>
         </Grid>
         
         <Grid xs={12} sm={5}>
