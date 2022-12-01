@@ -13,20 +13,6 @@ import NotFound from './pages/notFound/NotFound';
 
 function App() {
   return (
-<<<<<<< HEAD
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route path='/courses' element={<Courses />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/signup' element={<Signup />} />
-          <Route path='*' element={<NotFound />} />
-        </Routes>
-        <Footer />
-      </Router>
-      // <Login />
-=======
     <Router>
       <Navbar />
       <Routes>
@@ -39,7 +25,6 @@ function App() {
       <Footer />
     </Router>
     // <Login />
->>>>>>> 64abb451a4d12511d8b2784a31bd302a76d7800e
   );
 }
 

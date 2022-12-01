@@ -1,4 +1,4 @@
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+ /*@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #f7f0ef;
-}
+}*/
 
 .container {
     width: 80%;
@@ -22,7 +22,7 @@ body {
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
     margin-left: 25%;
     margin-top: 7%;
-    margin-bottom: 7%;
+    margin-bottom: 2%;
 }
 
 /*
@@ -175,14 +175,9 @@ body {
 }
 
 @media screen and (max-width: 1330px) {
-<<<<<<< HEAD
-    .form-image {
-=======
-
     /*.form-image {
->>>>>>> 64abb451a4d12511d8b2784a31bd302a76d7800e
         display: none;
-    }
+    }*/
     .container {
         width: 50%;
     }
