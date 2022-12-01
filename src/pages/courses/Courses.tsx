@@ -1,5 +1,5 @@
-import { Grid } from '@material-ui/core';
 import React from 'react';
+import { Grid } from '@material-ui/core';
 import Card from '../../components/card/Card';
 
 const courses = [
@@ -26,23 +26,23 @@ const courses = [
 function Courses() {
   return (
     <>
-    <Grid
-      container
-      spacing={5}
-      alignItems="center"
-      justifyContent="center"
-      style={{ padding: 20 }}
-    >
-      {courses.map((course) => (
-        <Grid item xs={10} md={5} lg={3}>
-          <Card
-            title={course.title}
-            text={course.text}
-            img={course.img}
-            price={course.price} />
-        </Grid>
-      ))}
-    </Grid>
+      <Grid
+        container
+        spacing={5}
+        alignItems="center"
+        justifyContent="center"
+        style={{ padding: 20 }}
+      >
+        {courses.map((course) => (
+          <Grid key={course.title} item xs={10} md={5} lg={3}>
+            <Card
+              title={course.title}
+              text={course.text}
+              img={course.img}
+              price={course.price} />
+          </Grid>
+        ))}
+      </Grid>
     </>
   )
 }

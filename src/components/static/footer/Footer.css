@@ -1,22 +1,22 @@
-.footer{
-    position: absolute;
-    bottom: 1;
+.footer {
+    bottom: 0;
 }
-.footer-color{
+
+.footer-color {
     background-color: #766B8D;
 
 }
 
-.footer-copy{
-background-color: #766B8D;
+.footer-copy {
+    background-color: #766B8D;
 
 }
 
-.text-color{
+.text-color {
     color: #ffffff;
 }
 
-.social{
+.social {
     font-size: 25px;
     color: white;
 }
