@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form/Form';
+import { Login } from './pages/login/Login';
 
 
 function App() {
   return (
-    <>
-      <Form/>
-      
-    </>
+    <Login />
   );
 }
 
