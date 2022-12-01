@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Typography, TextField, Button } from '@material-ui/core';
-import {Box} from '@mui/material';
+import { Typography, TextField, Button } from '@material-ui/core';
+import {Box, Grid} from '@mui/material';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
@@ -8,8 +8,8 @@ import './Login.css';
 export function Login() {
 
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
-            <Grid alignItems='center' xs={6}>
+        <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
+            <Grid alignItems='center' lg={6} md={12}>
                 <Box paddingX={20}>
                     <form>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
@@ -25,12 +25,14 @@ export function Login() {
                         <Box marginRight={1}>
                             <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
                         </Box>
-                            <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>  
+                            <Typography variant='subtitle1' gutterBottom align='center' style={{fontWeight: 'bold'}}>Cadastre-se</Typography>  
                     </Box>
                 </Box>
             </Grid>
-            <Grid xs={6} className='imagem'>
+            <Grid lg={6} md={12} className='imagem'>
+                <Box display='flex' justifyContent='center'>
                 <img src="assets/images/image-login.png" alt="" />
+                </Box>
             </Grid>
         </Grid>
     );
