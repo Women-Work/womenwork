@@ -1,19 +1,18 @@
-.imagem{
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
- }
+.imagem {
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
 
- img {
-    width: 600px;
- }
+img {
+  width: 600px;
+}
 
- .Grid-1 {
-   min-height: 90vh;
- }
+.Grid-1 {
+  min-height: 90vh;
+}
 
- .button-cd {
-   color: #766B8D;
- }
-
+.button-cd {
+  color: #766B8D;
+}
