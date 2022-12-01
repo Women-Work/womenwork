@@ -13,17 +13,18 @@ body {
     justify-content: center;
     align-items: center;
     background: #f7f0ef;
-}*/
+}
 
 .container {
     width: 80%;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.212);
     margin-left: 25%;
     margin-top: 7%;
     margin-bottom: 7%;
 }
+
 /*
 .form-image {
     width: 50%;
@@ -174,12 +175,14 @@ body {
 }
 
 @media screen and (max-width: 1330px) {
+
     /*.form-image {
         display: none;
     }*/
     .container {
         width: 50%;
     }
+
     .form {
         width: 100%;
     }
@@ -190,6 +193,7 @@ body {
         width: 90%;
         height: auto;
     }
+
     .input-group {
         flex-direction: column;
         z-index: 5;
@@ -198,15 +202,19 @@ body {
         overflow-y: scroll;
         flex-wrap: nowrap;
     }
+
     .gender-inputs {
         margin-top: 2rem;
     }
+
     .gender-group {
         flex-direction: column;
     }
+
     .gender-title h6 {
         margin: 0;
     }
+
     .gender-input {
         margin-top: 0.5rem;
     }
