@@ -123,21 +123,21 @@ function Navbar() {
           >
 
             <Link to="/" color="primary">
-              <Button color="inherit">home</Button> 
+              <Button color="inherit">home</Button>
             </Link>
-            
+
             <Link to="/courses">
-              <Button color="inherit">cursos</Button> 
+              <Button color="inherit">cursos</Button>
             </Link>
 
             <Link to="/about">
-              <Button color="inherit">sobre</Button> 
+              <Button color="inherit">sobre</Button>
             </Link>
           </Typography>
 
           <Typography>
             <Link to="/login">
-              <Button color="inherit">login</Button> 
+              <Button color="inherit">login</Button>
             </Link>
 
             <IconButton >
