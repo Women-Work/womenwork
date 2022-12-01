@@ -10,7 +10,8 @@ import './Navbar.css';
 const styles = makeStyles((theme: Theme) => createStyles({
   navbar: {
     backgroundColor: theme.palette.primary.main,
-    marginBottom: '1rem'
+    marginBottom: '1rem',
+    position: 'absolute'
   },
   cartIcon: {
     cursor: 'pointer',

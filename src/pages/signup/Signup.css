@@ -1,4 +1,4 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500&family=Open+Sans:wght@300;400;500;600&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -13,7 +13,7 @@ body {
     justify-content: center;
     align-items: center;
     background: #f7f0ef;
-}*/
+}
 
 .container {
     width: 80%;
@@ -174,9 +174,9 @@ body {
 }
 
 @media screen and (max-width: 1330px) {
-    /*.form-image {
+    .form-image {
         display: none;
-    }*/
+    }
     .container {
         width: 50%;
     }

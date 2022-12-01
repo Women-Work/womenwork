@@ -22,7 +22,7 @@ function App() {
           <Route path='/signup' element={<Signup />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
       // <Login />
   );
