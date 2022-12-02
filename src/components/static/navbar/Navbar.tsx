@@ -7,6 +7,7 @@ import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
 import { Link } from 'react-router-dom';
 import { styles } from './styles';
 import './Navbar.css';
+import SDrawer from '../drawer/Drawer';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -57,13 +58,15 @@ function Navbar() {
     <Box sx={{ flexGrow: 1, height: '80px' }}>
       <AppBar className={classes.navbar}>
         <Toolbar>
+          <Typography>
+            <SDrawer />
+          </Typography>
           <Typography
             variant="h6"
             noWrap
             component="div"
             className={classes.buttons}
           >
-
             <Link to="/" color="primary">
               <Button color="inherit">home</Button>
             </Link>
@@ -77,7 +80,7 @@ function Navbar() {
             </Link>
           </Typography>
 
-          <Typography>
+          <Typography className={classes.buttons2}>
             <Link to="/login">
               <Button color="inherit">login</Button>
             </Link>
