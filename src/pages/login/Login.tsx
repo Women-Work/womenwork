@@ -58,9 +58,7 @@ export function Login() {
                         <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='senha' variant='outlined' name='password' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary'>
-                                <Link to='/courses'>
                                     Logar 
-                                </Link>
                             </Button>
                         </Box>
                     </form>

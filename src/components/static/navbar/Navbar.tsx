@@ -82,6 +82,10 @@ function Navbar() {
               <Button color="inherit">login</Button>
             </Link>
 
+            <Link to="/login">
+              <Button color="inherit">Logout</Button>
+            </Link>
+
             <IconButton >
               <ShoppingCartRoundedIcon className={classes.cartIcon} />
             </IconButton>
