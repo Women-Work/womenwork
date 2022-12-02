@@ -1,7 +1,57 @@
-import React from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { User } from '../../models/User';
+import { userRegister } from '../../services/Service';
 import './Signup.css';
 
 export default function Singup() {
+    let navigate = useNavigate();
+    const [confirmPassword,setConfirmPassword] = useState<String>("")
+    const [user, setUser] = useState<User>(
+        {
+            id: 0,
+            name: '',
+            user: '',
+            password: ''
+        })
+
+    const [userResult, setUserResult] = useState<User>(
+        {
+            id: 0,
+            name: '',
+            user: '',
+            password: ''
+        })
+
+    useEffect(() => {
+        if (userResult.id != 0) {
+            navigate("/login")
+        }
+    }, [userResult])
+
+
+    function confirmPasswordHandle(e: ChangeEvent<HTMLInputElement>){
+        setConfirmPassword(e.target.value)
+    }
+
+
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
+
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value
+        })
+
+    }
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
+        e.preventDefault()
+        if(confirmPassword == user.password){
+        userRegister(`/users/register`, user, setUserResult)
+        alert('Usuario cadastrado com sucesso')
+        }else{
+            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+        }
+    }
   return(
 
     <div className="container">
