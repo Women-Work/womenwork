@@ -28,7 +28,7 @@ function Footer() {
               </a>
             </Box>
             <Box>
-              <Typography variant="subtitle1" align="center" gutterBottom className='text-color'>© 2020 Copyright</Typography>
+              <Typography variant="subtitle1" align="center" gutterBottom className='text-color'>© 2022 Copyright</Typography>
             </Box>
             <Box style={{ display: 'flex', justifyContent: 'right' }}>
               <Typography variant="subtitle1" align="center" gutterBottom className='text-color'> Sobre nós </Typography>

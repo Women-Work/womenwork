@@ -45,7 +45,7 @@ function About(){
     <Grid item container xs={12} sm={12}  justifyContent='center' className='p'>
         <h1>Membros</h1>
     </Grid>
-    <Grid item container xs={8} sm={12} className="membros" >
+    <Grid item container xs={12} sm={12} className="membros" >
         
         <Box>
         <img className='img' src="https://camo.githubusercontent.com/936ef44bd12c340ed7a7a11f7c3053c42e004903b7a4ae11bf6e8da09c7958c1/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f4334443033415146327a6e7970796250774b512f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636303932333031343430373f653d3136373532393630303026763d6265746126743d3257756874706e4a6c48583332614b745137356c6d386a75334f3573556e567633645f706a757430384741" alt="" />
