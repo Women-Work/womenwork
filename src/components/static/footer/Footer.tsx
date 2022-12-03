@@ -9,8 +9,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 
 function Footer() {
   return (
-    <>
-      <Grid className='footer' container>
+      <Grid container>
         <Grid xs={12}>
             <Box display="flex" alignItems="center" justifyContent="center" className='footer-color'>
               <Typography variant="h6" align="center" gutterBottom className='text-color'>Women Work</Typography>
@@ -36,7 +35,6 @@ function Footer() {
           </Box>
         </Grid>
       </Grid>
-    </>
   )
 }
 
