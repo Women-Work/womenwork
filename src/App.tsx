@@ -8,7 +8,6 @@ import Footer from './components/static/footer/Footer';
 import Signup from './pages/signup/Signup';
 import About from './pages/about/About';
 import NotFound from './pages/notFound/NotFound';
-import SDrawer from './components/static/drawer/Drawer';
 
 
 

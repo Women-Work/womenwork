@@ -59,8 +59,10 @@ function Navbar() {
   let navigate = useNavigate();
   
   function logoutHandle(){
-    localStorage.removeItem('token');
-    navigate("/login");
+    if(window.confirm('Deseja Sair?')) {
+      localStorage.removeItem('token');
+      navigate("/login");
+    }
   }
 
   return (
