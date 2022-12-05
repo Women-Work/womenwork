@@ -4,10 +4,11 @@ import { alpha, styled } from '@material-ui/core/styles';
 import { AppBar, Button, IconButton, InputBase, Theme, Toolbar, Typography } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartRoundedIcon from '@material-ui/icons/ShoppingCartRounded';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { styles } from './styles';
 import './Navbar.css';
 import SDrawer from '../drawer/Drawer';
+
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,8 +52,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+
+
 function Navbar() {
   const classes = styles();
+  let navigate = useNavigate();
+  
+  function logoutHandle(){
+    localStorage.removeItem('token');
+    navigate("/login");
+  }
 
   return (
     <Box sx={{ flexGrow: 1, height: '80px' }}>
@@ -85,9 +94,7 @@ function Navbar() {
               <Button color="inherit">login</Button>
             </Link>
 
-            <Link to="/login">
-              <Button color="inherit">Logout</Button>
-            </Link>
+            <Button color="inherit" onClick={logoutHandle}>Logout</Button>
 
             <IconButton >
               <ShoppingCartRoundedIcon className={classes.cartIcon} />
