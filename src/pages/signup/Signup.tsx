@@ -63,7 +63,7 @@ export default function Singup() {
                     <form onSubmit={onSubmit}>
                         <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastre-se</Typography>
                         <TextField value={user.name} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
-                        <TextField value={user.user} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuario' variant='outlined' name='user' margin='normal' required fullWidth type='email'/>
+                        <TextField value={user.user} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Email' variant='outlined' name='user' margin='normal' required fullWidth type='email'/>
                         <TextField value={user.password} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='password' margin='normal' type='password' required fullWidth />
                         <TextField value={confirmPassword} onChange={(e:ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)} id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmarSenha' margin='normal' type='password' required fullWidth />
                         <Box marginTop={2} textAlign='center'>

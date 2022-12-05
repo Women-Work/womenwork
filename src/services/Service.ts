@@ -10,4 +10,7 @@ export const userRegister = async (url: any, dados: any, setDado: any) => {
     setDado(response.data)
 }
 
-export const login = async (url: any, dados: any, setDado: any) => {}
+export const login = async (url: any, dados: any, setDado: any) => {
+    const response = await api.post(url, dados)
+    setDado(response.data)
+}
