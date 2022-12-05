@@ -39,7 +39,7 @@ export function Login() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>){
         e.preventDefault();
         try{
-            login(`/auth/login`, userLogin, setToken);
+            await login(`/auth/login`, userLogin, setToken);
 
             alert('Usuário logado com sucesso!');
         }catch(error){
