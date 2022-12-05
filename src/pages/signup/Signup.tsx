@@ -66,10 +66,10 @@ export default function Singup() {
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastre-se</Typography>
-                        <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
-                        <TextField value={user.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='Usuario' variant='outlined' name='user' margin='normal' required fullWidth type='email' />
-                        <TextField value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='password' margin='normal' type='password' required fullWidth />
-                        <TextField value={confirmPassword} onChange={(e: ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)} id='confirmPassword' label='Confirmar senha' variant='outlined' name='confirmPassword' margin='normal' type='password' required fullWidth />
+                        <TextField value={user.name} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
+                        <TextField value={user.user} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth type='email'/>
+                        <TextField value={user.password} onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='senha' label='Senha' variant='outlined' name='password' margin='normal' type='password' required fullWidth />
+                        <TextField value={confirmPassword} onChange={(e:ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)} id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmPassword' margin='normal' type='password' required fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Link to='/login' className='text-decorator-none'>
                                 <Button variant='contained' color='secondary' className='btnCancelar'>
