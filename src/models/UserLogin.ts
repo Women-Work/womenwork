@@ -1,5 +1,5 @@
 export interface UserLogin {
-    id: number;
+    id: string;
     user: string;
     password: string;
     token?: string|null;
