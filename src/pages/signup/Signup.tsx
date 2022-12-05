@@ -54,6 +54,7 @@ export default function Singup() {
             userRegister(`/users/register`, user, setUserResult);
             console.log(userResult);
             alert('Usuario cadastrado com sucesso');
+            navigate('/login')
         } else {
             alert('Dados inconsistentes. Favor verificar as informações de cadastro.');
         }
