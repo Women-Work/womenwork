@@ -4,7 +4,7 @@ import { Box, Grid } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { UserLogin } from '../../models/UserLogin';
-import { api } from '../../services/Service';
+import { login } from '../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
 
 
@@ -15,38 +15,37 @@ export function Login() {
     const [token, setToken] = useLocalStorage('token');
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
-            id: 0,
+            id: '',
             user: '',
             password: '',
             token: ''
         }
-        )
+    );
 
-        function updateModel(e: ChangeEvent<HTMLInputElement>) {
-            
-            setUserLogin({
-                ...userLogin,
-                [e.target.name]: e.target.value
-            })
+    function updateModel(e: ChangeEvent<HTMLInputElement>) {
+        
+        setUserLogin({
+            ...userLogin,
+            [e.target.name]: e.target.value
+        });
+    }
+
+    useEffect(()=>{
+        if(token != ''){
+            navigate('/home');
         }
+    }, [token]);
 
-            useEffect(()=>{
-                if(token != ''){
-                    navigate('/home')
-                }
-            }, [token])
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+        e.preventDefault();
+        try{
+            login(`/auth/login`, userLogin, setToken);
 
-        async function onSubmit(e: ChangeEvent<HTMLFormElement>){
-            e.preventDefault();
-            try{
-                const response = await api.post(`/auth/login`, userLogin)
-                setToken(response.data.token)
-
-                alert('Usuário logado com sucesso!');
-            }catch(error){
-                alert('Dados do usuário inconsistentes. Erro ao logar!');
-            }
+            alert('Usuário logado com sucesso!');
+        }catch(error){
+            alert('Dados do usuário inconsistentes. Erro ao logar!');
         }
+    }
 
     return (
         <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
