@@ -60,9 +60,9 @@ export default function Singup() {
     }
     return (
 
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
+        <Grid container direction='row' justifyContent='center'>
             <Grid item xs={3} sm={6} className='imagem2'></Grid>
-            <Grid item xs={3} sm={4} alignItems='center'>
+            <Grid item xs={3} sm={4} >
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastre-se</Typography>

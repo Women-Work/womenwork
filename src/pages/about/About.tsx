@@ -6,31 +6,31 @@ function About(){
     return(
         <>
     <Grid container justifyContent='center' >
-        <Grid xs={12} sm={12} className='titulo'>
+        <Grid item xs={12} sm={12} className='titulo'>
             <h1>Women Work</h1>
         </Grid>
         
-        <Grid xs={12} sm={5}>
+        <Grid item xs={12} sm={5}>
             <h2>Quem somos</h2>
             <p>Women Work oferece cursos dentro da plataforma que irão especializar
             mulheres que desejam crescer no mercado de trabalho conforme a
             necessidade de cada uma. Nosso objetivo é integrar o máximo de mulheres
             possíveis dentro desse ambiente.</p>
         </Grid>
-        <Grid xs={12} sm={5}>
+        <Grid item xs={12} sm={5}>
             <h2>Nossa missão</h2>
             <p>Promover e contribuir para o desenvolvimento profissional através
             da educação e do trabalho alcançando o máximo de mulheres do Brasil e exterior.
             </p>
            
         </Grid>
-        <Grid xs={12} sm={5}>
+        <Grid item xs={12} sm={5}>
             <h2>Visão</h2>
             <p>Planejamos estar entre as melhores e mais respeitadas
             plataformas desse segmento por oferecer de forma consistente cursos que
             irão inovar e agregar a vida de muitas mulheres na sua carreira profissional</p>
         </Grid>
-        <Grid xs={12}  sm={5} >
+        <Grid item xs={12}  sm={5} >
             <h2>Valores</h2>
             <p>Procurar a melhoria contínua dos produtos e a qualidade para
             atender às necessidades das clientes.
