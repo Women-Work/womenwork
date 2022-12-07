@@ -6,6 +6,7 @@ import './Login.css';
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import useLocalStorage from 'react-use-localstorage';
+import { toast } from 'react-toastify';
 
 
 
@@ -40,10 +41,27 @@ export function Login() {
         e.preventDefault();
         try{
             await login(`/auth/login`, userLogin, setToken);
-
-            alert('Usuário logado com sucesso!');
+            toast.success('Usuário logado com sucesso.', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+            });
         }catch(error){
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error('E-mail ou senha inválido.', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
 

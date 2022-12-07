@@ -3,10 +3,11 @@ import './Signup.css';
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
-import { userRegister } from '../../services/Service';
 import { UserResult } from '../../models/UserResult';
+import { userRegister } from '../../services/Service';
 
 export default function Singup() {
 
@@ -52,13 +53,31 @@ export default function Singup() {
 
         if (confirmPassword == user.password) {
             userRegister(`/users/register`, user, setUserResult);
-            console.log(userResult);
-            alert('Usuario cadastrado com sucesso');
-            navigate('/login')
+            toast.success('Usuário cadastrado com sucesso.', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: false,
+                progress: undefined,
+                theme: "light",
+            });
+            navigate('/login');
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.');
+            toast.error('Dados inconsistentes. Verifique as informações de cadastro.', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "light",
+            });
         }
     }
+
     return (
 
         <Grid container direction='row' justifyContent='center'>

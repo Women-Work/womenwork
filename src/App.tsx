@@ -8,6 +8,8 @@ import Footer from './components/static/footer/Footer';
 import Signup from './pages/signup/Signup';
 import About from './pages/about/About';
 import NotFound from './pages/notFound/NotFound';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -15,6 +17,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      <ToastContainer />
       <Routes>
         <Route path='/courses' element={<Courses />} />
         <Route path='/about' element={<About />} />
@@ -24,7 +27,6 @@ function App() {
       </Routes>
       <Footer />
     </Router>
-    // <Login />
   );
 }
 

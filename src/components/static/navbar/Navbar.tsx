@@ -53,8 +53,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-
-
 function Navbar() {
   const classes = styles();
   let navigate = useNavigate();
