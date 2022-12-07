@@ -58,9 +58,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function Navbar() {
   const classes = styles();
   let navigate = useNavigate();
-  
-  function logoutHandle(){
-    if(window.confirm('Deseja sair?')) {
+
+  function logoutHandle() {
+    if (window.confirm('Deseja sair?')) {
       localStorage.removeItem('token');
       navigate("/login");
     }
@@ -95,13 +95,13 @@ function Navbar() {
           <Typography className={classes.buttons2}>
 
             {
-              localStorage.getItem('token')?
+              localStorage.getItem('token') ?
 
-              <Button color="inherit" onClick={logoutHandle}>Logout</Button>
-              :
-              <Link to="/login">
-                <Button color="inherit">login</Button>
-              </Link>
+                <Button color="inherit" onClick={logoutHandle}>Logout</Button>
+                :
+                <Link to="/login">
+                  <Button color="inherit">login</Button>
+                </Link>
             }
 
 

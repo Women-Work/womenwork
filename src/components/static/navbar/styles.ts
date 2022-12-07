@@ -17,14 +17,18 @@ const styles = makeStyles((theme: Theme) => createStyles({
     [theme.breakpoints.up('sm')]: {
       display: 'block',
     },
+
   },
+
+
   buttons2: {
     color: theme.palette.primary.contrastText,
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
+    },
+
   },
-},
   search: {
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
