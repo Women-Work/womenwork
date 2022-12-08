@@ -24,22 +24,22 @@ export function Login() {
     );
 
     function updateModel(e: ChangeEvent<HTMLInputElement>) {
-        
+
         setUserLogin({
             ...userLogin,
             [e.target.name]: e.target.value
         });
     }
 
-    useEffect(()=>{
-        if(token != ''){
+    useEffect(() => {
+        if (token != '') {
             navigate('/home');
         }
     }, [token]);
 
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
-        try{
+        try {
             await login(`/auth/login`, userLogin, setToken);
             toast.success('Usuário logado com sucesso.', {
                 position: "bottom-right",
@@ -51,7 +51,7 @@ export function Login() {
                 progress: undefined,
                 theme: "light",
             });
-        }catch(error){
+        } catch (error) {
             toast.error('E-mail ou senha inválido.', {
                 position: "bottom-right",
                 autoClose: 5000,
@@ -75,7 +75,7 @@ export function Login() {
                         <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='Senha' variant='outlined' name='password' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary'>
-                                    Logar 
+                                Logar
                             </Button>
                         </Box>
                     </form>
@@ -93,7 +93,7 @@ export function Login() {
             </Grid>
             <Grid item lg={6} md={12} className='imagem'>
                 <Box display='flex' justifyContent='center'>
-                    <img src="assets/images/image-login.svg" alt="" />
+                    <img className='imgLogin' src="assets/images/image-login.svg" alt="" />
                 </Box>
             </Grid>
         </Grid>

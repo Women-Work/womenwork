@@ -19,8 +19,8 @@ export default function SDrawer() {
             </IconButton>
             <Drawer anchor='left' open={isDrawerOpen} onClose={() => setIsDrawerOpen(false)}>
                 <Box p={2} width='250px' textAlign='center' role='presentation'>
-                    <Typography variant='h6' component='div'>
-                        WomenWork
+                    <Typography >
+                        < img className='logo-img' src="assets/images/ww-logo.png" alt="" />
                     </Typography>
                 </Box>
 
