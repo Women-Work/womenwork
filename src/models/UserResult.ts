@@ -3,4 +3,5 @@ export interface UserResult {
   name: string;
   user: string;
   password: string;
+  error?: string|null;
 }
