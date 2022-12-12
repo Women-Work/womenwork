@@ -13,7 +13,6 @@ import { Box } from '@mui/material';
 interface Props {
   title: string;
   text: string;
-  img: string;
   price: number;
 }
 
@@ -33,7 +32,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 function Card(props: Props) {
-  const image = `assets/images/courses/${props.img}.png`;
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -43,12 +41,6 @@ function Card(props: Props) {
   
   return (
     <MCard>
-        <CardMedia
-          component="img"
-          alt={props.title}
-          image={image}
-          title={props.title}
-        />
         <CardContent>
           <Typography variant="h4" color="initial">
             {props.title}
