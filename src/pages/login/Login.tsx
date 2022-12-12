@@ -41,34 +41,16 @@ export function Login() {
         e.preventDefault();
         try {
             await login(`/auth/login`, userLogin, setToken);
-            toast.success('Usuário logado com sucesso.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.success('Usuário logado com sucesso.');
         } catch (error) {
-            toast.error('E-mail ou senha inválido.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error('E-mail ou senha inválido.');
         }
     }
 
     return (
         <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
             <Grid item alignItems='center' lg={6} md={12}>
-                <Box paddingX={20}>
+                <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
                         <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' fullWidth />
@@ -91,7 +73,7 @@ export function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid item lg={6} md={12} className='imagem'>
+            <Grid item lg={6} md={12} className='imagem' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                 <Box display='flex' justifyContent='center'>
                     <img className='imgLogin' src="assets/images/image-login.svg" alt="" />
                 </Box>

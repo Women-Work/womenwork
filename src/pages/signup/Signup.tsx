@@ -29,27 +29,9 @@ export default function Singup() {
 
     useEffect(() => {
         if(userResult.error){
-            toast.error(userResult.error, {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error(userResult.error);
         } else if(userResult.id != '') {
-            toast.success('Usuário cadastrado com sucesso.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.success('Usuário cadastrado com sucesso.');
             navigate("/login");
         }
     }, [userResult]);
@@ -74,16 +56,7 @@ export default function Singup() {
         if (confirmPassword == user.password) {
             await userRegister(`/users/register`, user, setUserResult);
         } else {
-            toast.error('As senhas informadas não correspondem.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error('As senhas informadas não correspondem.');
         }
     }
 
