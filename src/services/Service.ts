@@ -28,3 +28,8 @@ export const login = async (url: string, data: UserLogin, setData: any) => {
     const response = await api.post(url, data);
     setData(response.data.token);
 }
+
+export const search = async(url: any,setDado: any, header: any) => { 
+    const resposta = await api.get(url,header)
+    setDado(resposta.data)
+}

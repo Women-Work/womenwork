@@ -11,6 +11,8 @@ import NotFound from './pages/notFound/NotFound';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Cart } from './pages/Cart/Cart';
+import ListCategory from './components/categorys/listCategory/ListCategory';
+import ListProduct from './components/products/listProduct/ListProduct';
 
 
 
@@ -26,6 +28,8 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='*' element={<NotFound />} />
+        <Route path='/categorias' element={<ListCategory />} />
+        <Route path='/produtos' element={<ListProduct />} />
       </Routes>
       <Footer />
     </Router>

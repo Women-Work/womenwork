@@ -6,6 +6,8 @@ import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 // import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
 interface Props {
