@@ -11,6 +11,7 @@ import SDrawer from '../drawer/Drawer';
 import useLocalStorage from 'react-use-localstorage';
 
 
+
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
@@ -102,11 +103,14 @@ function Navbar() {
                 </Link>
             }
 
-
-            <IconButton >
-              <ShoppingCartRoundedIcon className={classes.cartIcon} />
-            </IconButton>
-          </Typography>
+            
+              <IconButton >
+                <Link to='/cart'>
+                  <ShoppingCartRoundedIcon className={classes.cartIcon} />
+                </Link>
+              </IconButton>
+            </Typography>
+          
 
           <div className={classes.search}>
             <div className={classes.searchIcon}>
