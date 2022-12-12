@@ -6,7 +6,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
-import { UserResult } from '../../models/UserResult';
 import { userRegister } from '../../services/Service';
 
 export default function Singup() {
@@ -20,7 +19,7 @@ export default function Singup() {
             password: ''
     });
 
-    const [userResult, setUserResult] = useState<UserResult>(
+    const [userResult, setUserResult] = useState<User>(
         {
             id: '',
             name: '',
