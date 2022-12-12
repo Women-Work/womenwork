@@ -91,7 +91,7 @@ export function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid item lg={6} md={12} className='imagem'>
+            <Grid item lg={6} md={12} className='imagem' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
                 <Box display='flex' justifyContent='center'>
                     <img className='imgLogin' src="assets/images/image-login.svg" alt="" />
                 </Box>
