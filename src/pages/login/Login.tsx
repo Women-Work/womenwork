@@ -41,27 +41,9 @@ export function Login() {
         e.preventDefault();
         try {
             await login(`/auth/login`, userLogin, setToken);
-            toast.success('Usuário logado com sucesso.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: false,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.success('Usuário logado com sucesso.');
         } catch (error) {
-            toast.error('E-mail ou senha inválido.', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
+            toast.error('E-mail ou senha inválido.');
         }
     }
 
