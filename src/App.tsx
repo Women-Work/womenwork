@@ -33,21 +33,23 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/courses' element={<ListCourses />} />
-        <Route path='/courses/add' element={<AddCourses />} />
-        <Route path='/courses/add/:id' element={<AddCourses />} />
-        <Route path='/courses/delete' element={<DeleteCourses />} />
-        <Route path='/courses/delete:id' element={<DeleteCourses />} />
-        <Route path='/categories' element={<ListCategory />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+      <div style={{ minHeight: '71vh' }}>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/courses' element={<ListCourses />} />
+          <Route path='/courses/add' element={<AddCourses />} />
+          <Route path='/courses/add/:id' element={<AddCourses />} />
+          <Route path='/courses/delete' element={<DeleteCourses />} />
+          <Route path='/courses/delete:id' element={<DeleteCourses />} />
+          <Route path='/categories' element={<ListCategory />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
+      </div>
       <Footer />
     </Router>
   );
