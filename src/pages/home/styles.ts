@@ -14,9 +14,6 @@ const styles = makeStyles((theme: Theme) => createStyles({
   text: {
     marginTop: "2rem",
   },
-  btnSecondary: {
-    bgColor: theme.palette.primary.main,
-  }
 }));
 
 export { styles };

@@ -40,13 +40,13 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='*' element={<NotFound />} />
         <Route path='/courses' element={<ListCourses />} />
         <Route path='/courses/add' element={<AddCourses />} />
         <Route path='/courses/add/:id' element={<AddCourses />} />
         <Route path='/courses/delete' element={<DeleteCourses />} />
         <Route path='/courses/delete:id' element={<DeleteCourses />} />
         <Route path='/categories' element={<ListCategory />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
       <Footer />
     </Router>
