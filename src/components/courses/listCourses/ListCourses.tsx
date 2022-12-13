@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { search } from '../../../services/Service';
 import Card from '../../card/Card';
 import Course from '../../../models/Course';
+import { CircularProgress } from '@mui/material';
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([])
@@ -14,8 +15,8 @@ function Courses() {
 
   useEffect(() => {
     if (token == "") {
-      toast.warn("Você precisa estar logado");
       navigate("/login");
+      toast.warn("Você precisa estar logado");
 
     }
   }, [token]);
@@ -34,24 +35,27 @@ function Courses() {
 
   return (
     <>
-      <Grid
-        container
-        spacing={5}
-        alignItems="center"
-        justifyContent="center"
-        style={{ padding: 20 }}
-      >
-        {
-          courses.map((course) => (
-            <Grid key={course.title} item xs={10} md={5} lg={3}>
-              <Card
-                title={course.title}
-                text={course.description}
-                price={course.price} />
-            </Grid>
-          ))
-        }
-      </Grid>
+          <Grid
+          container
+          spacing={5}
+          alignItems="center"
+          justifyContent="center"
+          style={{ margin: 5 }}
+          >
+            {
+              courses.length === 0 ?
+              <CircularProgress sx={{ marginY: 5}} />
+              :
+              courses.map((course) => (
+                <Grid key={course.title} item xs={10} md={5} lg={3}>
+                  <Card
+                    title={course.title}
+                    text={course.description}
+                    price={course.price} />
+                </Grid>
+              ))
+            }
+          </Grid>
     </>
   )
 }
