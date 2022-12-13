@@ -33,7 +33,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
-      <div style={{ minHeight: '71vh' }}>
+      <div style={{ minHeight: '72vh' }}>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
