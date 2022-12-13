@@ -10,6 +10,12 @@ const styles = makeStyles((theme: Theme) => createStyles({
     "@media (max-width:921px)": {
       fontSize: "4rem",
     },
+  },
+  text: {
+    marginTop: "2rem",
+  },
+  btnSecondary: {
+    bgColor: theme.palette.primary.main,
   }
 }));
 
