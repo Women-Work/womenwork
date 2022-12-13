@@ -4,15 +4,24 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createTheme, ThemeProvider } from '@material-ui/core';
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
 
 const theme = createTheme({
   palette: {
     primary: {
+      light: '#7F7498',
       main: '#766B8D',
+      dark: '#655A7E',
       contrastText: '#fff'
     },
     secondary: {
+      light: '#EBBCB7',
       main: '#E1A6A0',
+      dark: '#C8857F',
+      contrastText: '#fff'
     },
   },
 });

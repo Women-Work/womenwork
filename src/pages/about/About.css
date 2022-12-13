@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    
 
 }
 
@@ -52,3 +53,31 @@
 .nome{
     text-align: center;
 }
+
+.gitbutton{
+    color: white !important;
+    background: black !important;
+    font-size: x-small !important;
+
+
+}
+.button-linkedin{
+    color: white !important;
+    background: #0e76a8 !important;
+    font-size: x-small !important;
+}
+
+.button{
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: space-evenly !important;
+    justify-items: center !important;
+    margin-bottom: 10px !important;
+
+}
+
+
+    
+    
+
+

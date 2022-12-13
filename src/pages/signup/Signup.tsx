@@ -1,12 +1,13 @@
 import './Signup.css';
 
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
+import Image from 'material-ui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
 import { userRegister } from '../../services/Service';
-import { UserResult } from '../../models/UserResult';
 
 export default function Singup() {
 
@@ -19,7 +20,7 @@ export default function Singup() {
             password: ''
     });
 
-    const [userResult, setUserResult] = useState<UserResult>(
+    const [userResult, setUserResult] = useState<User>(
         {
             id: '',
             name: '',
@@ -28,7 +29,10 @@ export default function Singup() {
     });
 
     useEffect(() => {
-        if (userResult.id != '') {
+        if(userResult.error){
+            toast.error(userResult.error);
+        } else if(userResult.id != '') {
+            toast.success('Usuário cadastrado com sucesso.');
             navigate("/login");
         }
     }, [userResult]);
@@ -51,19 +55,19 @@ export default function Singup() {
         e.preventDefault();
 
         if (confirmPassword == user.password) {
-            userRegister(`/users/register`, user, setUserResult);
-            console.log(userResult);
-            alert('Usuario cadastrado com sucesso');
-            navigate('/login')
+            await userRegister(`/users/register`, user, setUserResult);
         } else {
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.');
+            toast.error('As senhas informadas não correspondem.');
         }
     }
+
     return (
 
         <Grid container direction='row' justifyContent='center'>
-            <Grid item xs={3} sm={6} className='imagem2'></Grid>
-            <Grid item xs={3} sm={4} >
+            <Grid item xs={3} sm={6}>
+                <Image src='assets/images/signup.svg' alt='' />
+            </Grid>
+            <Grid item xs={3} sm={4}>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
                         <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastre-se</Typography>

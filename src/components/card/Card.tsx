@@ -6,12 +6,13 @@ import Collapse from '@mui/material/Collapse';
 import IconButton, { IconButtonProps } from '@mui/material/IconButton';
 import { styled } from '@mui/material/styles';
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Box } from '@mui/material';
 
 // import AddShoppingCartRoundedIcon from '@material-ui/icons/AddShoppingCartRounded';
 interface Props {
   title: string;
   text: string;
-  img: string;
   price: number;
 }
 
@@ -31,7 +32,6 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 }));
 
 function Card(props: Props) {
-  const image = `assets/images/courses/${props.img}.png`;
 
   const [expanded, setExpanded] = React.useState(false);
 
@@ -41,12 +41,6 @@ function Card(props: Props) {
   
   return (
     <MCard>
-        <CardMedia
-          component="img"
-          alt={props.title}
-          image={image}
-          title={props.title}
-        />
         <CardContent>
           <Typography variant="h4" color="initial">
             {props.title}
