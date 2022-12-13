@@ -22,7 +22,7 @@
     "@types/react-router-dom": "^5.3.3",
     "@types/redux": "3.6.0",
     "axios": "^1.2.0",
-    "mui-image": "^1.0.7",
+    "material-ui-image": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "7.2.5",

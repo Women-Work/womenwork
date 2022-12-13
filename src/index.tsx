@@ -12,11 +12,16 @@ import '@fontsource/roboto/700.css';
 const theme = createTheme({
   palette: {
     primary: {
+      light: '#7F7498',
       main: '#766B8D',
+      dark: '#655A7E',
       contrastText: '#fff'
     },
     secondary: {
+      light: '#EBBCB7',
       main: '#E1A6A0',
+      dark: '#C8857F',
+      contrastText: '#fff'
     },
   },
 });

@@ -14,6 +14,7 @@ import ListCourses from './components/courses/listCourses/ListCourses';
 import ListCategory from './components/categories/listCategory/ListCategory';
 import AddCourses from './components/courses/addCourses/AddCourses';
 import DeleteCourses from './components/courses/deleteCourses/DeleteCourses';
+import Home from './pages/home/Home';
 
 
 
@@ -33,6 +34,8 @@ function App() {
         theme="light"
       />
       <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />

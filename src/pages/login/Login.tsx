@@ -1,12 +1,15 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Typography, TextField, Button } from '@material-ui/core';
-import { Box, Grid } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
+
+import { Button, TextField, Typography } from '@material-ui/core';
+import { Box, Grid } from '@mui/material';
+import Image from 'material-ui-image';
+import React, { ChangeEvent, useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import useLocalStorage from 'react-use-localstorage';
+
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
-import useLocalStorage from 'react-use-localstorage';
-import { toast } from 'react-toastify';
 
 
 
@@ -52,12 +55,12 @@ export function Login() {
             <Grid item alignItems='center' lg={6} md={12}>
                 <Box paddingX={10}>
                     <form onSubmit={onSubmit}>
-                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
+                        <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Login</Typography>
                         <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' fullWidth />
                         <TextField value={userLogin.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='senha' label='Senha' variant='outlined' name='password' margin='normal' type='password' fullWidth />
                         <Box marginTop={2} textAlign='center'>
                             <Button type='submit' variant='contained' color='primary'>
-                                Logar
+                                Entrar
                             </Button>
                         </Box>
                     </form>
@@ -73,10 +76,8 @@ export function Login() {
                     </Box>
                 </Box>
             </Grid>
-            <Grid item lg={6} md={12} className='imagem' sx={{ display: { xs: 'none', sm: 'none', md: 'flex' } }}>
-                <Box display='flex' justifyContent='center'>
-                    <img className='imgLogin' src="assets/images/image-login.svg" alt="" />
-                </Box>
+            <Grid item lg={6} md={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
+                <Image src='/assets/images/login.svg' alt='' />
             </Grid>
         </Grid>
     );
