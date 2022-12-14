@@ -51,9 +51,9 @@ function App() {
         <Route path='/courses/delete/:id' element={<DeleteCourses />} />
         <Route path='/categories' element={<ListCategory />} />
         <Route path='/categories/add' element={<AddCategory />} />
-        <Route path='/categories/add:id' element={<AddCategory />} />
+        <Route path='/categories/add/:id' element={<AddCategory />} />
         <Route path='/categories/delete' element={<DeleteCategory />} />
-        <Route path='/categories/delete:id' element={<DeleteCategory />} />
+        <Route path='/categories/delete/:id' element={<DeleteCategory />} />
 
       </Routes>
       <Footer />
