@@ -29,7 +29,7 @@ function About(){
         </Grid>
         <Grid item xs={12} sm={5}>
             <h2>Visão</h2>
-            <p>Planejamos estar entre as melhores e mais respeitadas
+            <p className='pad'>Planejamos estar entre as melhores e mais respeitadas
             plataformas desse segmento por oferecer de forma consistente cursos que
             irão inovar e agregar a vida de muitas mulheres na sua carreira profissional</p>
         </Grid>

@@ -1,40 +1,51 @@
-import { Box } from '@mui/material';
-import InstagramIcon from '@material-ui/icons/Instagram';
-import FacebookIcon from '@material-ui/icons/Facebook';
-import LinkedInIcon from '@material-ui/icons/LinkedIn';
-import React from "react";
-import "./Footer.css"
+import './Footer.css';
+
 import { Grid, Typography } from '@material-ui/core';
+import YoutubeIcon from '@material-ui/icons/YouTube';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import { Box, Link } from '@mui/material';
+import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 
 function Footer() {
   return (
+    <Box className='footer-copy' display="flex" justifyContent="space-around" justifyItems='center'>
       <Grid container>
-        <Grid item xs={12}>
-            <Box display="flex" alignItems="center" justifyContent="center" className='footer-color'>
-              <Typography variant="h6" align="center" gutterBottom className='text-color'>WomenWork</Typography>
-          </Box>
-          <Box className='footer-copy' display="flex" justifyContent="space-around">
-            <Box display='flex' justifyContent='center' alignItems='center'>
-              <a href="#" target="_blank">
-                <FacebookIcon className='social' />
-              </a>
-              <a href="https://github.com/Women-Work/womenwork" target="_blank">
-                <GitHubIcon className='social' />
-              </a>
-              <a href="#" target="_blank">
-                <LinkedInIcon className='social' />
-              </a>
-            </Box>
-            <Box>
-              <Typography variant="subtitle1" align="center" gutterBottom className='text-color'>© 2022 Copyright</Typography>
-            </Box>
-            <Box style={{ display: 'flex', justifyContent: 'right' }}>
+        <Grid item container xs={4} justifyContent='center' alignItems='center'>
+          <Grid item xs={2}>
+            <Link href="#" target="_blank">
+              <YoutubeIcon className='social' />
+            </Link>
+          </Grid>
+          <Grid item xs={2}>
+            <Link href="https://linktr.ee/womenworkgit" target="_blank">
+              <GitHubIcon className='social' />
+            </Link>
+          </Grid>
+          <Grid item xs={2}>
+            <Link href="https://linktr.ee/womenworkteam" target="_blank">
+              <LinkedInIcon className='social' />
+            </Link>
+          </Grid>
+        </Grid>
+        <Grid item container xs={4}>
+          <Grid item xs={12}>
+            <Typography variant="h6" align="center" gutterBottom className='text-color'>WomenWork</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="subtitle1" align="center" gutterBottom className='text-color'>© 2022 Copyright</Typography>
+          </Grid>
+        </Grid>
+        <Grid item container xs={4} alignItems='center'>      
+          <Grid item xs={12}>
+            <RouterLink to='/about'>
               <Typography variant="subtitle1" align="center" gutterBottom className='text-color'> Sobre nós </Typography>
-            </Box>
-          </Box>
+            </RouterLink>
+          </Grid>
         </Grid>
       </Grid>
+    </Box>
   )
 }
 
