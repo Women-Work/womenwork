@@ -5,6 +5,7 @@ import {Box} from '@mui/material';
 import useLocalStorage from 'react-use-localstorage';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
+import Footer from '../../static/footer/Footer';
 
 function ListCategory() {
   const [categories, setCategories] = useState<Category[]>([])
@@ -69,6 +70,7 @@ function ListCategory() {
         </Box>
       ))
 }
+<Footer/>
     </>
   );
 }

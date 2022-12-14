@@ -10,6 +10,7 @@ import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
 
 import { styles } from './styles';
 import CardCategory from '../../components/cardCategory/CardCategory';
+import Footer from '../../components/static/footer/Footer';
 
 const features =  [
    {
@@ -42,6 +43,7 @@ export default function Home() {
   const classes = styles();
 
   return (
+    <>
     <Grid container justifyContent='center' alignContent='center'>
       <Grid item xs={12} container justifyContent='center' paddingY={2} >
         <Grid item xs={5}>
@@ -90,5 +92,7 @@ export default function Home() {
         <CardCategory />
       </Grid>
     </Grid>
+    <Footer/>
+    </>
   )
 }

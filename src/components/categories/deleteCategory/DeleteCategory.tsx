@@ -7,6 +7,7 @@ import useLocalStorage from 'react-use-localstorage';
 
 import Category from '../../../models/Category';
 import { deleteId, searchId } from '../../../services/Service';
+import Footer from '../../static/footer/Footer';
 
 export default function DeleteCategory() {
   let navigate = useNavigate();
@@ -80,6 +81,7 @@ export default function DeleteCategory() {
           </CardActions>
         </Card>
       </Box>
+      <Footer/>
     </>
   );
 }

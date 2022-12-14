@@ -10,6 +10,7 @@ import Course from '../../../models/Course';
 import { search } from '../../../services/Service';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
+import Footer from '../../static/footer/Footer';
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([])
@@ -37,6 +38,7 @@ function Courses() {
   }, [courses.length]);
 
   return (
+    <>
     <Grid container sm={12}>
           <Grid
             container
@@ -66,6 +68,8 @@ function Courses() {
             
           </Grid>
     </Grid>
+    <Footer/>
+    </>
   )
 }
 

@@ -5,7 +5,9 @@
 
 .footer-copy {
     background-color: #766B8D;
-
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .text-color {

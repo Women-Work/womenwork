@@ -56,7 +56,6 @@ function App() {
         <Route path='/categories/delete/:id' element={<DeleteCategory />} />
 
       </Routes>
-      <Footer />
     </Router>
   );
 }

@@ -10,6 +10,7 @@ import useLocalStorage from 'react-use-localstorage';
 
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
+import Footer from '../../components/static/footer/Footer';
 
 
 
@@ -51,6 +52,7 @@ export function Login() {
     }
 
     return (
+        <>
         <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
             <Grid item alignItems='center' lg={6} md={12}>
                 <Box paddingX={10}>
@@ -80,5 +82,7 @@ export function Login() {
                 <Image src='/assets/images/login.svg' alt='' />
             </Grid>
         </Grid>
+        <Footer/>
+        </>
     );
 }

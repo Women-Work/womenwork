@@ -7,6 +7,7 @@ import useLocalStorage from 'react-use-localstorage';
 
 import Course from '../../../models/Course';
 import { deleteId, searchId } from '../../../services/Service';
+import Footer from '../../static/footer/Footer';
 
 export default function DeleteCourses() {
   let navigate = useNavigate();
@@ -80,6 +81,7 @@ export default function DeleteCourses() {
           </CardActions>
         </Card>
       </Box>
+      <Footer/>
     </>
   );
 }

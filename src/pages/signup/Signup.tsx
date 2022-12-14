@@ -8,6 +8,7 @@ import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
 import { userRegister } from '../../services/Service';
+import Footer from '../../components/static/footer/Footer';
 
 export default function Singup() {
 
@@ -62,7 +63,7 @@ export default function Singup() {
     }
 
     return (
-
+<>
         <Grid container direction='row' justifyContent='center'>
             <Grid item xs={3} sm={6}>
                 <Image src='assets/images/signup.svg' alt='' />
@@ -89,5 +90,7 @@ export default function Singup() {
                 </Box>
             </Grid>
         </Grid>
+        <Footer/>
+        </>
     );
 }
