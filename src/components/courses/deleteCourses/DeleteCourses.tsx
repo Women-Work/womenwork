@@ -28,7 +28,7 @@ export default function DeleteCourses() {
   }, [id]);
 
   async function findCourseById(id: string) {
-    searchId(`/courses/${id}`, setCourse, {
+    searchId(`/products/${id}`, setCourse, {
       headers: {
         'Authorization': token
       }
@@ -36,7 +36,7 @@ export default function DeleteCourses() {
   }
 
   function yes() {
-    deleteId(`/courses/${id}`, {
+    deleteId(`/products/${id}`, {
       headers: {
         'Authorization': token
       }
@@ -58,7 +58,7 @@ export default function DeleteCourses() {
               <Typography color="textSecondary" gutterBottom>
                 Deseja remover o curso:
               </Typography>
-              <Typography color="textSecondary" >
+              <Typography color="textSecondary">
                 {course?.title}
               </Typography>
             </Box>

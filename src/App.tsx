@@ -44,10 +44,11 @@ function App() {
         <Route path='/cart' element={<Cart />} />
         <Route path='*' element={<NotFound />} />
         <Route path='/courses' element={<ListCourses />} />
+        <Route path='/courses/:id' element={<ListCourses />} />
         <Route path='/courses/add' element={<AddCourses />} />
         <Route path='/courses/add/:id' element={<AddCourses />} />
         <Route path='/courses/delete' element={<DeleteCourses />} />
-        <Route path='/courses/delete:id' element={<DeleteCourses />} />
+        <Route path='/courses/delete/:id' element={<DeleteCourses />} />
         <Route path='/categories' element={<ListCategory />} />
         <Route path='/categories/add' element={<AddCategory />} />
         <Route path='/categories/add:id' element={<AddCategory />} />
