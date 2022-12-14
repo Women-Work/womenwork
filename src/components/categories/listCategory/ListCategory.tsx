@@ -36,7 +36,7 @@ function ListCategory() {
     <>
     {
       categories.map(category => (
-        <Box m={2} >
+        <Box m={2} key={category.name}>
           <Card variant="outlined">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>

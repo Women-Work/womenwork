@@ -37,7 +37,7 @@ function Courses() {
   }, [courses.length]);
 
   return (
-    <>
+    <Grid container sm={12}>
           <Grid
             container
             alignItems="center"
@@ -65,7 +65,7 @@ function Courses() {
             </Grid>
             
           </Grid>
-    </>
+    </Grid>
   )
 }
 
