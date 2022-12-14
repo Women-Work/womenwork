@@ -15,6 +15,8 @@ import ListCategory from './components/categories/listCategory/ListCategory';
 import AddCourses from './components/courses/addCourses/AddCourses';
 import DeleteCourses from './components/courses/deleteCourses/DeleteCourses';
 import Home from './pages/home/Home';
+import AddCategory from './components/categories/addCategory/AddCategory';
+import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
 
 
 
@@ -47,6 +49,11 @@ function App() {
         <Route path='/courses/delete' element={<DeleteCourses />} />
         <Route path='/courses/delete:id' element={<DeleteCourses />} />
         <Route path='/categories' element={<ListCategory />} />
+        <Route path='/categories/add' element={<AddCategory />} />
+        <Route path='/categories/add:id' element={<AddCategory />} />
+        <Route path='/categories/delete' element={<DeleteCategory />} />
+        <Route path='/categories/delete:id' element={<DeleteCategory />} />
+
       </Routes>
       <Footer />
     </Router>
