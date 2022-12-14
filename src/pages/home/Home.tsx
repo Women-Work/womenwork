@@ -6,9 +6,10 @@ import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRigh
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
 import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
-import SupportAgentRoundedIcon from '@mui/icons-material/SupportAgentRounded';
+import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
 
 import { styles } from './styles';
+import CardCategory from '../../components/cardCategory/CardCategory';
 
 const features =  [
    {
@@ -30,8 +31,8 @@ const features =  [
     bgColor: '#C884A6',
   },
   {
-    avatar: <SupportAgentRoundedIcon />,
-    title: 'Suporte 24h',
+    avatar: <AllInclusiveRoundedIcon />,
+    title: 'Acesso vitalício',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
     bgColor: '#D9ABC2',
   },
@@ -44,12 +45,12 @@ export default function Home() {
     <Grid container justifyContent='center' alignContent='center'>
       <Grid item xs={12} container justifyContent='center' paddingY={2} >
         <Grid item xs={5}>
-          <Typography variant='h1' className={classes.title} sx={{ fontFamily: 'Poppins' }}>Delas</Typography>
-          <Typography variant='h1' className={classes.title} sx={{ fontFamily: 'Poppins' }}>para elas.</Typography>
-          <Typography variant='body1' sx={{ marginTop: 2, marginBottom: 5, color: '#252525' }}>Lorem ipsum dolor sit amet consectetur, adipisicing elit. At cum quasi obcaecati, doloribus dolores expedita unde.</Typography>
+          <Typography variant='h1' className='title-poppins' >Delas</Typography>
+          <Typography variant='h1' className='title-poppins' >para elas.</Typography>
+          <Typography variant='h6' sx={{ marginTop: 3, marginBottom: 3, color: '#303030' }}>Transformando mulheres através da educação.</Typography>
 
           <MuiLink href='#recursos' underline='none'>
-              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#766B8D'}}>
+              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#766B8D' }}>
                   Saber mais <KeyboardArrowRightRoundedIcon />
               </Button>
           </MuiLink>
@@ -60,9 +61,9 @@ export default function Home() {
         </Grid>
       </Grid>
       <Grid item xs={12} container justifyContent='center' id='recursos' sx={{ marginBottom: 10, marginX: 5 }}>
-        <Grid item xs={12} textAlign='center'>
+        {/* <Grid item xs={12} textAlign='center'>
           <Typography variant='h2'>Recursos</Typography>
-        </Grid>
+        </Grid> */}
         {
           features.map((feature) => (
             <Grid key={feature.title} item xs={12} sm={6} md={3}>
@@ -84,6 +85,9 @@ export default function Home() {
             </Grid>
           ))
         }
+      </Grid>
+      <Grid item xs={12} container justifyContent='center' sx={{ marginBottom: 10, marginX: 5 }}>
+        <CardCategory />
       </Grid>
     </Grid>
   )

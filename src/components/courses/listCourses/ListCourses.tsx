@@ -1,12 +1,15 @@
+import './ListCourses.css';
+
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { search } from '../../../services/Service';
-import Card from '../../card/Card';
+import useLocalStorage from 'react-use-localstorage';
+
 import Course from '../../../models/Course';
-import { CircularProgress } from '@mui/material';
+import { search } from '../../../services/Service';
+import Card from '../../cardCourse/CardCourse';
+import Loading from '../../static/loading/Loading';
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([])
@@ -36,25 +39,31 @@ function Courses() {
   return (
     <>
           <Grid
-          container
-          spacing={5}
-          alignItems="center"
-          justifyContent="center"
-          style={{ margin: 5 }}
+            container
+            alignItems="center"
+            justifyContent="center"
           >
-            {
-              courses.length === 0 ?
-              <CircularProgress sx={{ marginY: 5}} />
-              :
-              courses.map((course) => (
-                <Grid key={course.title} item xs={10} md={5} lg={3}>
-                  <Card
-                    title={course.title}
-                    text={course.description}
-                    price={course.price} />
-                </Grid>
-              ))
-            }
+            <Grid item container xs={12} sx={{ marginX: 5 }}>
+              <Typography variant='h1' className='title-poppins'>Cursos</Typography>
+            </Grid>
+            <Grid item xs={12} container justifyContent='center' marginX={5}>
+              {
+                courses.length === 0 ?
+                <Loading />
+                :
+                courses.map((course) => (
+                  <Grid key={course.id} item xs={10} md={5} lg={3}>
+                    <Card
+                      id={course.id}
+                      title={course.title}
+                      description={course.description}
+                      price={course.price}
+                    />
+                  </Grid>
+                ))
+              }
+            </Grid>
+            
           </Grid>
     </>
   )

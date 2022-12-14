@@ -1,0 +1,20 @@
+.horizontal-line {
+  border-bottom: 1px solid #cbcbcb;
+  margin: 10px 0;
+}
+
+.cart-btn {
+  border: 1px solid #252525;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: .3em;
+  cursor: pointer;
+  border-radius: 50px;
+  transition: .3s ease-in-out;
+}
+
+.cart-btn:hover {
+  border: 1px solid #EBBCB7;
+  background-color: #EBBCB7;
+}

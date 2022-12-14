@@ -9,3 +9,13 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.text-poppins{
+  font-family: 'Poppins', 'Roboto', sans-serif !important;
+}
+
+.title-poppins{ 
+  font-family: 'Poppins', 'Roboto', sans-serif !important;
+  color: #655A7E !important;
+  font-weight: 700 !important;
+}
