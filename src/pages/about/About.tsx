@@ -3,7 +3,7 @@ import React from 'react';
 import Footer from '../../components/static/footer/Footer';
 import './About.css'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import GitHubIcon  from '@mui/icons-material/GitHub';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import Typography from '@material-ui/core/Typography';
 
 
@@ -13,41 +13,40 @@ function About() {
         <>
             <Grid container justifyContent='center'>
                 <Grid item xs={12} sm={12} className='titulo'>
-                    <h1>Women Work</h1>
+                    <Typography variant='h2' className='title-poppins'>WomenWork</Typography>
                 </Grid>
                 <Grid item xs={12} sm={5}>
-                    <h2>Quem somos</h2>
-                    <p>Women Work oferece cursos dentro da plataforma que irão especializar
+                    <Typography variant='h5' className='title-poppins'>Quem somos</Typography>
+                    <Typography variant='h6'> Women Work oferece cursos dentro da plataforma que irão especializar
                         mulheres que desejam crescer no mercado de trabalho conforme a
                         necessidade de cada uma. Nosso objetivo é integrar o máximo de mulheres
-                        possíveis dentro desse ambiente.</p>
+                        possíveis dentro desse ambiente.</Typography>
                 </Grid>
                 <Grid item xs={12} sm={5}>
-                    <h2>Nossa missão</h2>
-                    <p>Promover e contribuir para o desenvolvimento profissional através
+                    <Typography variant='h5' className='title-poppins'>Nossa missão</Typography>
+                    <Typography variant='h6'>Promover e contribuir para o desenvolvimento profissional através
                         da educação e do trabalho alcançando o máximo de mulheres do Brasil e exterior.
-                    </p>
-
+                    </Typography>
                 </Grid>
                 <Grid item xs={12} sm={5}>
-                    <h2>Visão</h2>
-                    <p className='pad'>Planejamos estar entre as melhores e mais respeitadas
+                    <Typography variant='h5' className='title-poppins'>Visão</Typography>
+                    <Typography variant='h6'> Planejamos estar entre as melhores e mais respeitadas
                         plataformas desse segmento por oferecer de forma consistente cursos que
-                        irão inovar e agregar a vida de muitas mulheres na sua carreira profissional</p>
+                        irão inovar e agregar a vida de muitas mulheres na sua carreira profissional </Typography>
                 </Grid>
                 <Grid item xs={12} sm={5} >
-                    <h2>Valores</h2>
-                    <p>Procurar a melhoria contínua dos produtos e a qualidade para
+                    <Typography variant='h5' className='title-poppins'>Valores</Typography>
+                    <Typography variant='h6'>Procurar a melhoria contínua dos produtos e a qualidade para
                         atender às necessidades das clientes.
-                        Prezamos a confiança, respeito, crença, humildade e integridade</p>
+                        Prezamos a confiança, respeito, crença, humildade e integridade</Typography>
                 </Grid>
-
             </Grid>
 
             <Grid container className='grid-container'>
                 <Grid item container xs={12} sm={12} justifyContent='center' className='p'>
-                    <h1>Membros</h1>
+                    <Typography variant='h3' className='title-poppins'>Membros</Typography>
                 </Grid>
+
                 <Grid item container xs={12} sm={12} className="membros" >
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
@@ -59,76 +58,81 @@ function About() {
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/Santozcl" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>Carlos Eduardo</p>
                     </Box>
+
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
                                 <img className='img' src="https://camo.githubusercontent.com/3668f04d4842b7cdca2b50e0b0abf90c42b5f34633277be8806febe3a347a592/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f43344430334151474c473649557873313468672f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313635323131343536313034353f653d3136373532393630303026763d6265746126743d504e446f4f3245485872356d6f6336396853745f764a58626477577573335a664e577271327970536e4c6b" alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
-                                <Link href="https://www.linkedin.com/in/jo%C3%A3o-vitor-estevam-82ba85207/" target="_blan">
+                                <Link href="https://www.linkedin.com/in/jo%C3%A3o-vitor-estevam-82ba85207/" target="_blank">
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/Najmate" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>João Vitor</p>
                     </Box>
+
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
                                 <img className='img' src="https://camo.githubusercontent.com/c6d5b81643dc4561bb731c018a495869277954400d3e88d1fd1efae94ec295a9/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f44344530334151486d4f6e55757550627256412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636343831333230303733383f653d3136373532393630303026763d6265746126743d4b7359716d464c4f7a6e527476637735634e786b4446376932356850335873304f75486732316d656f6a34" alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
-                                <Link href="https://www.linkedin.com/in/victordnf/" target="_blan">
+                                <Link href="https://www.linkedin.com/in/victordnf/" target="_blank">
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/victordnf" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>Victor França</p>
                     </Box>
+
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
                                 <img className='img' src='https://camo.githubusercontent.com/90a553cf7922491794c70f7b6025af0109d4177d5148c2f7be16518606771137/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f443444303341514641544c782d3664426833672f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636393135323132333932373f653d3136373532393630303026763d6265746126743d67396c70525a5f5f4a41715347677a51726337756c6a367531553833727977485334596f742d4446555830' alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
-                                <Link href="https://www.linkedin.com/in/rafaele-souza/">
+                                <Link href="https://www.linkedin.com/in/rafaele-souza/" target='_blank'>
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/raffaez/" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>Rafaele Souza</p>
                     </Box>
+
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
                                 <img className='img' src='https://camo.githubusercontent.com/d6187edfed61b1157fbdfffc0909f29a5e6f9f741eecc95da4779e95960fb0ab/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f44344430334151476f765867464939515f2d512f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636333333303931363139373f653d3136373532393630303026763d6265746126743d55614c395573533644555a51326862544c514347417659635a517a66346a4b4f4c45436e6e724d33477177' alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
-                                <Link href="https://www.linkedin.com/in/henrique-oliveira-137b1423a/" target="_blan">
+                                <Link href="https://www.linkedin.com/in/henrique-oliveira-137b1423a/" target="_blank">
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/xHenrique22" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>Henrique Oliveira</p>
                     </Box>
+
                     <Box className='flip-card'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
@@ -139,12 +143,13 @@ function About() {
                                     <LinkedInIcon className='icons' fontSize='large' />
                                 </Link>
                                 <Link href="https://github.com/Juliojnr" target="_blank">
-                                    <GitHubIcon className='icons'  fontSize='large' />
+                                    <GitHubIcon className='icons' fontSize='large' />
                                 </Link>
                             </Box>
                         </Box>
                         <p>Julio Cesar</p>
                     </Box>
+
                 </Grid>
             </Grid>
         </>

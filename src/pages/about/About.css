@@ -1,6 +1,6 @@
 
 .grid-container{
-    min-height: 300px;
+    margin-bottom: 80px;
 }
 
 .img{
@@ -64,7 +64,8 @@
 
 .titulo{
     display: flex;
-    justify-content: center ;
+    justify-content: center;
+    padding: 20px;
 }
 
 .main{
@@ -91,7 +92,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-   ;
+    
     
     
 
