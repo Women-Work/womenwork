@@ -1,8 +1,8 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useLocalStorage from 'react-use-localstorage';
-
 import Course from '../../../models/Course';
 import { search } from '../../../services/Service';
 import CardCourse from '../../cardCourse/CardCourse';
@@ -11,9 +11,17 @@ import Loading from '../../static/loading/Loading';
 export default function Search() {
   const [token] = useLocalStorage('token');
   const [searchParams] = useSearchParams();
-
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+  let navigate = useNavigate();
+
+  useEffect(()=>{
+    if(token == ''){
+      toast.error("Você precisa estar logado para pesquisar um curso.");
+      navigate("/login");
+    }
+  }, [token]);
+
 
   const query = searchParams.get('q');
 

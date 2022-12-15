@@ -6,6 +6,7 @@ import useLocalStorage from 'react-use-localstorage';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
 import Footer from '../../static/footer/Footer';
+import { toast } from 'react-toastify';
 
 function ListCategory() {
   const [categories, setCategories] = useState<Category[]>([])
@@ -14,7 +15,7 @@ function ListCategory() {
 
   useEffect(()=>{
     if(token == ''){
-      alert("Você precisa estar logado");
+      toast.error("Você precisa estar logado para acessar essa página.");
       navigate("/login");
     }
   }, [token]);

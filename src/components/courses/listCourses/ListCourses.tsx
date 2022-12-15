@@ -21,7 +21,7 @@ function Courses() {
   useEffect(() => {
     if (token == "") {
       navigate("/login");
-      toast.warn("Você precisa estar logado");
+      toast.error("Você precisa estar logado para acessar os cursos.");
 
     }
   }, [token]);
