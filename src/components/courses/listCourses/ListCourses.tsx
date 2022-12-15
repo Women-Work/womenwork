@@ -67,9 +67,7 @@ function Courses() {
             ))
           }
         </Grid>
-        
       </Grid>
-    <Footer/>
     </>
   )
 }

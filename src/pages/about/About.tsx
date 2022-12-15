@@ -110,7 +110,6 @@ function About() {
                     </Box>
                 </Grid>
             </Grid>
-            <Footer />
         </>
     )
 }

@@ -52,7 +52,7 @@ export default function Home() {
           <Typography variant='h6' sx={{ marginTop: 3, marginBottom: 3, color: '#303030' }}>Transformando mulheres através da educação.</Typography>
 
           <MuiLink href='#recursos' underline='none'>
-              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#766B8D' }}>
+              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#C8857F' }}>
                   Saber mais <KeyboardArrowRightRoundedIcon />
               </Button>
           </MuiLink>
@@ -89,7 +89,6 @@ export default function Home() {
         }
       </Grid>
     </Grid>
-    <Footer/>
     </>
   )
 }

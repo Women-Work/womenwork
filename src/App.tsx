@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/static/navbar/Navbar';
 import { Login } from './pages/login/Login';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Footer from './components/static/footer/Footer';
 import Signup from './pages/signup/Signup';
 import About from './pages/about/About';
@@ -36,14 +36,14 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      <div style={{minHeight: 'calc(100vh - 100px)'}} > 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Navigate to='/home' replace />} />
         <Route path='/home' element={<Home />} />
         <Route path='/about' element={<About />} />
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/cart' element={<Cart />} />
-        <Route path='*' element={<NotFound />} />
         <Route path='/courses' element={<ListCourses />} />
         <Route path='/courses/:id' element={<ListCourses />} />
         <Route path='/courses/add' element={<AddCourses />} />
@@ -56,7 +56,10 @@ function App() {
         <Route path='/categories/delete' element={<DeleteCategory />} />
         <Route path='/categories/delete/:id' element={<DeleteCategory />} />
         <Route path='/search' element={<Search />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
+      </div>
+      <Footer />
     </Router>
   );
 }
