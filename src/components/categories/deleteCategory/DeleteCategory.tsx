@@ -81,7 +81,6 @@ export default function DeleteCategory() {
           </CardActions>
         </Card>
       </Box>
-      <Footer/>
     </>
   );
 }

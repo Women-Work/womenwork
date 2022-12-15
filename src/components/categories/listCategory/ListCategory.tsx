@@ -71,7 +71,6 @@ function ListCategory() {
         </Box>
       ))
 }
-<Footer/>
     </>
   );
 }

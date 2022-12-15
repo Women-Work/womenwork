@@ -81,7 +81,6 @@ export default function DeleteCourses() {
           </CardActions>
         </Card>
       </Box>
-      <Footer/>
     </>
   );
 }

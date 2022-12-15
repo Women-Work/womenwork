@@ -16,7 +16,6 @@ function NotFound() {
           <img src='assets/images/notFound.svg' alt='' />
         </Grid>
       </Grid>
-      <Footer/>
     </>
   )
 }

@@ -90,7 +90,6 @@ export default function AddCategory() {
                       </Button>
               </form>
           </Container>
-          <Footer/>
-          </>
+        </>
       )
 }
