@@ -22,6 +22,10 @@ function Navbar() {
     }
   }
 
+  function handlePathColor(path: string) {
+    return window.location.pathname === path ? 'secondary' : 'inherit';
+  }
+
   function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
@@ -38,15 +42,15 @@ function Navbar() {
           <Grid container alignItems='center' justifyContent='center'>
             <Grid item xs={4}>
               <Link to="/" color="primary">
-                <Button color="inherit">home</Button>
+                <Button color={handlePathColor('/home')}>home</Button>
               </Link>
 
               <Link to="/courses">
-                <Button color="inherit">cursos</Button>
+                <Button color={handlePathColor('/courses')}>cursos</Button>
               </Link>
 
               <Link to="/about">
-                <Button color="inherit">sobre</Button>
+                <Button color={handlePathColor('/about')}>sobre</Button>
               </Link>
             </Grid>
             <Grid item xs={4} className={classes.centerImg}>
@@ -59,7 +63,7 @@ function Navbar() {
                   <Button color="inherit" onClick={logoutHandle}>Logout</Button>
                   :
                   <Link to="/login">
-                    <Button color="inherit">login</Button>
+                    <Button color={handlePathColor('/login')}>login</Button>
                   </Link>
                 }
               </Grid>
