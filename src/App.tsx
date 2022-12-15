@@ -17,6 +17,7 @@ import DeleteCourses from './components/courses/deleteCourses/DeleteCourses';
 import Home from './pages/home/Home';
 import AddCategory from './components/categories/addCategory/AddCategory';
 import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
+import Search from './components/courses/search/Search';
 
 
 
@@ -54,7 +55,7 @@ function App() {
         <Route path='/categories/add/:id' element={<AddCategory />} />
         <Route path='/categories/delete' element={<DeleteCategory />} />
         <Route path='/categories/delete/:id' element={<DeleteCategory />} />
-
+        <Route path='/search' element={<Search />} />
       </Routes>
     </Router>
   );
