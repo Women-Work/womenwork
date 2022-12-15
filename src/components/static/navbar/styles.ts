@@ -20,6 +20,13 @@ const styles = makeStyles((theme: Theme) => createStyles({
 
   },
 
+  centerImg: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+  },
+
 
   buttons2: {
     color: theme.palette.primary.contrastText,
@@ -36,7 +43,7 @@ const styles = makeStyles((theme: Theme) => createStyles({
     '&:hover': {
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
-    marginLeft: 0,
+    marginLeft: 2,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
       marginLeft: theme.spacing(1),

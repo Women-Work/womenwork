@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import {Box} from '@mui/material';
-import './ListCategory.css';
 import useLocalStorage from 'react-use-localstorage';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
+import Footer from '../../static/footer/Footer';
+import { toast } from 'react-toastify';
 
 function ListCategory() {
   const [categories, setCategories] = useState<Category[]>([])
@@ -14,7 +15,7 @@ function ListCategory() {
 
   useEffect(()=>{
     if(token == ''){
-      alert("Você precisa estar logado");
+      toast.error("Você precisa estar logado para acessar essa página.");
       navigate("/login");
     }
   }, [token]);
@@ -37,7 +38,7 @@ function ListCategory() {
     <>
     {
       categories.map(category => (
-        <Box m={2} >
+        <Box m={2} key={category.name}>
           <Card variant="outlined">
             <CardContent>
               <Typography color="textSecondary" gutterBottom>
@@ -50,14 +51,14 @@ function ListCategory() {
             <CardActions>
               <Box display="flex" justifyContent="center" mb={1.5} >
 
-                <Link to={`/formularioCategoria/${category.id}`} className="text-decorator-none">
+                <Link to={`/categories/add/${category.id}`} className="text-decorator-none">
                   <Box mx={1}>
                     <Button variant="contained" className="marginLeft" size='small' color="primary" >
                       atualizar
                     </Button>
                   </Box>
                 </Link>
-                <Link to={`/deletarCategoria/${category.id}`} className="text-decorator-none">
+                <Link to={`/categories/delete/${category.id}`} className="text-decorator-none">
                   <Box mx={1}>
                     <Button variant="contained" size='small' color="secondary">
                       deletar

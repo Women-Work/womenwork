@@ -5,15 +5,15 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useLocalStorage from 'react-use-localstorage';
 
-import Course from '../../../models/Course';
+import Category from '../../../models/Category';
 import { deleteId, searchId } from '../../../services/Service';
 import Footer from '../../static/footer/Footer';
 
-export default function DeleteCourses() {
+export default function DeleteCategory() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const [token, setToken] = useLocalStorage('token');
-  const [course, setCourse] = useState<Course>();
+  const [categories, setCategory] = useState<Category>();
 
   useEffect(() => {
     if (token == '') {
@@ -24,12 +24,12 @@ export default function DeleteCourses() {
 
   useEffect(() => {
     if(id !== undefined){
-      findCourseById(id);
+      findCategoryById(id);
     }
   }, [id]);
 
-  async function findCourseById(id: string) {
-    searchId(`/products/${id}`, setCourse, {
+  async function findCategoryById(id: string) {
+    searchId(`/categories/${id}`, setCategory, {
       headers: {
         'Authorization': token
       }
@@ -37,17 +37,17 @@ export default function DeleteCourses() {
   }
 
   function yes() {
-    deleteId(`/products/${id}`, {
+    deleteId(`/categories/${id}`, {
       headers: {
         'Authorization': token
       }
     });
-    toast.success('Curso removido com sucesso!');
-    navigate('/courses');
+    toast.success('Categoria removida com sucesso!');
+    navigate('/categories');
   }
 
   function no() {
-    navigate('/courses');
+    navigate('/categories');
   }
 
   return (
@@ -57,10 +57,10 @@ export default function DeleteCourses() {
           <CardContent>
             <Box justifyContent="center">
               <Typography color="textSecondary" gutterBottom>
-                Deseja remover o curso:
+                Deseja remover a categoria:
               </Typography>
-              <Typography color="textSecondary">
-                {course?.title}
+              <Typography color="textSecondary" >
+                {categories?.name}
               </Typography>
             </Box>
 

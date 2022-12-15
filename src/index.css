@@ -3,9 +3,28 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F0E3
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.text-poppins {
+  font-family: 'Poppins', 'Roboto', sans-serif !important;
+}
+
+.title-poppins {
+  font-family: 'Poppins', 'Roboto', sans-serif !important;
+  color: #655A7E !important;
+  font-weight: 700 !important;
+}
+
+.transition-hover:hover {
+  position: relative;
+  top:0;
+  top: -4px; 
+  box-shadow: 0 17px 17px #999;
+  transition: all .3s ease-in-out;
 }

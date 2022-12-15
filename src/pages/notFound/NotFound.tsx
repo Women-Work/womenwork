@@ -3,6 +3,7 @@ import React from 'react';
 import './NotFound.css';
 import Image from 'material-ui-image';
 import { Typography } from '@mui/material';
+import Footer from '../../components/static/footer/Footer';
 
 function NotFound() {
   return (

@@ -1,21 +1,27 @@
+import './ListCourses.css';
+
+import { CircularProgress, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { Grid } from '@material-ui/core';
-import useLocalStorage from 'react-use-localstorage';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { search } from '../../../services/Service';
-import Card from '../../card/Card';
+import useLocalStorage from 'react-use-localstorage';
+
 import Course from '../../../models/Course';
+import { search } from '../../../services/Service';
+import Card from '../../cardCourse/CardCourse';
+import Loading from '../../static/loading/Loading';
+import Footer from '../../static/footer/Footer';
 
 function Courses() {
-  const [courses, setCourses] = useState<Course[]>([])
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
 
   useEffect(() => {
     if (token == "") {
-      toast.warn("Você precisa estar logado");
       navigate("/login");
+      toast.error("Você precisa estar logado para acessar os cursos.");
 
     }
   }, [token]);
@@ -25,7 +31,9 @@ function Courses() {
       headers: {
         'Authorization': token
       }
-    })
+    }).then(() => {
+      setIsLoading(false);
+    });
   }
 
   useEffect(() => {
@@ -36,21 +44,29 @@ function Courses() {
     <>
       <Grid
         container
-        spacing={5}
         alignItems="center"
         justifyContent="center"
-        style={{ padding: 20 }}
       >
-        {
-          courses.map((course) => (
-            <Grid key={course.title} item xs={10} md={5} lg={3}>
-              <Card
-                title={course.title}
-                text={course.description}
-                price={course.price} />
-            </Grid>
-          ))
-        }
+        <Grid item container xs={12} sx={{ marginX: 5 }}>
+          <Typography variant='h2' className='title-poppins'>Cursos</Typography>
+        </Grid>
+        <Grid item xs={12} container justifyContent='center' marginX={5}>
+          {
+            isLoading ?
+            <Loading />
+            :
+            courses.map((course) => (
+              <Grid key={course.id} item xs={10} md={5} lg={3}>
+                <Card
+                  id={course.id}
+                  title={course.title}
+                  description={course.description}
+                  price={course.price}
+                />
+              </Grid>
+            ))
+          }
+        </Grid>
       </Grid>
     </>
   )

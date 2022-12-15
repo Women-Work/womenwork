@@ -16,10 +16,7 @@ export const userRegister = async (url: string, data: User, setData: any) => {
             setData(() => ({
                 error: err.response.data.message
             }));
-            console.log(err.response.data.message);
         }
-        else
-            console.log(err);
     }
 
 }
