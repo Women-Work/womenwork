@@ -59,11 +59,21 @@ export function Login() {
 
     return (
         <>
-            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
+            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='flex-start'>
                 <Grid item alignItems='center' lg={6} md={12}>
                     <Box paddingX={10}>
                         <form onSubmit={onSubmit}>
                             <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='left' className='title-poppins'>Login</Typography>
+                            <Box display='flex' marginTop={2}>
+                                <Box marginRight={1}>
+                                    <Typography variant='subtitle1' gutterBottom style={{color:'#909090'}}>Não tem uma conta?</Typography>
+                                </Box>
+                                <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>
+                                    <Link to='/signup' className='button-cd'>
+                                        Cadastre-se
+                                    </Link>
+                                </Typography>
+                            </Box>
                             <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth />
                             <TextField
                             value={userLogin.password}
@@ -85,29 +95,18 @@ export function Login() {
                                 ),
                             }}
                             />
-                            <Box marginTop={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary'>
+                            <Box marginTop={2} textAlign='left'>
+                                <Button type='submit' variant='contained' color='secondary'>
                                     Entrar
                                 </Button>
                             </Box>
                         </form>
-                        <Box display='flex' justifyContent='center' marginTop={2}>
-                            <Box marginRight={1}>
-                                <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
-                            </Box>
-                            <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>
-                                <Link to='/signup' className='button-cd'>
-                                    Cadastre-se
-                                </Link>
-                            </Typography>
-                        </Box>
                     </Box>
                 </Grid>
-                <Grid item lg={6} md={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                    <Image src='/assets/images/login.svg' alt='' />
+                <Grid item lg={5} md={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
+                    <Image width='100%' height='auto' src='/assets/images/login.svg' alt='' />
                 </Grid>
             </Grid>
-            <Footer />
         </>
     );
 }
