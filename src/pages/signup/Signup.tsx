@@ -31,7 +31,7 @@ export default function Singup() {
             password: ''
         });
 
-    useEffect( () => {
+    useEffect(() => {
         if (token) {
             toast.success("Acesso negado.");
             navigate("/home");
@@ -75,7 +75,7 @@ export default function Singup() {
         <>
             <Grid container direction='row' justifyContent='center'>
                 <Grid item xs={3} sm={4}>
-                    <Image src='assets/images/signup.svg' alt='' />
+                    <Image style={{ backgroundColor: 'none' }} src='assets/images/signup.svg' alt='' />
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={3} sm={4}>

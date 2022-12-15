@@ -3,6 +3,7 @@ body {
   font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #F8F0E3
 }
 
 code {
@@ -10,11 +11,11 @@ code {
     monospace;
 }
 
-.text-poppins{
+.text-poppins {
   font-family: 'Poppins', 'Roboto', sans-serif !important;
 }
 
-.title-poppins{ 
+.title-poppins {
   font-family: 'Poppins', 'Roboto', sans-serif !important;
   color: #655A7E !important;
   font-weight: 700 !important;

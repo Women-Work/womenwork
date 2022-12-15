@@ -66,7 +66,7 @@ export function Login() {
                             <Typography variant='h2' gutterBottom color='textPrimary' component='h3' align='left' className='title-poppins'>Login</Typography>
                             <Box display='flex' marginTop={2}>
                                 <Box marginRight={1}>
-                                    <Typography variant='subtitle1' gutterBottom style={{color:'#909090'}}>Não tem uma conta?</Typography>
+                                    <Typography variant='subtitle1' gutterBottom style={{ color: '#909090' }}>Não tem uma conta?</Typography>
                                 </Box>
                                 <Typography variant='subtitle1' gutterBottom align='center' style={{ fontWeight: 'bold' }}>
                                     <Link to='/signup' className='button-cd'>
@@ -76,24 +76,24 @@ export function Login() {
                             </Box>
                             <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth />
                             <TextField
-                            value={userLogin.password}
-                            onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} 
-                            id='senha' label='Senha' variant='outlined' name='password' margin='normal'
-                            type={showPassword ? 'text' : 'password'} required fullWidth 
-                            InputProps={{
-                                endAdornment: (
-                                    <InputAdornment position='end'>
-                                        <IconButton
-                                            aria-label='toggle password visibility'
-                                            onClick={handleClickShowPassword}
-                                            onMouseDown={handleMouseDownPassword}
-                                            edge='end'
-                                        >
-                                            {showPassword ? <Visibility style={{ color: '#A0A0A0' }} /> : <VisibilityOff style={{ color: '#A0A0A0' }} />}
-                                        </IconButton>
-                                    </InputAdornment>
-                                ),
-                            }}
+                                value={userLogin.password}
+                                onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
+                                id='senha' label='Senha' variant='outlined' name='password' margin='normal'
+                                type={showPassword ? 'text' : 'password'} required fullWidth
+                                InputProps={{
+                                    endAdornment: (
+                                        <InputAdornment position='end'>
+                                            <IconButton
+                                                aria-label='toggle password visibility'
+                                                onClick={handleClickShowPassword}
+                                                onMouseDown={handleMouseDownPassword}
+                                                edge='end'
+                                            >
+                                                {showPassword ? <Visibility style={{ color: '#A0A0A0' }} /> : <VisibilityOff style={{ color: '#A0A0A0' }} />}
+                                            </IconButton>
+                                        </InputAdornment>
+                                    ),
+                                }}
                             />
                             <Box marginTop={2} textAlign='left'>
                                 <Button type='submit' variant='contained' color='secondary'>
@@ -104,7 +104,7 @@ export function Login() {
                     </Box>
                 </Grid>
                 <Grid item lg={5} md={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                    <Image width='100%' height='auto' src='/assets/images/login.svg' alt='' />
+                    <Image style={{ backgroundColor: 'none' }} width='100%' height='auto' src='/assets/images/login.svg' alt='' />
                 </Grid>
             </Grid>
         </>
