@@ -16,7 +16,7 @@ interface Props {
 function Card({ id, title, description, price }: Props) {
   
   return (
-    <MCard
+    <MCard className='transition-hover'
       sx={{ marginX: 2, marginY: 3 }}
     >
       <CardContent>

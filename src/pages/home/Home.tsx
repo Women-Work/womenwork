@@ -69,7 +69,7 @@ export default function Home() {
           {
             features.map((feature) => (
               <Grid key={feature.title} item xs={12} sm={6} md={3}>
-                <Card
+                <Card className='transition-hover'
                   sx={{ marginX: 2, marginY: 3 }}
                 >
                   <CardHeader
