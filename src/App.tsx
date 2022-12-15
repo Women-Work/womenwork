@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
 import Navbar from './components/static/navbar/Navbar';
 import { Login } from './pages/login/Login';
@@ -7,7 +7,7 @@ import Footer from './components/static/footer/Footer';
 import Signup from './pages/signup/Signup';
 import About from './pages/about/About';
 import NotFound from './pages/notFound/NotFound';
-import { ToastContainer } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Cart } from './pages/Cart/Cart';
 import ListCourses from './components/courses/listCourses/ListCourses';
@@ -18,10 +18,24 @@ import Home from './pages/home/Home';
 import AddCategory from './components/categories/addCategory/AddCategory';
 import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
 import Search from './components/courses/search/Search';
+import useLocalStorage from 'react-use-localstorage';
 
 
 
 function App() {
+  const [token, setToken] = useLocalStorage('token');
+
+  useEffect(() => {
+      if (token) {
+          const tokenData = JSON.parse(atob(token.split('.')[1]));
+          const expires = new Date(tokenData.exp * 1000);
+          if (expires < new Date()) {
+              setToken('');
+              toast.error('Sessão expirada.');
+          }
+      }
+  }, [token]);
+  
   return (
     <Router>
       <Navbar />
@@ -36,6 +50,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      
       <div style={{minHeight: 'calc(100vh - 100px)'}} > 
       <Routes>
         <Route path='/' element={<Navigate to='/home' replace />} />
