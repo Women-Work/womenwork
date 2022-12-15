@@ -13,7 +13,8 @@ import Loading from '../../static/loading/Loading';
 import Footer from '../../static/footer/Footer';
 
 function Courses() {
-  const [courses, setCourses] = useState<Course[]>([])
+  const [courses, setCourses] = useState<Course[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [token, setToken] = useLocalStorage('token');
   let navigate = useNavigate();
 
@@ -30,7 +31,9 @@ function Courses() {
       headers: {
         'Authorization': token
       }
-    })
+    }).then(() => {
+      setIsLoading(false);
+    });
   }
 
   useEffect(() => {
@@ -39,35 +42,33 @@ function Courses() {
 
   return (
     <>
-    <Grid container sm={12}>
-          <Grid
-            container
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Grid item container xs={12} sx={{ marginX: 5 }}>
-              <Typography variant='h1' className='title-poppins'>Cursos</Typography>
-            </Grid>
-            <Grid item xs={12} container justifyContent='center' marginX={5}>
-              {
-                courses.length === 0 ?
-                <Loading />
-                :
-                courses.map((course) => (
-                  <Grid key={course.id} item xs={10} md={5} lg={3}>
-                    <Card
-                      id={course.id}
-                      title={course.title}
-                      description={course.description}
-                      price={course.price}
-                    />
-                  </Grid>
-                ))
-              }
-            </Grid>
-            
-          </Grid>
-    </Grid>
+      <Grid
+        container
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Grid item container xs={12} sx={{ marginX: 5 }}>
+          <Typography variant='h2' className='title-poppins'>Cursos</Typography>
+        </Grid>
+        <Grid item xs={12} container justifyContent='center' marginX={5}>
+          {
+            isLoading ?
+            <Loading />
+            :
+            courses.map((course) => (
+              <Grid key={course.id} item xs={10} md={5} lg={3}>
+                <Card
+                  id={course.id}
+                  title={course.title}
+                  description={course.description}
+                  price={course.price}
+                />
+              </Grid>
+            ))
+          }
+        </Grid>
+        
+      </Grid>
     <Footer/>
     </>
   )

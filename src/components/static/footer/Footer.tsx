@@ -11,30 +11,29 @@ import { Link as RouterLink } from 'react-router-dom';
 function Footer() {
   return (
     <Box className='footer-copy' display="flex" justifyContent="space-around" justifyItems='center'>
-      <Grid container>
+      <Grid container style={{ paddingTop: 10 }}>
         <Grid item container xs={4} justifyContent='center' alignItems='center'>
-          <Grid item xs={2}>
+          <Grid item xs={1}>
             <Link href="#" target="_blank">
               <YoutubeIcon className='social' />
             </Link>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={1}>
             <Link href="https://linktr.ee/womenworkgit" target="_blank">
               <GitHubIcon className='social' />
             </Link>
           </Grid>
-          <Grid item xs={2}>
+          <Grid item xs={1}>
             <Link href="https://linktr.ee/womenworkteam" target="_blank">
               <LinkedInIcon className='social' />
             </Link>
           </Grid>
         </Grid>
-        <Grid item container xs={4}>
+        <Grid item container xs={4} alignItems='center' justifyContent='center'>
           <Grid item xs={12}>
-            <Typography variant="h6" align="center" gutterBottom className='text-color'>WomenWork</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="subtitle1" align="center" gutterBottom className='text-color'>© 2022 Copyright</Typography>
+            <Typography variant="h6" align="center" gutterBottom className='text-color'>
+              <img src="assets/images/logo-footer.png" width='40%' alt="Logo" className='logo' />
+            </Typography>
           </Grid>
         </Grid>
         <Grid item container xs={4} alignItems='center'>      
