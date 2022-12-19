@@ -19,6 +19,8 @@ import AddCategory from './components/categories/addCategory/AddCategory';
 import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
 import Search from './components/courses/search/Search';
 import useLocalStorage from 'react-use-localstorage';
+import ShowCourse from './components/courses/showCourse/ShowCourse';
+import Vlibras from '@djpfs/react-vlibras';
 
 
 
@@ -60,7 +62,7 @@ function App() {
         <Route path='/signup' element={<Signup />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/courses' element={<ListCourses />} />
-        <Route path='/courses/:id' element={<ListCourses />} />
+        <Route path='courses/:id' element={<ShowCourse />} />
         <Route path='/courses/add' element={<AddCourses />} />
         <Route path='/courses/add/:id' element={<AddCourses />} />
         <Route path='/courses/delete' element={<DeleteCourses />} />
@@ -75,6 +77,7 @@ function App() {
       </Routes>
       </div>
       <Footer />
+      <Vlibras forceOnload={true} />
     </Router>
   );
 }

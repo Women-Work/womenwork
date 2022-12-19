@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { Box, Link } from '@mui/material';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import logofooter from '../../../assets/logo-footer.png';
 
 function Footer() {
   return (
@@ -14,7 +15,7 @@ function Footer() {
       <Grid container style={{ paddingTop: 10 }}>
         <Grid item container xs={4} justifyContent='center' alignItems='center'>
           <Grid item xs={1}>
-            <Link href="#" target="_blank">
+            <Link href="https://www.youtube.com/channel/UCyALtu4kMdQq4I5hLME_LwQ" target="_blank">
               <YoutubeIcon className='social' />
             </Link>
           </Grid>
@@ -32,11 +33,11 @@ function Footer() {
         <Grid item container xs={4} alignItems='center' justifyContent='center'>
           <Grid item xs={12}>
             <Typography variant="h6" align="center" gutterBottom className='text-color'>
-              <img src="assets/images/logo-footer.png" width='40%' alt="Logo" className='logo' />
+              <img src={logofooter} alt='logo-footer' width='40%' className='logo' />
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container xs={4} alignItems='center'>      
+        <Grid item container xs={4} alignItems='center'>
           <Grid item xs={12}>
             <RouterLink to='/about'>
               <Typography variant="subtitle1" align="center" gutterBottom className='text-color'> Sobre nós </Typography>
@@ -48,4 +49,4 @@ function Footer() {
   )
 }
 
-export default Footer ;
+export default Footer;

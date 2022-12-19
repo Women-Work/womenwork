@@ -15,7 +15,7 @@ function ListCategory() {
 
   useEffect(()=>{
     if(token == ''){
-      toast.error("Você precisa estar logado para acessar essa página.");
+      toast.error("Você precisa estar logada para acessar essa página.");
       navigate("/login");
     }
   }, [token]);
