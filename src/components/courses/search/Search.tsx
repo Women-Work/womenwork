@@ -15,8 +15,8 @@ export default function Search() {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   let navigate = useNavigate();
 
-  useEffect(()=>{
-    if(token == ''){
+  useEffect(() => {
+    if (token == '') {
       toast.error("Você precisa estar logada para pesquisar um curso.");
       navigate("/login");
     }
@@ -42,32 +42,32 @@ export default function Search() {
 
   return (
     <>
-    <Grid container justifyContent='center' alignItems='flex-start' marginX={5}>
-      <Grid item container xs={12} sx={{ marginX: 5 }}>
-        <Typography variant='h4' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
-      </Grid>
-      {
-        isLoading ?
-        <Loading />
-        :
-        courses.length > 0 ?
-        courses.map((course) => (
-          <Grid key={course.id} item xs={10} md={5} lg={3}>
-            <CardCourse
-              id={course.id}
-              title={course.title}
-              description={course.description}
-              price={course.price}
-            />
+      <Grid container justifyContent='center' alignItems='flex-start'>
+        <Grid item container xs={12} sx={{ marginX: 5 }}>
+          <Typography variant='h4' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
         </Grid>
-        ))
-        :
-        <Box marginTop={5}>
-          <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
-        </Box>
+        {
+          isLoading ?
+            <Loading />
+            :
+            courses.length > 0 ?
+              courses.map((course) => (
+                <Grid key={course.id} item xs={10} md={5} lg={3}>
+                  <CardCourse
+                    id={course.id}
+                    title={course.title}
+                    description={course.description}
+                    price={course.price}
+                  />
+                </Grid>
+              ))
+              :
+              <Box marginTop={5}>
+                <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
+              </Box>
 
-      }
-    </Grid>
+        }
+      </Grid>
     </>
   )
 }
