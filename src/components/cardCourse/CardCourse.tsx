@@ -5,6 +5,7 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Card as MCard, CardContent, Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 interface Props {
   id: number;
@@ -14,6 +15,11 @@ interface Props {
 }
 
 function Card({ id, title, description, price }: Props) {
+  const navigate = useNavigate();
+
+  const handleBuyClick = () => {
+    navigate(`/courses/${id}`);
+  }
   
   return (
     <MCard className='transition-hover'
@@ -44,7 +50,7 @@ function Card({ id, title, description, price }: Props) {
             </Typography>
           </Grid>
           <Grid item xs={2} className='cart-btn'>
-            <ShoppingCartRoundedIcon />
+            <ShoppingCartRoundedIcon onClick={handleBuyClick} />
           </Grid>
         </Grid>
       </CardContent>
