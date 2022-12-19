@@ -16,25 +16,25 @@ const features = [
   {
     avatar: <WorkRoundedIcon />,
     title: 'Aulas com profissionais',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    description: 'Cursos realizados e produzidos por mulheres qualificadas do mercado de trabalho.',
     bgColor: '#917395',
   },
   {
     avatar: <HandymanRoundedIcon />,
     title: 'Atividades mão na massa',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    description: 'As incentivamos a aprenderem de forma   participativa, por meio de problemas e situações reais.',
     bgColor: '#AD7C9E',
   },
   {
     avatar: <BarChartRoundedIcon />,
     title: 'Conteúdo atualizado',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    description: 'Cursos revisados e atualizados constantemente por profissionais competentes.',
     bgColor: '#C884A6',
   },
   {
     avatar: <AllInclusiveRoundedIcon />,
     title: 'Acesso vitalício',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quod.',
+    description: 'Você estudará no seu próprio ritmo e sem ter que renovar sua assinatura.',
     bgColor: '#D9ABC2',
   },
 ]
