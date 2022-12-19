@@ -7,6 +7,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import { Box, Link } from '@mui/material';
 import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import logofooter from '../../../assets/logo-footer.png';
 
 function Footer() {
   return (
@@ -32,7 +33,7 @@ function Footer() {
         <Grid item container xs={4} alignItems='center' justifyContent='center'>
           <Grid item xs={12}>
             <Typography variant="h6" align="center" gutterBottom className='text-color'>
-              <img src="assets/images/logo-footer.png" width='40%' alt="Logo" className='logo' />
+              <img src={logofooter} alt='logo-footer' width='40%' className='logo' />
             </Typography>
           </Grid>
         </Grid>

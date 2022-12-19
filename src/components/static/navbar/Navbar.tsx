@@ -9,6 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { styles } from './styles';
 import { LoginRounded, LogoutRounded as Logout, PowerSettingsNewRounded } from '@mui/icons-material';
+import logo from '../../../assets/logo.png';
 
 
 function Navbar() {
@@ -28,7 +29,7 @@ function Navbar() {
   function onSubmit(e: ChangeEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    if(search) {
+    if (search) {
       navigate(`/search?q=${search}`);
     }
   }
@@ -53,7 +54,7 @@ function Navbar() {
               </Link>
             </Grid>
             <Grid item xs={4} className={classes.centerImg}>
-              <img src='assets/images/logo.png' alt='logo' height='40px' />
+              <img src={logo} alt='logo' height='40px' />
             </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
               <Grid item xs={6} className={classes.search}>
@@ -70,17 +71,17 @@ function Navbar() {
                   />
                 </form>
               </Grid>
-              
+
               <Grid item xs={1}>
                 {
                   localStorage.getItem('token') ?
-                  <Button variant='text' color="inherit" onClick={logoutHandle} style={{ padding: 6, minWidth: 0 }}>
-                    <Logout />
-                  </Button>
-                  :
-                  <Link to="/login">
-                    <Button variant='text' color={handlePathColor('/login')} style={{ padding: 6, minWidth: 0 }}><LoginRounded /></Button>
-                  </Link>
+                    <Button variant='text' color="inherit" onClick={logoutHandle} style={{ padding: 6, minWidth: 0 }}>
+                      <Logout />
+                    </Button>
+                    :
+                    <Link to="/login">
+                      <Button variant='text' color={handlePathColor('/login')} style={{ padding: 6, minWidth: 0 }}><LoginRounded /></Button>
+                    </Link>
                 }
               </Grid>
             </Grid>
@@ -88,7 +89,7 @@ function Navbar() {
         </Toolbar>
       </AppBar>
     </Box>
-        // <Box sx={{ flexGrow: 1, height: '80px' }}>
+    // <Box sx={{ flexGrow: 1, height: '80px' }}>
     //   <AppBar className={classes.navbar}>
     //     <Toolbar>
     //       <Typography>
