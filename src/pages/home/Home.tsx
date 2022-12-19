@@ -1,5 +1,5 @@
 import { Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
-import Image from 'material-ui-image';
+import Image from 'mui-image';
 import React from 'react';
 import { Link } from 'react-router-dom';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
@@ -45,7 +45,7 @@ export default function Home() {
   return (
     <>
       <Grid container justifyContent='center' alignContent='center'>
-        <Grid item xs={12} container justifyContent='center' paddingY={2} >
+        <Grid item xs={12} container justifyContent='center' paddingY={2} marginY={8} >
           <Grid item xs={5}>
             <Typography variant='h1' className='title-poppins' >Delas</Typography>
             <Typography variant='h1' className='title-poppins' >para elas.</Typography>
@@ -59,13 +59,18 @@ export default function Home() {
 
           </Grid>
           <Grid item xs={6}>
-            <Image style={{ backgroundColor: 'none' }} src='assets/images/home.svg' alt='' />
+            <Image
+              style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
+              src='assets/images/home.svg'
+              duration={300}
+              alt=""
+            />
           </Grid>
         </Grid>
         <Grid item xs={12} container justifyContent='center' id='recursos' sx={{ marginBottom: 10, marginX: 5 }}>
-          {/* <Grid item xs={12} textAlign='center'>
-          <Typography variant='h2'>Recursos</Typography>
-        </Grid> */}
+          <Grid item xs={12} textAlign='center'>
+            <Typography variant='h2' className='title-poppins'>Recursos</Typography>
+          </Grid>
           {
             features.map((feature) => (
               <Grid key={feature.title} item xs={12} sm={6} md={3}>

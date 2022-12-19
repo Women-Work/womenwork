@@ -25,7 +25,7 @@ export default function AddCourses() {
 
   useEffect(() => {
     if (token == '') {
-      toast.warn('Você precisa estar logado para acessar essa página');
+      toast.warn('Você precisa estar logada para acessar essa página');
       navigate('/login');
     }
   }, [token]);

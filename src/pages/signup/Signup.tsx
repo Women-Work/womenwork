@@ -1,7 +1,7 @@
 import './Signup.css';
 
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
-import Image from 'material-ui-image';
+import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -42,7 +42,7 @@ export default function Singup() {
         if (userResult.error) {
             toast.error(userResult.error);
         } else if (userResult.id != '') {
-            toast.success('Usuário cadastrado com sucesso.');
+            toast.success('Usuária cadastrada com sucesso.');
             navigate("/login");
         }
     }, [userResult]);
@@ -75,7 +75,12 @@ export default function Singup() {
         <>
             <Grid container direction='row' justifyContent='center'>
                 <Grid item xs={3} sm={4}>
-                    <Image style={{ backgroundColor: 'none' }} src='assets/images/signup.svg' alt='' />
+                    <Image
+                        style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
+                        src='assets/images/signup.svg'
+                        duration={300}
+                        alt=""
+                    />
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={3} sm={4}>

@@ -22,7 +22,7 @@ export default function AddCategory() {
 
     useEffect(() => {
         if (token == "") {
-            toast.success("Você precisa estar logado")
+            toast.success("Você precisa estar logada")
             navigate("/login")
     
         }

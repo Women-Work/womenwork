@@ -17,7 +17,7 @@ export default function Search() {
 
   useEffect(()=>{
     if(token == ''){
-      toast.error("Você precisa estar logado para pesquisar um curso.");
+      toast.error("Você precisa estar logada para pesquisar um curso.");
       navigate("/login");
     }
   }, [token]);

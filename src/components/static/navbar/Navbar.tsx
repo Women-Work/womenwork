@@ -8,6 +8,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { styles } from './styles';
+import { LoginRounded, LogoutRounded as Logout, PowerSettingsNewRounded } from '@mui/icons-material';
 
 
 function Navbar() {
@@ -16,10 +17,8 @@ function Navbar() {
   const [search, setSearch] = useState('');
 
   function logoutHandle() {
-    if (window.confirm('Deseja sair?')) {
-      localStorage.removeItem('token');
-      navigate("/login");
-    }
+    localStorage.removeItem('token');
+    navigate("/login");
   }
 
   function handlePathColor(path: string) {
@@ -56,17 +55,7 @@ function Navbar() {
             <Grid item xs={4} className={classes.centerImg}>
               <img src='assets/images/logo.png' alt='logo' height='40px' />
             </Grid>
-            <Grid item xs={4} container className={classes.buttons2}>
-              <Grid item xs={6} textAlign='right'>
-                {
-                  localStorage.getItem('token') ?
-                  <Button color="inherit" onClick={logoutHandle}>Logout</Button>
-                  :
-                  <Link to="/login">
-                    <Button color={handlePathColor('/login')}>login</Button>
-                  </Link>
-                }
-              </Grid>
+            <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
               <Grid item xs={6} className={classes.search}>
                 <SearchIcon className={classes.searchIcon} />
                 <form onSubmit={onSubmit}>
@@ -82,6 +71,18 @@ function Navbar() {
                 </form>
               </Grid>
               
+              <Grid item xs={1}>
+                {
+                  localStorage.getItem('token') ?
+                  <Button variant='text' color="inherit" onClick={logoutHandle} style={{ padding: 6, minWidth: 0 }}>
+                    <Logout />
+                  </Button>
+                  :
+                  <Link to="/login">
+                    <Button variant='text' color={handlePathColor('/login')} style={{ padding: 6, minWidth: 0 }}><LoginRounded /></Button>
+                  </Link>
+                }
+              </Grid>
             </Grid>
           </Grid>
         </Toolbar>

@@ -21,7 +21,7 @@ function Courses() {
   useEffect(() => {
     if (token == "") {
       navigate("/login");
-      toast.error("Você precisa estar logado para acessar os cursos.");
+      toast.error("Você precisa estar logada para acessar os cursos.");
 
     }
   }, [token]);
@@ -47,7 +47,7 @@ function Courses() {
         alignItems="center"
         justifyContent="center"
       >
-        <Grid item container xs={12} sx={{ marginX: 5 }}>
+        <Grid item container xs={12} sx={{ marginX: 5, justifyContent: 'center' }}>
           <Typography variant='h2' className='title-poppins'>Cursos</Typography>
         </Grid>
         <Grid item xs={12} container justifyContent='center' marginX={5}>

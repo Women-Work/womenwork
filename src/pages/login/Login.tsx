@@ -2,7 +2,7 @@ import './Login.css';
 
 import { Button, TextField, Typography } from '@material-ui/core';
 import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
-import Image from 'material-ui-image';
+import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -51,7 +51,6 @@ export function Login() {
         e.preventDefault();
         try {
             await login(`/auth/login`, userLogin, setToken);
-            toast.success('Usuário logado com sucesso.');
         } catch (error) {
             toast.error('E-mail ou senha inválido.');
         }
@@ -74,12 +73,12 @@ export function Login() {
                                     </Link>
                                 </Typography>
                             </Box>
-                            <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth />
+                            <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' fullWidth />
                             <TextField
                                 value={userLogin.password}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
                                 id='senha' label='Senha' variant='outlined' name='password' margin='normal'
-                                type={showPassword ? 'text' : 'password'} required fullWidth
+                                type={showPassword ? 'text' : 'password'} fullWidth
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position='end'>
@@ -104,7 +103,12 @@ export function Login() {
                     </Box>
                 </Grid>
                 <Grid item lg={5} md={12} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
-                    <Image style={{ backgroundColor: 'none' }} width='100%' height='auto' src='/assets/images/login.svg' alt='' />
+                    <Image
+                        style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
+                        src='/assets/images/login.svg'
+                        duration={300}
+                        alt=""
+                        />
                 </Grid>
             </Grid>
         </>
