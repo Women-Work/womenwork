@@ -12,19 +12,19 @@ function About() {
             <Grid container justifyContent='center'>
 
                 <Grid item xs={12} sm={12} className='titulo'>
-                    <Typography variant='h2'  className='title-poppins'>WomenWork</Typography>  
+                    <Typography variant='h2' className='title-poppins'>WomenWork</Typography>
                 </Grid>
 
 
 
                 <Grid container item className='container-center' lg={12} xs={12} sm={6}>
                     <Grid item lg={6} xs={6} sm={6}>
-                        <img style={{width: '60%' }} className='padding-left' src='/assets/images/about/about1.svg' alt='' />
+                        <img style={{ width: '60%' }} className='padding-left' src='/assets/images/about/about1.svg' alt='' />
                     </Grid>
 
                     <Grid item lg={6} xs={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text padding-right'>Quem somos</Typography>
-                        <Typography variant='subtitle1'> Women Work oferece cursos dentro da plataforma que irão especializar
+                        <Typography variant='subtitle1'> WomenWork oferece cursos que irão especializar
                             mulheres que desejam crescer no mercado de trabalho conforme a
                             necessidade de cada uma. Nosso objetivo é integrar o máximo de mulheres
                             possíveis dentro desse ambiente.</Typography>
@@ -41,25 +41,25 @@ function About() {
                         </Typography>
                     </Grid>
                     <Grid item className='container-center' xs={6} lg={6} sm={6}>
-                        
-                        <img style={{width: '70%' }} className='padding-left' src='/assets/images/about/about2.svg' alt='' />
-                        
+
+                        <img style={{ width: '70%' }} className='padding-left' src='/assets/images/about/about2.svg' alt='' />
+
                     </Grid>
                 </Grid>
 
 
 
-                <Grid container item className='container-center ' lg={12} xs={12}  sm={6}>
+                <Grid container item className='container-center ' lg={12} xs={12} sm={6}>
                     <Grid item xs={6} lg={6} sm={6}>
-                        <img style={{ width: '70%' }} className='padding-left'  src='/assets/images/about/about4.svg' alt='' />
+                        <img style={{ width: '70%' }} className='padding-left' src='/assets/images/about/about4.svg' alt='' />
                     </Grid>
                     <Grid item xs={6} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Visão</Typography>
                         <Typography variant='subtitle1'>Planejamos estar entre as melhores e mais respeitadas
-                            plataformas desse segmento por oferecer de forma consistente cursos que
-                            irão inovar e agregar a vida de muitas mulheres na sua carreira profissional </Typography>
+                            plataformas desse segmento por oferecer de forma consistente cursos que irão inovar e agregar a vida de muitas brasileiras em suas carreiras profissionais.</Typography>
                     </Grid>
                 </Grid>
+
 
 
 
@@ -67,13 +67,13 @@ function About() {
                 <Grid container item className='container-center padding-left' lg={12} xs={12} sm={6}>
                     <Grid item xs={6} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Valores</Typography>
-                        <Typography variant='subtitle1'> melhoria contínua dos produtos e a qualidade para
+                        <Typography variant='subtitle1'> Melhoria contínua dos produtos e a qualidade para
                             atender às necessidades das clientes.
-                            Prezamos a confiança, respeito, crença, humildade e integridade</Typography>
+                            Prezamos por igualdade, respeito, confiança, humildade e integridade.</Typography>
                     </Grid>
 
                     <Grid item className='container-center' xs={6} lg={6} sm={6}>
-                        <img style={{width: '70%' }} src='/assets/images/about/about5.svg' alt='' />
+                        <img style={{ width: '70%' }} src='/assets/images/about/about5.svg' alt='' />
                     </Grid>
                 </Grid>
             </Grid>
