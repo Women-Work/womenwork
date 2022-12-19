@@ -11,19 +11,19 @@ function About() {
         <>
             <Grid container justifyContent='center'>
 
-                <Grid item xs={12} sm={12}  className='titulo' >
-                    <Typography variant='h2' className='title-poppins'>WomenWork</Typography>
+                <Grid item xs={12} sm={12} className='titulo'>
+                    <Typography variant='h2'  className='title-poppins'>WomenWork</Typography>  
                 </Grid>
 
 
 
                 <Grid container item className='container-center' lg={12} xs={12} sm={6}>
                     <Grid item lg={6} xs={6} sm={6}>
-                        <img style={{width: '60%' }} src='/assets/images/about/about1.svg' alt='' />
+                        <img style={{width: '60%' }} className='padding-left' src='/assets/images/about/about1.svg' alt='' />
                     </Grid>
 
                     <Grid item lg={6} xs={6} sm={6}>
-                        <Typography variant='h5' className='title-poppins mb-text'>Quem somos</Typography>
+                        <Typography variant='h5' className='title-poppins mb-text padding-right'>Quem somos</Typography>
                         <Typography variant='subtitle1'> Women Work oferece cursos dentro da plataforma que irão especializar
                             mulheres que desejam crescer no mercado de trabalho conforme a
                             necessidade de cada uma. Nosso objetivo é integrar o máximo de mulheres
@@ -33,7 +33,7 @@ function About() {
 
 
 
-                <Grid container item className='container-center' lg={12} xs={12} sm={6}>
+                <Grid container item className='container-center padding-left' lg={12} xs={12} sm={6}>
                     <Grid item xs={6} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Nossa missão</Typography>
                         <Typography variant='subtitle1'>Promover e contribuir para o desenvolvimento profissional através
@@ -42,16 +42,16 @@ function About() {
                     </Grid>
                     <Grid item className='container-center' xs={6} lg={6} sm={6}>
                         
-                        <img style={{width: '70%' }} src='/assets/images/about/about2.svg' alt='' />
+                        <img style={{width: '70%' }} className='padding-left' src='/assets/images/about/about2.svg' alt='' />
                         
                     </Grid>
                 </Grid>
 
 
 
-                <Grid container item className='container-center' lg={12} xs={12}  sm={6}>
+                <Grid container item className='container-center ' lg={12} xs={12}  sm={6}>
                     <Grid item xs={6} lg={6} sm={6}>
-                        <img style={{ width: '70%' }} src='/assets/images/about/about4.svg' alt='' />
+                        <img style={{ width: '70%' }} className='padding-left'  src='/assets/images/about/about4.svg' alt='' />
                     </Grid>
                     <Grid item xs={6} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Visão</Typography>
@@ -64,7 +64,7 @@ function About() {
 
 
 
-                <Grid container item className='container-center' lg={12} xs={12} sm={6}>
+                <Grid container item className='container-center padding-left' lg={12} xs={12} sm={6}>
                     <Grid item xs={6} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Valores</Typography>
                         <Typography variant='subtitle1'> melhoria contínua dos produtos e a qualidade para
@@ -80,7 +80,7 @@ function About() {
 
 
 
-            <Grid container className='grid-container'>
+            <Grid container className='grid-container '>
                 <Grid item container xs={12} sm={12} justifyContent='center' className='p'>
                     <Typography variant='h3' className='title-poppins'>Membros</Typography>
                 </Grid>
@@ -99,7 +99,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6'>Carlos Eduardo</Typography>
+                        <Typography className='title-poppins pad-top-text'>Carlos Eduardo</Typography>
                     </Box>
 
                     <Box className='flip-card'>
@@ -116,7 +116,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6'>João Vitor</Typography>
+                        <Typography className='title-poppins pad-top-text'>João Vitor</Typography>
                     </Box>
 
                     <Box className='flip-card'>
@@ -133,7 +133,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6'>Victor França</Typography>
+                        <Typography className='title-poppins pad-top-text'>Victor França</Typography>
                     </Box>
 
                     <Box className='flip-card'>
@@ -150,7 +150,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6' >Rafaele Souza</Typography>
+                        <Typography className='title-poppins pad-top-text' >Rafaele Souza</Typography>
                     </Box>
 
                     <Box className='flip-card'>
@@ -167,7 +167,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6'>Henrique O.</Typography>
+                        <Typography className='title-poppins pad-top-text'>Henrique O.</Typography>
                     </Box>
 
                     <Box className='flip-card'>
@@ -184,7 +184,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
-                        <Typography variant='h6'>Julio Cesar</Typography>
+                        <Typography className='title-poppins pad-top-text'>Julio Cesar</Typography>
                     </Box>
 
                 </Grid>

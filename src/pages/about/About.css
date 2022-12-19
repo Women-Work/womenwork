@@ -65,6 +65,7 @@
 .titulo{
     display: flex;
     padding: 20px;
+    justify-content: center;
 }
 
 .main{
@@ -79,7 +80,6 @@
 
 .mb-text{
   padding-bottom: 10px;
-  text-align: center;
 }
 
 .c2{
@@ -139,5 +139,13 @@
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  padding: 50px;
+  padding: 20px;
+}
+
+.padding-left{
+  padding-left: 60px;
+}
+
+.pad-top-text{
+  padding-top: 15px;
 }
