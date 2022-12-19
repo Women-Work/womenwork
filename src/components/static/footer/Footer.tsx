@@ -14,7 +14,7 @@ function Footer() {
       <Grid container style={{ paddingTop: 10 }}>
         <Grid item container xs={4} justifyContent='center' alignItems='center'>
           <Grid item xs={1}>
-            <Link href="#" target="_blank">
+            <Link href="https://www.youtube.com/channel/UCyALtu4kMdQq4I5hLME_LwQ" target="_blank">
               <YoutubeIcon className='social' />
             </Link>
           </Grid>
@@ -36,7 +36,7 @@ function Footer() {
             </Typography>
           </Grid>
         </Grid>
-        <Grid item container xs={4} alignItems='center'>      
+        <Grid item container xs={4} alignItems='center'>
           <Grid item xs={12}>
             <RouterLink to='/about'>
               <Typography variant="subtitle1" align="center" gutterBottom className='text-color'> Sobre nós </Typography>
@@ -48,4 +48,4 @@ function Footer() {
   )
 }
 
-export default Footer ;
+export default Footer;
