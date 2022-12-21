@@ -1,14 +1,11 @@
 import './Navbar.css';
-
 import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import { styles } from './styles';
-import { LoginRounded, LogoutRounded as Logout, PowerSettingsNewRounded } from '@mui/icons-material';
 import logo from '../../../assets/logo.png';
 
 
@@ -57,30 +54,35 @@ function Navbar() {
               <img src={logo} alt='logo' height='40px' />
             </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
-              <Grid item xs={6} className={classes.search}>
-                <SearchIcon className={classes.searchIcon} />
-                <form onSubmit={onSubmit}>
-                  <InputBase
-                    placeholder="Pesquisar"
-                    classes={{
-                      root: classes.inputRoot,
-                      input: classes.inputInput,
-                    }}
-                    onChange={(e) => setSearch(e.target.value)}
-                    inputProps={{ 'aria-label': 'search' }}
-                  />
-                </form>
-              </Grid>
+              {localStorage.getItem('token') ?
+                <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 30 }}>
+                  <SearchIcon className={classes.searchIcon} />
+                  <form onSubmit={onSubmit}>
+                    <InputBase
+                      placeholder="Cursos"
+                      classes={{
+                        root: classes.inputRoot,
+                        input: classes.inputInput,
+                      }}
+                      onChange={(e) => setSearch(e.target.value)}
+                      inputProps={{ 'aria-label': 'search' }}
+                    />
+                  </form>
+                </Grid>
+                :
+                <></>
+              }
 
-              <Grid item xs={1}>
+              <Grid item xs={2}>
                 {
                   localStorage.getItem('token') ?
-                    <Button variant='text' color="inherit" onClick={logoutHandle} style={{ padding: 6, minWidth: 0 }}>
-                      <Logout />
+                    <Button color="inherit" onClick={logoutHandle} style={{ padding: 5, minWidth: 0 }}>
+                      LOGOUT
                     </Button>
                     :
                     <Link to="/login">
-                      <Button variant='text' color={handlePathColor('/login')} style={{ padding: 6, minWidth: 0 }}><LoginRounded /></Button>
+                      <Button color={handlePathColor('/login')} style={{ padding: 5, minWidth: 0 }}>
+                        LOGIN </Button>
                     </Link>
                 }
               </Grid>
@@ -88,7 +90,7 @@ function Navbar() {
           </Grid>
         </Toolbar>
       </AppBar>
-    </Box>
+    </Box >
     // <Box sx={{ flexGrow: 1, height: '80px' }}>
     //   <AppBar className={classes.navbar}>
     //     <Toolbar>
