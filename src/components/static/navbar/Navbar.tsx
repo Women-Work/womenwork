@@ -91,61 +91,6 @@ function Navbar() {
         </Toolbar>
       </AppBar>
     </Box >
-    // <Box sx={{ flexGrow: 1, height: '80px' }}>
-    //   <AppBar className={classes.navbar}>
-    //     <Toolbar>
-    //       <Typography>
-    //         <SDrawer />
-    //       </Typography>
-    //       <Typography
-    //         variant="h6"
-    //         noWrap
-    //         component="div"
-    //         className={classes.buttons}
-    //       >
-    //         <Link to="/" color="primary">
-    //           <Button color="inherit">home</Button>
-    //         </Link>
-
-    //         <Link to="/courses">
-    //           <Button color="inherit">cursos</Button>
-    //         </Link>
-
-    //         <Link to="/about">
-    //           <Button color="inherit">sobre</Button>
-    //         </Link>
-    //       </Typography>
-
-    //       <Typography className={classes.buttons2}>
-
-    //         {
-    //           localStorage.getItem('token') ?
-
-    //             <Button color="inherit" onClick={logoutHandle}>Logout</Button>
-    //             :
-    //             <Link to="/login">
-    //               <Button color="inherit">login</Button>
-    //             </Link>
-    //         }
-
-    //       </Typography>
-
-    //       <div className={classes.search}>
-    //         <div className={classes.searchIcon}>
-    //           <SearchIcon />
-    //         </div>
-    //         <InputBase
-    //           placeholder="Pesquisar"
-    //           classes={{
-    //             root: classes.inputRoot,
-    //             input: classes.inputInput,
-    //           }}
-    //           inputProps={{ 'aria-label': 'search' }}
-    //         />
-    //       </div>
-    //     </Toolbar>
-    //   </AppBar>
-    // </Box>
   );
 }
 
