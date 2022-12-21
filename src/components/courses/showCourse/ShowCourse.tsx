@@ -1,15 +1,30 @@
-import { Typography } from '@material-ui/core';
+import { Typography, makeStyles } from '@material-ui/core';
 import { Button, Grid } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import useLocalStorage from 'react-use-localstorage';
 
 import Course from '../../../models/Course';
 import { searchId } from '../../../services/Service';
+import Loading from '../../static/loading/Loading';
+
+const useStyles = makeStyles({
+  button: {
+    backgroundColor: '#E1A6A0',
+    color: '#fff',
+    '&:hover': {
+      backgroundColor: '#C8857F',
+      color: '#fff',
+    },
+  }
+});
 
 export default function ShowCourse() {
+  const classes = useStyles();
   const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [token, setToken] = useLocalStorage('token');
   const { id } = useParams<{ id: string }>();
   const [course, setCourse] = useState<Course>();
@@ -23,39 +38,68 @@ export default function ShowCourse() {
       headers: {
         'Authorization': token
       }
+    }).then(() => {
+      setIsLoading(false);
     });
   }
 
+  const handlePurchase = () => {
+    if (token) {
+      toast.success(`Curso ${course?.title} comprado com sucesso!`);
+    } else {
+      navigate('/login');
+    }
+  }
+
+  const buttonSX = {
+    backgroundColor: '#E1A6A0',
+    "&:hover": {
+      backgroundColor: '#C8857F'
+    },
+  };
+
   return (
-    <Grid container justifyContent='center'>
-      <Grid
-      item xs={8}
-      container
-      sx={{ backgroundColor: 'white', borderTopRightRadius: '10px', borderTopLeftRadius: '10px', minHeight: '90vh', padding: 5, marginTop: 2 }}>
-        <Grid item container xs={12}>
-          <Grid item xs={6}>
-            <img
+    <Grid container justifyContent='center' alignItems='center'>
+      {
+        isLoading ?
+        <Loading />
+        :
+        <Grid
+          item xs={10}
+          container
+          sx={{ borderTopRightRadius: '10px', borderTopLeftRadius: '10px', padding: 5 }}>
+            <Grid item container xs={12}>
+              <Grid item xs={6}>
+              <Image
               style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
               src={`../assets/images/courses/${id}.png`}
+              duration={300}
               alt=""
             />
+                
+                <Button
+                variant='contained'
+                fullWidth
+                onClick={handlePurchase}
+                sx={buttonSX}
+                >
+                  Comprar
+                </Button>
+              </Grid>
+              <Grid item xs={6} sx={{ paddingLeft: 5, paddingTop: 2 }} alignSelf='center'>
+                <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3 }}>
+                  {course?.title}
+                </Typography>
+                <Typography variant='h5' className='text-poppins' style={{ marginBottom: 5 }}>
+                R${course?.price.toString().replace('.', ',')}
+                </Typography>
+                <Typography variant='body1' style={{ color: '#353535', textAlign: 'justify' }}>
+                  {course?.description}
+                </Typography>
+              </Grid>
+            </Grid>
           </Grid>
-          <Grid item xs={6} sx={{ paddingLeft: 5, paddingTop: 3 }}>
-            <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3 }}>
-              {course?.title}
-            </Typography>
-            <Typography variant='h5' className='text-poppins' style={{ marginBottom: 5 }}>
-            R${course?.price.toString().replace('.', ',')}
-            </Typography>
-            <Typography variant='body1' style={{ color: '#353535' }} >
-              {course?.description}
-            </Typography>
-            <Button variant='contained' color='primary' fullWidth>
-              Comprar
-            </Button>
-          </Grid>
-        </Grid>
+      }
       </Grid>
-    </Grid>
   )
 }
