@@ -43,7 +43,7 @@ export function Login() {
 
     useEffect(() => {
         if (token != '') {
-            navigate('/home');
+            navigate('/courses');
         }
     }, [token]);
 
@@ -58,7 +58,7 @@ export function Login() {
 
     return (
         <>
-            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='flex-start'>
+            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item alignItems='center' lg={6} md={12}>
                     <Box paddingX={10}>
                         <form onSubmit={onSubmit}>

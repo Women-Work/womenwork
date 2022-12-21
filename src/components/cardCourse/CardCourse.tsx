@@ -37,9 +37,9 @@ function Card({ id, title, description, price }: Props) {
           {title}
         </Typography>
         
-        <Typography variant='body1' color='#353535'>
+        {/* <Typography variant='body1' color='#353535'>
           {description}
-        </Typography>
+        </Typography> */}
 
         <Box className='horizontal-line'></Box>
 

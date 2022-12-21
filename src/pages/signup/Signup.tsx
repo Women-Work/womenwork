@@ -33,7 +33,7 @@ export default function Singup() {
 
     useEffect(() => {
         if (token) {
-            toast.success("Acesso negado.");
+            toast.warn("Faça logout para criar uma nova conta.");
             navigate("/home");
         }
     });
@@ -73,7 +73,7 @@ export default function Singup() {
 
     return (
         <>
-            <Grid container direction='row' justifyContent='center'>
+            <Grid container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item xs={3} sm={4}>
                     <Image
                         style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
