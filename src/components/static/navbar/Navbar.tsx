@@ -7,6 +7,7 @@ import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { styles } from './styles';
 import logo from '../../../assets/logo.png';
+import logofooter from '../../../assets/logo-footer.png';
 
 
 function Navbar() {
@@ -37,8 +38,14 @@ function Navbar() {
       <AppBar className={classes.navbar}>
         <Toolbar>
           <Grid container alignItems='center' justifyContent='center'>
-            <Grid item xs={4}>
-              <Link to="/" color="primary">
+            <Grid item xs={4} alignItems='center' display='flex'>
+            <img src={logo} alt='logo' height='40px'/>
+            <Box padding='10px'>
+            <img src={logofooter} alt='logo-footer' width='40%'/>
+            </Box>
+            </Grid>
+            <Grid item xs={4} className={classes.centerImg}>
+            <Link to="/" color="primary">
                 <Button color={handlePathColor('/home')}>home</Button>
               </Link>
 
@@ -50,12 +57,9 @@ function Navbar() {
                 <Button color={handlePathColor('/about')}>sobre</Button>
               </Link>
             </Grid>
-            <Grid item xs={4} className={classes.centerImg}>
-              <img src={logo} alt='logo' height='40px' />
-            </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
               {localStorage.getItem('token') ?
-                <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 30 }}>
+                <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 10 }}>
                   <SearchIcon className={classes.searchIcon} />
                   <form onSubmit={onSubmit}>
                     <InputBase
