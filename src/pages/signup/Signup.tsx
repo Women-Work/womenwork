@@ -87,7 +87,7 @@ export default function Singup() {
     return (
         <>
             <Grid container direction='row' justifyContent='center' alignItems='center'>
-                <Grid item xs={3} sm={4}>
+                <Grid item xs={4}>
                     <Image
                         style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
                         src='assets/images/signup.svg'
@@ -96,7 +96,7 @@ export default function Singup() {
                     />
                 </Grid>
                 <Grid item xs={1}></Grid>
-                <Grid item xs={3} sm={4}>
+                <Grid item xs={4}>
                     <Box paddingX={10}>
                         <form onSubmit={onSubmit}>
                             <Typography variant='h2' color='textPrimary' component='h3' className='title-poppins'>Cadastre-se</Typography>
