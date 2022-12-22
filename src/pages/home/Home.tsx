@@ -1,16 +1,13 @@
+import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
+import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
+import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
+import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import { Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
-import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
-import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
-import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
 
 import { styles } from './styles';
-import CardCategory from '../../components/cardCategory/CardCategory';
-import Footer from '../../components/static/footer/Footer';
 
 const features = [
   {
@@ -52,8 +49,8 @@ export default function Home() {
             <Typography variant='h6' sx={{ marginTop: 3, marginBottom: 3, color: '#303030' }}>Transformando mulheres através da educação.</Typography>
 
             <MuiLink href='#recursos' underline='none'>
-              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#C8857F' }}>
-                Saber mais <KeyboardArrowRightRoundedIcon />
+              <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#C8857F' }} endIcon={<KeyboardArrowRightRoundedIcon />}>
+                Saiba mais 
               </Button>
             </MuiLink>
 

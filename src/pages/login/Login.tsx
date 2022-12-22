@@ -1,6 +1,7 @@
 import './Login.css';
 
 import { Button, TextField, Typography } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
@@ -10,8 +11,6 @@ import useLocalStorage from 'react-use-localstorage';
 
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
-import Footer from '../../components/static/footer/Footer';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 
 
@@ -43,7 +42,7 @@ export function Login() {
 
     useEffect(() => {
         if (token != '') {
-            navigate('/home');
+            navigate('/courses');
         }
     }, [token]);
 
@@ -58,7 +57,7 @@ export function Login() {
 
     return (
         <>
-            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='flex-start'>
+            <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item alignItems='center' lg={6} md={12}>
                     <Box paddingX={10}>
                         <form onSubmit={onSubmit}>
@@ -73,12 +72,12 @@ export function Login() {
                                     </Link>
                                 </Typography>
                             </Box>
-                            <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' fullWidth />
+                            <TextField value={userLogin.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth />
                             <TextField
                                 value={userLogin.password}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => updateModel(e)}
                                 id='senha' label='Senha' variant='outlined' name='password' margin='normal'
-                                type={showPassword ? 'text' : 'password'} fullWidth
+                                type={showPassword ? 'text' : 'password'} required fullWidth
                                 InputProps={{
                                     endAdornment: (
                                         <InputAdornment position='end'>
