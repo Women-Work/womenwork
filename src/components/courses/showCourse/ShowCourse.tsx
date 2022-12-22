@@ -2,7 +2,7 @@ import { Typography, makeStyles } from '@material-ui/core';
 import { Button, Grid } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import useLocalStorage from 'react-use-localstorage';
 
@@ -33,7 +33,7 @@ export default function ShowCourse() {
     getCourseById(id);
   }, [id]);
 
-  async function getCourseById(id: string | undefined){
+  async function getCourseById(id: string | undefined) {
     await searchId(`/products/${id}`, setCourse, {
       headers: {
         'Authorization': token
@@ -62,36 +62,37 @@ export default function ShowCourse() {
     <Grid container justifyContent='center' alignItems='center'>
       {
         isLoading ?
-        <Loading />
-        :
-        <Grid
-          item xs={10}
-          container
-          sx={{ borderTopRightRadius: '10px', borderTopLeftRadius: '10px', padding: 5 }}>
+          <Loading />
+          :
+          <Grid
+            item xs={10}
+            container
+            sx={{ borderTopRightRadius: '10px', borderTopLeftRadius: '10px', padding: 5 }}>
             <Grid item container xs={12}>
               <Grid item xs={6}>
-              <Image
-              style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
-              src={`../assets/images/courses/${id}.png`}
-              duration={300}
-              alt=""
-            />
-                
-                <Button
-                variant='contained'
-                fullWidth
-                onClick={handlePurchase}
-                sx={buttonSX}
-                >
-                  Comprar
-                </Button>
+                <Image
+                  style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
+                  src={`../assets/images/courses/${id}.png`}
+                  duration={300}
+                  alt=""
+                />
+                <Link to="/courses">
+                  <Button
+                    variant='contained'
+                    fullWidth
+                    onClick={handlePurchase}
+                    sx={buttonSX}
+                  >
+                    Comprar
+                  </Button>
+                </Link>
               </Grid>
               <Grid item xs={6} sx={{ paddingLeft: 5, paddingTop: 2 }} alignSelf='center'>
                 <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3 }}>
                   {course?.title}
                 </Typography>
                 <Typography variant='h5' className='text-poppins' style={{ marginBottom: 5 }}>
-                R${course?.price.toString().replace('.', ',')}
+                  R${course?.price.toString().replace('.', ',')}
                 </Typography>
                 <Typography variant='body1' style={{ color: '#353535', textAlign: 'justify' }}>
                   {course?.description}
@@ -100,6 +101,6 @@ export default function ShowCourse() {
             </Grid>
           </Grid>
       }
-      </Grid>
+    </Grid>
   )
 }
