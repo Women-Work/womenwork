@@ -1,6 +1,7 @@
 import './CardCourse.css';
 
 import { Box } from '@material-ui/core';
+import { AddCircleOutlineRounded, AddCircleRounded, AddRounded } from '@mui/icons-material';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import { Card as MCard, CardContent, Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
@@ -50,7 +51,7 @@ function Card({ id, title, description, price }: Props) {
             </Typography>
           </Grid>
           <Grid item xs={2} className='cart-btn'>
-            <ShoppingCartRoundedIcon onClick={handleBuyClick} />
+            <AddRounded onClick={handleBuyClick} />
           </Grid>
         </Grid>
       </CardContent>

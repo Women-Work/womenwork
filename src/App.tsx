@@ -20,7 +20,6 @@ import DeleteCategory from './components/categories/deleteCategory/DeleteCategor
 import Search from './components/courses/search/Search';
 import useLocalStorage from 'react-use-localstorage';
 import ShowCourse from './components/courses/showCourse/ShowCourse';
-import Vlibras from '@djpfs/react-vlibras';
 
 
 
@@ -77,7 +76,7 @@ function App() {
       </Routes>
       </div>
       <Footer />
-      <Vlibras forceOnload={true} />
+      {/* <Vlibras forceOnload={true} /> */}
     </Router>
   );
 }

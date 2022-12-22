@@ -1,5 +1,5 @@
 .grid-container {
-  margin-bottom: 80px;
+  margin-bottom: 50px;
 }
 
 .img {
@@ -64,7 +64,7 @@
 
 .titulo {
   display: flex;
-  padding: 20px;
+  padding: 0 20px 20px 20px;
   justify-content: center;
 }
 

@@ -12,7 +12,7 @@ function About() {
             <Grid container justifyContent='center'>
 
                 <Grid item xs={12} sm={12} className='titulo'>
-                    <Typography variant='h2' className='title-poppins no-selection'>WomenWork</Typography>
+                    <Typography variant='h2' className='title-poppins no-selection'>Sobre nós</Typography>
                 </Grid>
 
 

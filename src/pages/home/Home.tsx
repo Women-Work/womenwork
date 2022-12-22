@@ -1,16 +1,13 @@
+import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
+import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
+import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
+import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
+import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import { Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
-import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
-import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
-import AllInclusiveRoundedIcon from '@mui/icons-material/AllInclusiveRounded';
 
 import { styles } from './styles';
-import CardCategory from '../../components/cardCategory/CardCategory';
-import Footer from '../../components/static/footer/Footer';
 
 const features = [
   {

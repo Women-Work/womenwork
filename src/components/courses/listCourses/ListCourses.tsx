@@ -46,6 +46,7 @@ function Courses() {
         container
         alignItems="center"
         justifyContent="center"
+        sx={{ marginBottom: '50px' }}
       >
         <Grid item container xs={12} sx={{ marginX: 5, justifyContent: 'center' }}>
           <Typography variant='h2' className='title-poppins'>Cursos</Typography>

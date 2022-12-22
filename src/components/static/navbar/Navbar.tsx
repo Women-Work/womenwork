@@ -63,7 +63,7 @@ function Navbar() {
                   <SearchIcon className={classes.searchIcon} />
                   <form onSubmit={onSubmit}>
                     <InputBase
-                      placeholder="Cursos"
+                      placeholder="Pesquisar cursos"
                       classes={{
                         root: classes.inputRoot,
                         input: classes.inputInput,
@@ -80,12 +80,12 @@ function Navbar() {
               <Grid item xs={2}>
                 {
                   localStorage.getItem('token') ?
-                    <Button color="inherit" onClick={logoutHandle} style={{ padding: 5, minWidth: 0 }}>
+                    <Button color="inherit" onClick={logoutHandle}>
                       LOGOUT
                     </Button>
                     :
                     <Link to="/login">
-                      <Button color={handlePathColor('/login')} style={{ padding: 5, minWidth: 0 }}>
+                      <Button color={handlePathColor('/login')}>
                         LOGIN </Button>
                     </Link>
                 }
