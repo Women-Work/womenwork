@@ -104,7 +104,7 @@ export default function Singup() {
                             <TextField value={user.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth type='email' />
                             <TextField
                                 inputProps={{ pattern: "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" }}
-                                helperText='A senha deve ter no mínimo 8 caracteres, conter letras maiúsculas, minúsculas, números e caracteres especias.'
+                                helperText='A senha deve ter no mínimo 8 caracteres, conter letras maiúsculas, minúsculas, números e caracteres especiais.'
                                 value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                                 id='senha' label='Senha' variant='outlined' name='password' margin='normal'required fullWidth 
                                 type={showPassword ? 'text' : 'password'}
