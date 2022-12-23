@@ -97,7 +97,7 @@ export default function Singup() {
                 </Grid>
                 <Grid item xs={1}></Grid>
                 <Grid item xs={4}>
-                    <Box paddingX={10}>
+                    <Box>
                         <form onSubmit={onSubmit}>
                             <Typography variant='h2' color='textPrimary' component='h3' className='title-poppins'>Cadastre-se</Typography>
                             <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
