@@ -19,7 +19,6 @@ import { ProductService } from '../services/product.service';
 @ApiTags('Product')
 @UseGuards(JwtAuthGuard)
 @Controller('/products')
-@ApiBearerAuth()
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
@@ -43,17 +42,20 @@ export class ProductController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @ApiBearerAuth()
   create(@Body() product: Product): Promise<Product> {
     return this.productService.create(product);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
+  @ApiBearerAuth()
   update(@Body() product: Product): Promise<Product> {
     return this.productService.update(product);
   }
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
+  @ApiBearerAuth()
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.productService.delete(id);
   }

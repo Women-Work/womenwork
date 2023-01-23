@@ -17,7 +17,6 @@ import { Category } from '../entities/category.entity';
 import { CategoryService } from '../services/category.service';
 
 @ApiTags('Category')
-@UseGuards(JwtAuthGuard)
 @Controller('/categories')
 @ApiBearerAuth()
 export class CategoryController {
@@ -43,18 +42,21 @@ export class CategoryController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
+  @UseGuards(JwtAuthGuard)
   create(@Body() category: Category): Promise<Category> {
     return this.categoryService.create(category);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
+  @UseGuards(JwtAuthGuard)
   update(@Body() category: Category): Promise<Category> {
     return this.categoryService.update(category);
   }
 
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
+  @UseGuards(JwtAuthGuard)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.categoryService.delete(id);
   }
