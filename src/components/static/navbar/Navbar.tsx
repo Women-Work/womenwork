@@ -1,22 +1,41 @@
 import './Navbar.css';
+
 import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { styles } from './styles';
-import logo from '../../../assets/logo.png';
+import { toast } from 'react-toastify';
+
 import logofooter from '../../../assets/logo-footer.png';
+import logo from '../../../assets/logo.png';
+import { useAppDispatch, useAppSelector } from '../../../common/hooks';
+import { resetToken } from '../../../store/tokenSlice';
+import { styles } from './styles';
 
 
 function Navbar() {
   const classes = styles();
   let navigate = useNavigate();
   const [search, setSearch] = useState('');
+  const token = useAppSelector((state) => state.token.value);
+  const dispatch = useAppDispatch();
+  const privateRoutes = ['courses', 'categories', 'search'];
+
+  useEffect(() => {
+    const path = window.location.pathname.split('/')[1];
+    if(token === '' && privateRoutes.includes(path)) {
+      toast.error("Você precisa estar logada para acessar essa página.");
+      navigate("/login");
+    }else if(token !== '' && ['login', 'register'].includes(path)) {
+      navigate("/home");
+    }
+  }, [token]);
 
   function logoutHandle() {
-    localStorage.removeItem('token');
+    dispatch(resetToken());
     navigate("/login");
   }
 
@@ -58,28 +77,27 @@ function Navbar() {
               </Link>
             </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
-              {localStorage.getItem('token') ?
-                <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 10 }}>
-                  <SearchIcon className={classes.searchIcon} />
-                  <form onSubmit={onSubmit}>
-                    <InputBase
-                      placeholder="Pesquisar cursos"
-                      classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                      }}
-                      onChange={(e) => setSearch(e.target.value)}
-                      inputProps={{ 'aria-label': 'search' }}
-                    />
-                  </form>
-                </Grid>
-                :
-                <></>
+              {
+                token && token.length > 0 &&
+                  <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 10 }}>
+                    <SearchIcon className={classes.searchIcon} />
+                    <form onSubmit={onSubmit}>
+                      <InputBase
+                        placeholder="Pesquisar cursos"
+                        classes={{
+                          root: classes.inputRoot,
+                          input: classes.inputInput,
+                        }}
+                        onChange={(e) => setSearch(e.target.value)}
+                        inputProps={{ 'aria-label': 'search' }}
+                      />
+                    </form>
+                  </Grid>
               }
 
               <Grid item xs={2}>
                 {
-                  localStorage.getItem('token') ?
+                  token && token.length > 0 ?
                     <Button color="inherit" onClick={logoutHandle}>
                       LOGOUT
                     </Button>

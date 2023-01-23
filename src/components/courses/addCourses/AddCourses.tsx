@@ -12,7 +12,8 @@ import {
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
+
+import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import Course from '../../../models/Course';
 import { post, put, search, searchId } from '../../../services/Service';
@@ -20,15 +21,8 @@ import { post, put, search, searchId } from '../../../services/Service';
 export default function AddCourses() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage('token', '');
+  const token = useAppSelector((state) => state.token.value);
   const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    if (token == '') {
-      toast.warn('Você precisa estar logada para acessar essa página');
-      navigate('/login');
-    }
-  }, [token]);
 
   const [category, setCategory] = useState<Category>({
     id: 0,
@@ -58,19 +52,11 @@ export default function AddCourses() {
   }, [id]);
 
   async function getCategories() {
-    await search('/categories', setCategories, {
-      headers: {
-        'Authorization': token
-      }
-    });
+    await search('/categories', setCategories, token);
   }
 
   async function findCourseById(id: string) {
-    await search(`/products/${id}`, setCourse, {
-      headers: {
-        'Authorization': token
-      }
-    });
+    await search(`/products/${id}`, setCourse, token);
   }
 
   function updatedCourse(e: ChangeEvent<HTMLInputElement>) {

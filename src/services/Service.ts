@@ -26,7 +26,13 @@ export const login = async (url: string, data: UserLogin, setData: any) => {
     setData(response.data.token);
 }
 
-export const search = async(url: any,setDado: any, header: any) => { 
+export const search = async(url: any,setDado: any, token: string) => { 
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    };
+
     const resposta = await api.get(url,header);
     setDado(resposta.data);
 }

@@ -1,39 +1,24 @@
 import './ListCourses.css';
 
-import { CircularProgress, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
+import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { search } from '../../../services/Service';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
-import Footer from '../../static/footer/Footer';
 
 function Courses() {
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [token, setToken] = useLocalStorage('token');
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    if (token == "") {
-      navigate("/login");
-      toast.error("Você precisa estar logada para acessar os cursos.");
-
-    }
-  }, [token]);
+  const token = useAppSelector((state) => state.token.value);
 
   async function getCourse() {
-    await search("/products", setCourses, {
-      headers: {
-        'Authorization': token
-      }
-    }).then(() => {
-      setIsLoading(false);
-    });
+    await search("/products", setCourses, token)
+      .then(() => {
+        setIsLoading(false);
+      });
   }
 
   useEffect(() => {

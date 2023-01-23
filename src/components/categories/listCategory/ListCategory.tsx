@@ -1,34 +1,19 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
-import {Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
-import {Box} from '@mui/material';
-import useLocalStorage from 'react-use-localstorage';
+import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
+import { Box } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
+import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
-import Footer from '../../static/footer/Footer';
-import { toast } from 'react-toastify';
 
 function ListCategory() {
-  const [categories, setCategories] = useState<Category[]>([])
-  const [token, setToken] = useLocalStorage('token');
-  let navigate = useNavigate();
-
-  useEffect(()=>{
-    if(token == ''){
-      toast.error("Você precisa estar logada para acessar essa página.");
-      navigate("/login");
-    }
-  }, [token]);
-
+  const [categories, setCategories] = useState<Category[]>([]);
+  const token = useAppSelector((state) => state.token.value);
 
   async function getCategory(){
-    await search("/categories", setCategories, {
-      headers: {
-        'Authorization': token
-      }
-    })
+    await search("/categories", setCategories, token);
   }
-
 
   useEffect(()=>{
     getCategory()
