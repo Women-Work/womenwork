@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty } from 'class-validator';
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, ManyToMany, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 
 import { Category } from '../../category/entities/category.entity';
 import { User } from '../../users/entities/user.entity';
@@ -37,8 +37,6 @@ export class Product {
   category: Category;
 
   @ApiProperty({ type: () => User })
-  @ManyToOne(() => User, (user) => user.product, {
-    onDelete: 'CASCADE',
-  })
-  user: User;
+  @ManyToMany(() => User, (user) => user.product)
+  user: User[];
 }

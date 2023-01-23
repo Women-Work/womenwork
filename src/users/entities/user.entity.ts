@@ -1,4 +1,4 @@
-import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { IsEmail, IsNotEmpty, Matches } from 'class-validator';
 import { Product } from '../../product/entities/product.entity';
 import { RegExHelper } from '../../helpers/regex.helper';
@@ -33,6 +33,7 @@ export class User {
   photo: string;
 
   @ApiProperty()
-  @OneToMany(() => Product, (product) => product.user)
+  @ManyToMany(() => Product, (product) => product.user)
+  @JoinTable()
   product: Product[];
 }

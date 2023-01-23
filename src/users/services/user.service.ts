@@ -22,6 +22,9 @@ export class UserService {
       where: {
         user,
       },
+      relations: {
+        product: true,
+      },
     });
   }
 
