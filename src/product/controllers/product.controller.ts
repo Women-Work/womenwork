@@ -1,24 +1,13 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  HttpCode,
-  HttpStatus,
-  Param,
-  ParseIntPipe,
-  Post,
-  Put,
-  UseGuards,
-} from '@nestjs/common';
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, ParseIntPipe, Post, Put, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
-import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
+
 import { Product } from '../entities/product.entity';
 import { ProductService } from '../services/product.service';
+import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 
 @ApiTags('Product')
-@UseGuards(JwtAuthGuard)
 @Controller('/products')
+@ApiBearerAuth()
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
@@ -42,20 +31,20 @@ export class ProductController {
 
   @Post()
   @HttpCode(HttpStatus.CREATED)
-  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   create(@Body() product: Product): Promise<Product> {
     return this.productService.create(product);
   }
 
   @Put()
   @HttpCode(HttpStatus.OK)
-  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   update(@Body() product: Product): Promise<Product> {
     return this.productService.update(product);
   }
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  @ApiBearerAuth()
+  @UseGuards(JwtAuthGuard)
   delete(@Param('id', ParseIntPipe) id: number) {
     return this.productService.delete(id);
   }
