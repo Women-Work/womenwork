@@ -20,10 +20,17 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @UseGuards(JwtAuthGuard)
-  @Get('/all')
+  @Get('/')
   @HttpCode(HttpStatus.OK)
   findAll(): Promise<User[]> {
     return this.userService.findAll();
+  }
+
+  @UseGuards(JwtAuthGuard)
+  @Get('/:user')
+  @HttpCode(HttpStatus.OK)
+  findByUser(user: string): Promise<User> {
+    return this.userService.findByUser(user);
   }
 
   @Post('/register')
