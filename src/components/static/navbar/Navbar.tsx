@@ -5,14 +5,13 @@ import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import logofooter from '../../../assets/logo-footer.png';
 import logo from '../../../assets/logo.png';
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
-import { resetToken } from '../../../store/tokenSlice';
+import { resetToken, selectToken } from '../../../store/tokenSlice';
 import { styles } from './styles';
 
 
@@ -20,7 +19,7 @@ function Navbar() {
   const classes = styles();
   let navigate = useNavigate();
   const [search, setSearch] = useState('');
-  const token = useAppSelector((state) => state.token.value);
+  const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
   const privateRoutes = ['courses', 'categories', 'search'];
 

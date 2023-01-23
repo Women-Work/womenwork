@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
+import { selectToken } from '../../../store/tokenSlice';
 
 function ListCategory() {
   const [categories, setCategories] = useState<Category[]>([]);
-  const token = useAppSelector((state) => state.token.value);
+  const token = useAppSelector(selectToken);
 
   async function getCategory(){
     await search("/categories", setCategories, token);

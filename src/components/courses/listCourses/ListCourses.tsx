@@ -7,9 +7,10 @@ import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../store/coursesSlice';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
+import { selectToken } from '../../../store/tokenSlice';
 
 function Courses() {
-  const token = useAppSelector((state) => state.token.value);
+  const token = useAppSelector(selectToken);
 
   const dispatch = useAppDispatch();
   const courses = useAppSelector(selectAllCourses);

@@ -17,11 +17,12 @@ import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import Course from '../../../models/Course';
 import { post, put, search, searchId } from '../../../services/Service';
+import { selectToken } from '../../../store/tokenSlice';
 
 export default function AddCourses() {
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const token = useAppSelector((state) => state.token.value);
+  const token = useAppSelector(selectToken);
   const [categories, setCategories] = useState<Category[]>([]);
 
   const [category, setCategory] = useState<Category>({

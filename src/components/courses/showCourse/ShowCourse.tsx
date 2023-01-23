@@ -1,13 +1,14 @@
-import { Typography, makeStyles } from '@material-ui/core';
+import { makeStyles, Typography } from '@material-ui/core';
 import { Button, Grid } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
+import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { searchId } from '../../../services/Service';
+import { selectToken } from '../../../store/tokenSlice';
 import Loading from '../../static/loading/Loading';
 
 const useStyles = makeStyles({
@@ -25,7 +26,7 @@ export default function ShowCourse() {
   const classes = useStyles();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [token, setToken] = useLocalStorage('token');
+  const token = useAppSelector(selectToken);
   const { id } = useParams<{ id: string }>();
   const [course, setCourse] = useState<Course>();
 

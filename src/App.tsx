@@ -1,40 +1,53 @@
-import React, { useEffect } from 'react';
 import './App.css';
-import Navbar from './components/static/navbar/Navbar';
-import { Login } from './pages/login/Login';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Footer from './components/static/footer/Footer';
-import Signup from './pages/signup/Signup';
-import About from './pages/about/About';
-import NotFound from './pages/notFound/NotFound';
-import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Cart } from './pages/Cart/Cart';
-import ListCourses from './components/courses/listCourses/ListCourses';
+
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+
+import { useAppSelector } from './common/hooks';
+import AddCategory from './components/categories/addCategory/AddCategory';
+import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
 import ListCategory from './components/categories/listCategory/ListCategory';
 import AddCourses from './components/courses/addCourses/AddCourses';
 import DeleteCourses from './components/courses/deleteCourses/DeleteCourses';
-import Home from './pages/home/Home';
-import AddCategory from './components/categories/addCategory/AddCategory';
-import DeleteCategory from './components/categories/deleteCategory/DeleteCategory';
+import ListCourses from './components/courses/listCourses/ListCourses';
 import Search from './components/courses/search/Search';
-import useLocalStorage from 'react-use-localstorage';
 import ShowCourse from './components/courses/showCourse/ShowCourse';
+import Footer from './components/static/footer/Footer';
+import Navbar from './components/static/navbar/Navbar';
+import About from './pages/about/About';
+import { Cart } from './pages/Cart/Cart';
+import Home from './pages/home/Home';
+import { Login } from './pages/login/Login';
+import NotFound from './pages/notFound/NotFound';
+import Signup from './pages/signup/Signup';
+import { resetToken, selectToken } from './store/tokenSlice';
 
 
 
 function App() {
-  const [token, setToken] = useLocalStorage('token');
+  const token = useAppSelector(selectToken);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-      if (token) {
-          const tokenData = JSON.parse(atob(token.split('.')[1]));
-          const expires = new Date(tokenData.exp * 1000);
-          if (expires < new Date()) {
-              setToken('');
-              toast.error('Sessão expirada.');
+    if (token) {
+      //check if token is valid
+      const checkToken = async () => {
+        const response = await fetch('https://elearning0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThongTinTaiKhoan', {
+          method: 'POST',
+          headers: {
+            'Authorization': token
           }
-      }
+        });
+        const data = await response.json();
+        if (data.statusCode === 401) {
+          toast.warn("Sessão expirada. Faça login novamente.");
+          dispatch(resetToken());
+        }}
+      checkToken();
+    }
   }, [token]);
   
   return (
