@@ -14,17 +14,17 @@ function Footer() {
     <Box className='footer-copy' display="flex" justifyContent="space-around" justifyItems='center'>
       <Grid container style={{ paddingTop: 10 }}>
         <Grid item container xs={4} justifyContent='center' alignItems='center'>
-          <Grid item xs={1}>
+          <Grid item sm={1}>
             <Link href="https://www.youtube.com/channel/UCyALtu4kMdQq4I5hLME_LwQ" target="_blank">
               <YoutubeIcon className='social' />
             </Link>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item sm={1}>
             <Link href="https://linktr.ee/womenworkgit" target="_blank">
               <GitHubIcon className='social' />
             </Link>
           </Grid>
-          <Grid item xs={1}>
+          <Grid item sm={1}>
             <Link href="https://linktr.ee/womenworkteam" target="_blank">
               <LinkedInIcon className='social' />
             </Link>
@@ -33,7 +33,7 @@ function Footer() {
         <Grid item container xs={4} alignItems='center' justifyContent='center'>
           <Grid item xs={12}>
             <Typography variant="h6" align="center" gutterBottom className='text-color'>
-              <img src={logofooter} alt='logo-footer' width='40%' className='logo' />
+              <img src={logofooter} alt='logo-footer' className='mudarnocel' />
             </Typography>
           </Grid>
         </Grid>
