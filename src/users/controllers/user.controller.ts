@@ -12,6 +12,7 @@ import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 import { JwtAuthGuard } from 'src/auth/guard/jwt-auth.guard';
 import { User } from '../entities/user.entity';
 import { UserService } from '../services/user.service';
+import { UpdateUserDto } from '../dto/update-user.dto';
 
 @ApiTags('User')
 @Controller('/users')
@@ -42,7 +43,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Put('/update')
   @HttpCode(HttpStatus.OK)
-  update(@Body() user: User): Promise<User> {
+  update(@Body() user: UpdateUserDto): Promise<User> {
     return this.userService.update(user);
   }
 }

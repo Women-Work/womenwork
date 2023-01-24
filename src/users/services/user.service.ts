@@ -4,6 +4,7 @@ import { Bcrypt } from 'src/auth/bcrypt/bcrypt';
 import { MessagesHelper } from 'src/helpers/messages.helpers';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
+import { UpdateUserDto } from '../dto/update-user.dto';
 
 @Injectable()
 export class UserService {
@@ -33,7 +34,11 @@ export class UserService {
    * @returns the promise to see all users
    */
   async findAll(): Promise<User[]> {
-    return await this.userRepository.find();
+    return await this.userRepository.find({
+      relations: {
+        product: true,
+      },
+    });
   }
 
   /**
@@ -86,9 +91,8 @@ export class UserService {
    @ @Body where the order should be placed
    * @returns a promise that the user has been updated in the database
    */
-  async update(user: User): Promise<User> {
+  async update(user: UpdateUserDto): Promise<User> {
     const userUpdate: User = await this.findById(user.id);
-    const userSearch = await this.findByUser(user.user);
 
     if (!userUpdate)
       throw new HttpException(
@@ -96,13 +100,8 @@ export class UserService {
         HttpStatus.NOT_FOUND,
       );
 
-    if (userSearch && userSearch.id != user.id)
-      throw new HttpException(
-        MessagesHelper.EXISTING_USER,
-        HttpStatus.BAD_REQUEST,
-      );
+    const updatedUser = {...userUpdate, ...user};
 
-    user.password = await this.bcrypt.hashPassword(user.password);
     this.userRepository.merge(userUpdate, user);
     return await this.userRepository.save(userUpdate);
   }
