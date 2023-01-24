@@ -48,18 +48,6 @@ export const searchList = async(url: any, token: string) => {
     return resposta.data;
 }
 
-export const searchUser = async(url: any, token: string): Promise<User> => { 
-    const header = {
-        headers: {
-            'Authorization': token
-        }
-    };
-
-    const resposta = await api.get(url,header);
-    
-    return resposta.data;
-}
-
 export const searchId = async(url: string, setDado: any, header: any) => {
     const resposta = await api.get(url,header);
     setDado(resposta.data);
