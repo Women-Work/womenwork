@@ -50,12 +50,12 @@ export default function Home() {
 
             <MuiLink href='#recursos' underline='none'>
               <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#C8857F' }} endIcon={<KeyboardArrowRightRoundedIcon />}>
-                Saiba mais 
+                Saiba mais
               </Button>
             </MuiLink>
 
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
             <Image
               style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
               src='assets/images/home.svg'
