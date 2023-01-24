@@ -13,6 +13,7 @@ import logo from '../../../assets/logo.png';
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import { resetToken, selectToken } from '../../../store/tokenSlice';
 import { styles } from './styles';
+import { logout } from '../../../store/userSlice';
 
 
 function Navbar() {
@@ -21,10 +22,10 @@ function Navbar() {
   const [search, setSearch] = useState('');
   const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
-  const privateRoutes = ['courses', 'categories', 'search'];
+  const privateRoutes = ['add', 'delete'];
 
   useEffect(() => {
-    const path = window.location.pathname.split('/')[1];
+    const path = window.location.pathname.split('/')[2];
     if(token === '' && privateRoutes.includes(path)) {
       toast.error("Você precisa estar logada para acessar essa página.");
       navigate("/login");
@@ -35,6 +36,7 @@ function Navbar() {
 
   function logoutHandle() {
     dispatch(resetToken());
+    dispatch(logout());
     navigate("/login");
   }
 
@@ -73,6 +75,10 @@ function Navbar() {
 
               <Link to="/about">
                 <Button color={handlePathColor('/about')}>sobre</Button>
+              </Link>
+
+              <Link to="/user">
+                <Button color={handlePathColor('/user')}>perfil</Button>
               </Link>
             </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
