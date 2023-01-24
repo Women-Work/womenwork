@@ -8,6 +8,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { styles } from './styles';
 import logo from '../../../assets/logo.png';
 import logofooter from '../../../assets/logo-footer.png';
+import SDrawer from '../drawer/Drawer';
 
 
 function Navbar() {
@@ -39,45 +40,50 @@ function Navbar() {
         <Toolbar>
           <Grid container alignItems='center' justifyContent='center'>
             <Grid item xs={4} alignItems='center' display='flex'>
-            <img src={logo} alt='logo' height='40px'/>
-            <Box padding='10px'>
-            <img src={logofooter} alt='logo-footer' width='40%'/>
-            </Box>
+              <SDrawer />
+              <Link to="/">
+                <Button color={handlePathColor('/home')}><img src={logo} alt='logo' height='40px' /></Button>
+              </Link>
+              <Box padding='10px' sx={{ display: { xs: 'none', sm: 'block', md: 'block' } }}>
+                <img src={logofooter} alt='logo-footer' width='40%' />
+              </Box>
+              <Box padding='5px' sx={{ display: { xs: 'block', sm: 'none', md: 'none' } }}>
+                <img src={logofooter} alt='logo-footer' width='150px' />
+              </Box>
             </Grid>
             <Grid item xs={4} className={classes.centerImg}>
-            <Link to="/" color="primary">
-                <Button color={handlePathColor('/home')}>home</Button>
+              <Link to="/" color="primary">
+                <Button className={classes.navbutton} color={handlePathColor('/home')}>home</Button>
               </Link>
 
-              <Link to="/courses">
-                <Button color={handlePathColor('/courses')}>cursos</Button>
+              <Link to="/courses" >
+                <Button className={classes.navbutton} color={handlePathColor('/courses')}>cursos</Button>
               </Link>
 
               <Link to="/about">
-                <Button color={handlePathColor('/about')}>sobre</Button>
+                <Button className={classes.navbutton} color={handlePathColor('/about')}>sobre</Button>
               </Link>
             </Grid>
-            <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
-              {localStorage.getItem('token') ?
-                <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 10 }}>
-                  <SearchIcon className={classes.searchIcon} />
-                  <form onSubmit={onSubmit}>
-                    <InputBase
-                      placeholder="Pesquisar cursos"
-                      classes={{
-                        root: classes.inputRoot,
-                        input: classes.inputInput,
-                      }}
-                      onChange={(e) => setSearch(e.target.value)}
-                      inputProps={{ 'aria-label': 'search' }}
-                    />
-                  </form>
-                </Grid>
-                :
-                <></>
-              }
+            <Grid item xs={4} container className={classes.navbutton} justifyContent='flex-end' alignItems='center'>
 
-              <Grid item xs={2}>
+              <Grid item xs={6} className={classes.search} style={{ padding: 0, minWidth: 0, marginRight: 10 }}>
+                <SearchIcon className={classes.searchIcon} />
+                <form onSubmit={onSubmit}>
+                  <InputBase
+                    placeholder="Pesquisar cursos"
+                    classes={{
+                      root: classes.inputRoot,
+                      input: classes.inputInput,
+                    }}
+                    onChange={(e) => setSearch(e.target.value)}
+                    inputProps={{ 'aria-label': 'search' }}
+                  />
+                </form>
+              </Grid>
+
+              <></>
+
+              <Grid item xs={2} className={classes.navbutton} >
                 {
                   localStorage.getItem('token') ?
                     <Button color="inherit" onClick={logoutHandle}>

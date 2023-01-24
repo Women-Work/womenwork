@@ -28,8 +28,7 @@ const styles = makeStyles((theme: Theme) => createStyles({
   },
 
 
-  buttons2: {
-    color: theme.palette.primary.contrastText,
+  navbutton: {
     display: 'none',
     [theme.breakpoints.up('sm')]: {
       display: 'block',
