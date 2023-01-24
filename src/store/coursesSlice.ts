@@ -1,14 +1,15 @@
-import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+
 import Course from '../models/Course';
-import { search, searchList } from '../services/Service';
+import { searchList } from '../services/Service';
 import { RootState } from './store';
-import axios from 'axios';
 
 const baseURL = '/products';
 export interface RequestProps {
   url: string;
   token: string;
 }
+ 
 export interface CoursesState {
   courses: Course[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
