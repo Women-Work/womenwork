@@ -5,34 +5,28 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import { useAppSelector } from '../../../common/hooks';
+import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
+import { UserUpdate } from '../../../models/UserUpdate';
 import { searchId } from '../../../services/Service';
 import { selectToken } from '../../../store/tokenSlice';
+import { selectUser, updateUser } from '../../../store/userSlice';
 import Loading from '../../static/loading/Loading';
 
-const useStyles = makeStyles({
-  button: {
-    backgroundColor: '#E1A6A0',
-    color: '#fff',
-    '&:hover': {
-      backgroundColor: '#C8857F',
-      color: '#fff',
-    },
-  }
-});
-
 export default function ShowCourse() {
-  const classes = useStyles();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const token = useAppSelector(selectToken);
   const { id } = useParams<{ id: string }>();
-  const [course, setCourse] = useState<Course>();
+  const [course, setCourse] = useState<Course>({
+    id: 0,
+    title: '',
+    description: '',
+    price: 0,
+  });
 
-  useEffect(() => {
-    getCourseById(id);
-  }, [id]);
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(selectToken);
+  const user = useAppSelector(selectUser);
 
   async function getCourseById(id: string | undefined) {
     await searchId(`/products/${id}`, setCourse, {
@@ -44,10 +38,24 @@ export default function ShowCourse() {
     });
   }
 
+  useEffect(() => {
+    getCourseById(id);
+  }, [id]);
+
   const handlePurchase = () => {
-    if (token) {
-      toast.success(`Curso ${course?.title} comprado com sucesso!`);
+    if (token && user) {
+      const update: UserUpdate = {
+        type: 'addProduct',
+        id: user.id,
+        payload: {
+          productId: course.id,
+        }
+      }
+      dispatch(updateUser(update));
+      toast.success('Curso comprado com sucesso!'); 
+      navigate("/user/courses");
     } else {
+      console.log('redirecting to login');
       navigate('/login');
     }
   }
