@@ -5,6 +5,7 @@ import { MessagesHelper } from 'src/helpers/messages.helpers';
 import { Repository } from 'typeorm';
 import { User } from '../entities/user.entity';
 import { UpdateUserDto } from '../dto/update-user.dto';
+import { ProductService } from 'src/product/services/product.service';
 
 @Injectable()
 export class UserService {
@@ -12,6 +13,7 @@ export class UserService {
     @InjectRepository(User)
     private userRepository: Repository<User>,
     private bcrypt: Bcrypt,
+    private productService: ProductService,
   ) {}
   
   /**
@@ -100,13 +102,16 @@ export class UserService {
         HttpStatus.NOT_FOUND,
       );
 
-    const updatedUser = {...userUpdate, ...user};
+    // const updatedUser = {...userUpdate, ...user};
 
     this.userRepository.merge(userUpdate, user);
     await this.userRepository.save(userUpdate);
 
-    const { password, ...result } = updatedUser;
-    return result;
+    const updatedUser = await this.findById(user.id);
+
+    const { password, ...userWithoutPassword } = updatedUser;
+
+    return userWithoutPassword;
   }
 }
 
