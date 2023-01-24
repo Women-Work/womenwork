@@ -20,9 +20,9 @@ export const userRegister = async (url: string, data: User, setData: any) => {
     }
 }
 
-export const login = async (url: string, data: UserLogin, setData: any) => {
+export const login = async (url: string, data: UserLogin) => {
     const response = await api.post(url, data);
-    setData(response.data.token);
+    return response;
 }
 
 export const search = async(url: any,setDado: any, token: string) => { 
@@ -37,6 +37,18 @@ export const search = async(url: any,setDado: any, token: string) => {
 }
 
 export const searchList = async(url: any, token: string) => { 
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    };
+
+    const resposta = await api.get(url,header);
+    
+    return resposta.data;
+}
+
+export const searchUser = async(url: any, token: string): Promise<User> => { 
     const header = {
         headers: {
             'Authorization': token

@@ -5,17 +5,19 @@ import thunk from 'redux-thunk';
 
 import coursesReducer from './coursesSlice';
 import tokenReducer from './tokenSlice';
+import userReducer from './userSlice';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['token'],
+  whitelist: ['token', 'user'],
   middleware: [thunk],
 }
 
 const rootReducer = combineReducers({
   token: tokenReducer,
   courses: coursesReducer,
+  user: userReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

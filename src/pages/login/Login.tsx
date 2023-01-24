@@ -5,14 +5,15 @@ import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
 import { UserLogin } from '../../models/UserLogin';
-import { login } from '../../services/Service';
-
-
+import { login, search, searchUser } from '../../services/Service';
+import { login as loginUser, selectUser } from '../../store/userSlice';
+import { addToken, selectToken } from '../../store/tokenSlice';
+import { useAppSelector } from '../../common/hooks';
 
 export function Login() {
     let navigate = useNavigate();
@@ -21,8 +22,9 @@ export function Login() {
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
+    const token = useAppSelector(selectToken);
+    const user = useAppSelector(selectUser);
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: '',
@@ -40,18 +42,17 @@ export function Login() {
         });
     }
 
-    useEffect(() => {
-        if (token != '') {
-            navigate('/courses');
-        }
-    }, [token]);
-
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(`/auth/login`, userLogin, setToken);
+            const request = await login(`/auth/login`, userLogin);
+            const user = await searchUser(`/users/${request.data.user.id}`, request.data.token);
+            dispatch(loginUser(user));
+            dispatch(addToken(request.data.token));
+            navigate('/home');
         } catch (error) {
-            toast.error('E-mail ou senha inválido.');
+            console.log(`error: ${error}`);
+            toast.error('E-mail ou senha inválidos.');
         }
     }
 
