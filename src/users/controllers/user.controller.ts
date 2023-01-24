@@ -43,7 +43,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Put('/update')
   @HttpCode(HttpStatus.OK)
-  update(@Body() user: UpdateUserDto): Promise<User> {
+  update(@Body() user: UpdateUserDto): Promise<UpdateUserDto> {
     return this.userService.update(user);
   }
 }

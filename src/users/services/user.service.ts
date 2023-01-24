@@ -91,7 +91,7 @@ export class UserService {
    @ @Body where the order should be placed
    * @returns a promise that the user has been updated in the database
    */
-  async update(user: UpdateUserDto): Promise<User> {
+  async update(user: UpdateUserDto): Promise<UpdateUserDto> {
     const userUpdate: User = await this.findById(user.id);
 
     if (!userUpdate)
@@ -103,7 +103,10 @@ export class UserService {
     const updatedUser = {...userUpdate, ...user};
 
     this.userRepository.merge(userUpdate, user);
-    return await this.userRepository.save(userUpdate);
+    await this.userRepository.save(userUpdate);
+
+    const { password, ...result } = updatedUser;
+    return result;
   }
 }
 
