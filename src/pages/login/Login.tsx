@@ -4,16 +4,16 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
 import Image from 'mui-image';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { UserLogin } from '../../models/UserLogin';
-import { login, search, searchUser } from '../../services/Service';
-import { login as loginUser, selectUser } from '../../store/userSlice';
-import { addToken, selectToken } from '../../store/tokenSlice';
-import { useAppSelector } from '../../common/hooks';
+import { login } from '../../services/Service';
+import { searchUser } from '../../services/UserService';
+import { addToken } from '../../store/tokenSlice';
+import { login as loginUser } from '../../store/userSlice';
 
 export function Login() {
     let navigate = useNavigate();
@@ -23,8 +23,6 @@ export function Login() {
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
     const dispatch = useDispatch();
-    const token = useAppSelector(selectToken);
-    const user = useAppSelector(selectUser);
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: '',
