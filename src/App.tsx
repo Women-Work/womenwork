@@ -22,7 +22,6 @@ import Home from './pages/home/Home';
 import { Login } from './pages/login/Login';
 import NotFound from './pages/notFound/NotFound';
 import Signup from './pages/signup/Signup';
-import UserProfile from './pages/user/UserProfile';
 
 function App() {
   
@@ -42,29 +41,28 @@ function App() {
       />
       
       <div style={{minHeight: 'calc(100vh - 100px)'}} > 
-      <Routes>
-        <Route path='/' element={<Navigate to='/home' replace />} />
-        <Route path='/home' element={<Home />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/signup' element={<Signup />} />
-        <Route path='/cart' element={<Cart />} />
-        <Route path='/courses' element={<ListCourses />} />
-        <Route path='/courses/:id' element={<ShowCourse />} />
-        <Route path='/courses/add' element={<AddCourses />} />
-        <Route path='/courses/add/:id' element={<AddCourses />} />
-        <Route path='/courses/delete' element={<DeleteCourses />} />
-        <Route path='/courses/delete/:id' element={<DeleteCourses />} />
-        <Route path='/categories' element={<ListCategory />} />
-        <Route path='/categories/add' element={<AddCategory />} />
-        <Route path='/categories/add/:id' element={<AddCategory />} />
-        <Route path='/categories/delete' element={<DeleteCategory />} />
-        <Route path='/categories/delete/:id' element={<DeleteCategory />} />
-        <Route path='/search' element={<Search />} />
-        <Route path='/user' element={<UserProfile />} />
-        <Route path='/user/courses' element={<MyCourses />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Navigate to='/home' replace />} />
+          <Route path='/home' element={<Home />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/courses' element={<ListCourses />} />
+          <Route path='/courses/:id' element={<ShowCourse />} />
+          <Route path='/courses/add' element={<AddCourses />} />
+          <Route path='/courses/add/:id' element={<AddCourses />} />
+          <Route path='/courses/delete' element={<DeleteCourses />} />
+          <Route path='/courses/delete/:id' element={<DeleteCourses />} />
+          <Route path='/categories' element={<ListCategory />} />
+          <Route path='/categories/add' element={<AddCategory />} />
+          <Route path='/categories/add/:id' element={<AddCategory />} />
+          <Route path='/categories/delete' element={<DeleteCategory />} />
+          <Route path='/categories/delete/:id' element={<DeleteCategory />} />
+          <Route path='/search' element={<Search />} />
+          <Route path='/user/courses' element={<MyCourses />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </div>
       <Footer />
       {/* <Vlibras forceOnload={true} /> */}
