@@ -2,10 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 import { User } from '../models/User';
 import { UserLogin } from '../models/UserLogin';
-
-export const api = axios.create({
-    baseURL: 'https://womenwork.onrender.com/'
-  });
+import { api } from './api';
 
 export const userRegister = async (url: string, data: User, setData: any) => {
     try {
