@@ -5,5 +5,5 @@ export const api = axios.create({
 });
 
 // export const api = axios.create({
-//   baseURL: 'localhost:4000/'
+//   baseURL: 'http://localhost:4000'
 // });

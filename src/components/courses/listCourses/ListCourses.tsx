@@ -1,7 +1,7 @@
 import './ListCourses.css';
 
 import { Box, Typography } from '@mui/material';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../redux/coursesSlice';
@@ -9,9 +9,10 @@ import { selectToken } from '../../../redux/tokenSlice';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 import Grid from '../../../common/Grid';
+import { JsxEmit } from 'typescript';
 
 function Courses() {
-  const token = useAppSelector(selectToken);
+  const token: string = useAppSelector(selectToken);
 
   const dispatch = useAppDispatch();
   const courses = useAppSelector(selectAllCourses);
@@ -20,13 +21,13 @@ function Courses() {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchCourses(token));
+      dispatch(fetchCourses());
     }
   }, [status, dispatch]);
 
   let content;
   if(status === 'loading') {
-    content = <Loading />
+    content = <Loading />;
   } else if(status === 'succeeded') {
     if(courses.length > 0) {
       content = courses.map((course) => (
@@ -39,7 +40,7 @@ function Courses() {
         />
       ))
     } else {
-      content = 
+      content =
       <Box marginTop={5}>
         <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
       </Box>
@@ -48,9 +49,12 @@ function Courses() {
     content = <div>{error}</div>
   }
 
+  let title = (
+    <Typography variant='h4' className='title-poppins'>Cursos</Typography>
+  );
 
   return (
-    <Grid title='Cursos'>
+    <Grid title={title}>
       {content}
     </Grid>
   )

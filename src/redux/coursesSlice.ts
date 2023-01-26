@@ -4,7 +4,7 @@ import Course from '../models/Course';
 import { searchList } from '../services/Service';
 import { RootState } from './store';
 
-const baseURL = '/products';
+const baseURL = 'products';
 export interface RequestProps {
   url: string;
   token: string;
@@ -22,9 +22,9 @@ const initialState = {
   error: null as string | null | undefined,
 } as CoursesState;
 
-export const fetchCourses = createAsyncThunk('courses/fetchCourses', async (token: string) => {
+export const fetchCourses = createAsyncThunk('courses/fetchCourses', async () => {
   try{
-    const response = await searchList(baseURL, token);
+    const response = await searchList(baseURL);
     return response;
   } catch (err) {
     return err;
@@ -60,8 +60,6 @@ export const coursesSlice = createSlice({
         state.error = action.error.message;
       }
     );
-
-
   },
 });
 

@@ -24,7 +24,7 @@ export default function Search() {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchCourses(token));
+      dispatch(fetchCourses());
     }
   }, [status, dispatch]);
 
