@@ -1,37 +1,26 @@
 import { Box, Grid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
+import { useSearchParams } from 'react-router-dom';
+
+import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { search } from '../../../services/Service';
+import { selectToken } from '../../../redux/tokenSlice';
 import CardCourse from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 
 export default function Search() {
-  const [token] = useLocalStorage('token');
+  const token = useAppSelector(selectToken);
   const [searchParams] = useSearchParams();
   const [courses, setCourses] = useState<Course[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  let navigate = useNavigate();
-
-  useEffect(() => {
-    if (token == '') {
-      toast.error("Você precisa estar logada para pesquisar um curso.");
-      navigate("/login");
-    }
-  }, [token]);
-
-
+  
   const query = searchParams.get('q');
 
   const getSearchedCourses = async () => {
-    await search(`/products/title/${query}`, setCourses, {
-      headers: {
-        'Authorization': token
-      }
-    }).then(() => {
-      setIsLoading(false);
+    await search(`/products/title/${query}`, setCourses, token)
+      .then(() => {
+        setIsLoading(false);
     });
   }
 
@@ -52,14 +41,12 @@ export default function Search() {
             :
             courses.length > 0 ?
               courses.map((course) => (
-                <Grid key={course.id} item xs={10} md={5} lg={3}>
-                  <CardCourse
-                    id={course.id}
-                    title={course.title}
-                    description={course.description}
-                    price={course.price}
-                  />
-                </Grid>
+                <CardCourse
+                  id={course.id}
+                  title={course.title}
+                  description={course.description}
+                  price={course.price}
+                />
               ))
               :
               <Box marginTop={5}>

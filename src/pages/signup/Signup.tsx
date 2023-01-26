@@ -1,22 +1,21 @@
 import './Signup.css';
 
 import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { IconButton, InputAdornment } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
 import { User } from '../../models/User';
 import { userRegister } from '../../services/Service';
-import { IconButton, InputAdornment } from '@mui/material';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import PathValidator from '../../common/PathValidator';
 
 
 export default function Singup() {
 
     let navigate = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
     const [confirmPassword, setConfirmPassword] = useState<String>("");
 
 
@@ -43,13 +42,6 @@ export default function Singup() {
             user: '',
             password: ''
         });
-
-    useEffect(() => {
-        if (token) {
-            toast.warn("Faça logout para criar uma nova conta.");
-            navigate("/home");
-        }
-    });
 
     useEffect(() => {
         if (userResult.error) {
@@ -86,6 +78,7 @@ export default function Singup() {
 
     return (
         <>
+            <PathValidator />
             <Grid container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item xs={4}>
                     <Image

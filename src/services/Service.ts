@@ -5,7 +5,7 @@ import { UserLogin } from '../models/UserLogin';
 
 export const api = axios.create({
     baseURL: 'https://womenwork.onrender.com/'
-});
+  });
 
 export const userRegister = async (url: string, data: User, setData: any) => {
     try {
@@ -18,17 +18,34 @@ export const userRegister = async (url: string, data: User, setData: any) => {
             }));
         }
     }
-
 }
 
-export const login = async (url: string, data: UserLogin, setData: any) => {
+export const login = async (url: string, data: UserLogin) => {
     const response = await api.post(url, data);
-    setData(response.data.token);
+    return response;
 }
 
-export const search = async(url: any,setDado: any, header: any) => { 
+export const search = async(url: any,setDado: any, token: string) => { 
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    };
+
     const resposta = await api.get(url,header);
     setDado(resposta.data);
+}
+
+export const searchList = async(url: any, token: string) => { 
+    const header = {
+        headers: {
+            'Authorization': token
+        }
+    };
+
+    const resposta = await api.get(url,header);
+    
+    return resposta.data;
 }
 
 export const searchId = async(url: string, setDado: any, header: any) => {

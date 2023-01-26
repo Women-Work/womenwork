@@ -4,15 +4,17 @@ import { Button, TextField, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
 import Image from 'mui-image';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
-
-
+import { searchUser } from '../../services/UserService';
+import { addToken } from '../../redux/tokenSlice';
+import { login as loginUser } from '../../redux/userSlice';
+import PathValidator from '../../common/PathValidator';
 
 export function Login() {
     let navigate = useNavigate();
@@ -21,8 +23,7 @@ export function Login() {
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: '',
@@ -40,23 +41,22 @@ export function Login() {
         });
     }
 
-    useEffect(() => {
-        if (token != '') {
-            navigate('/courses');
-        }
-    }, [token]);
-
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(`/auth/login`, userLogin, setToken);
+            const request = await login(`/auth/login`, userLogin);
+            const user = await searchUser(`/users/${request.data.user}`, request.data.token);
+            dispatch(loginUser(user));
+            dispatch(addToken(request.data.token));
+            navigate(-1);
         } catch (error) {
-            toast.error('E-mail ou senha inválido.');
+            toast.error('Ocorreu um erro, tente novamente.');
         }
     }
 
     return (
         <>
+            <PathValidator />
             <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item alignItems='center' lg={6} md={12}>
                     <Box paddingX={10}>
