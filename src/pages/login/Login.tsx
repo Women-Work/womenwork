@@ -14,7 +14,6 @@ import { login } from '../../services/Service';
 import { searchUser } from '../../services/UserService';
 import { addToken } from '../../redux/tokenSlice';
 import { login as loginUser } from '../../redux/userSlice';
-import PathValidator from '../../common/PathValidator';
 
 export function Login() {
     let navigate = useNavigate();
@@ -56,7 +55,6 @@ export function Login() {
 
     return (
         <>
-            <PathValidator />
             <Grid className='Grid-1' container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item alignItems='center' lg={6} md={12}>
                     <Box paddingX={10}>
