@@ -8,6 +8,8 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../common/hooks';
 import { selectUser } from '../../redux/userSlice';
+import Course from '../../models/Course';
+import { UserProfile } from '../../models/UserProfile';
 
 interface Props {
   id: number;
@@ -17,7 +19,7 @@ interface Props {
 }
 
 function Card({ id, title, description, price }: Props) {
-  const user = useAppSelector(selectUser);
+  const user: UserProfile = useAppSelector(selectUser);
   const navigate = useNavigate();
 
   const handleBuyClick = () => {
@@ -25,7 +27,7 @@ function Card({ id, title, description, price }: Props) {
   }
 
   let cardFooter;
-  if(user && user.product.filter((product: any) => 
+  if(user.product?.length > 0 && user.product.filter((product: Course) => 
       product.id === id
     ).length > 0
     ){

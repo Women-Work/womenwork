@@ -18,7 +18,6 @@ import Category from '../../../models/Category';
 import Course from '../../../models/Course';
 import { post, put, search, searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
-import PathValidator from '../../../common/PathValidator';
 
 export default function AddCourses() {
   let navigate = useNavigate();
@@ -92,7 +91,6 @@ export default function AddCourses() {
   
   return (
     <>
-      <PathValidator />
       <Container maxWidth="sm" className="topo">
           <form onSubmit={onSubmit}>
               <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro curso</Typography>

@@ -8,7 +8,6 @@ import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import { deleteId, searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
-import PathValidator from '../../../common/PathValidator';
 
 export default function DeleteCategory() {
   let navigate = useNavigate();
@@ -46,7 +45,6 @@ export default function DeleteCategory() {
 
   return (
     <>
-      <PathValidator />
       <Box m={2}>
         <Card variant="outlined" >
           <CardContent>

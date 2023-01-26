@@ -1,8 +1,8 @@
+import { Grid as MGrid, GridProps as MGridProps } from '@mui/material';
 import React from 'react';
-import { GridProps as MGridProps, Grid as MGrid, Typography } from '@mui/material';
 
 interface GridProps extends MGridProps {
-  title: string;
+  title: any;
 }
 
 function Grid(props: GridProps) {
@@ -16,7 +16,7 @@ function Grid(props: GridProps) {
       sx={{ marginBottom: '50px' }}
     >
       <MGrid item container xs={12} sx={{ marginX: 5, justifyContent: 'center' }}>
-        <Typography variant='h2' className='title-poppins'>{title}</Typography>
+        {title}
       </MGrid>
       <MGrid item xs={12} container justifyContent='center' marginX={5}>
         {children}

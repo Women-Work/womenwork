@@ -2,10 +2,7 @@ import axios, { AxiosError } from 'axios';
 
 import { User } from '../models/User';
 import { UserLogin } from '../models/UserLogin';
-
-export const api = axios.create({
-    baseURL: 'https://womenwork.onrender.com/'
-  });
+import { api } from './api';
 
 export const userRegister = async (url: string, data: User, setData: any) => {
     try {
@@ -36,14 +33,8 @@ export const search = async(url: any,setDado: any, token: string) => {
     setDado(resposta.data);
 }
 
-export const searchList = async(url: any, token: string) => { 
-    const header = {
-        headers: {
-            'Authorization': token
-        }
-    };
-
-    const resposta = await api.get(url,header);
+export const searchList = async(url: string) => { 
+    const resposta = await api.get(url);
     
     return resposta.data;
 }

@@ -11,7 +11,6 @@ import Loading from '../../static/loading/Loading';
 import Grid from '../../../common/Grid';
 
 function Courses() {
-  const token = useAppSelector(selectToken);
 
   const dispatch = useAppDispatch();
   const courses = useAppSelector(selectAllCourses);
@@ -20,13 +19,13 @@ function Courses() {
 
   useEffect(() => {
     if (status === 'idle') {
-      dispatch(fetchCourses(token));
+      dispatch(fetchCourses());
     }
   }, [status, dispatch]);
 
   let content;
   if(status === 'loading') {
-    content = <Loading />
+    content = <Loading />;
   } else if(status === 'succeeded') {
     if(courses.length > 0) {
       content = courses.map((course) => (
@@ -39,7 +38,7 @@ function Courses() {
         />
       ))
     } else {
-      content = 
+      content =
       <Box marginTop={5}>
         <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
       </Box>
@@ -48,9 +47,12 @@ function Courses() {
     content = <div>{error}</div>
   }
 
+  let title = (
+    <Typography variant='h2' className='title-poppins'>Cursos</Typography>
+  );
 
   return (
-    <Grid title='Cursos'>
+    <Grid title={title}>
       {content}
     </Grid>
   )

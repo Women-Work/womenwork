@@ -5,7 +5,6 @@ import Grid from '../../../common/Grid';
 import { useAppSelector } from '../../../common/hooks';
 import { selectUser } from '../../../redux/userSlice';
 import Card from '../../cardCourse/CardCourse';
-import PathValidator from '../../../common/PathValidator';
 
 
 function MyCourses() {
@@ -30,10 +29,13 @@ function MyCourses() {
     </Box> )
   }
 
+  let title = (
+    <Typography variant='h2' className='title-poppins'>Meus cursos</Typography>
+  );
+
   return (
     <>
-      <PathValidator />
-      <Grid title='Meus cursos'>
+      <Grid title={title}>
         {content}
       </Grid>
     </>
