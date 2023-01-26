@@ -1,8 +1,8 @@
-import { makeStyles, Typography } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { Button, Grid } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
@@ -55,8 +55,7 @@ export default function ShowCourse() {
       toast.success('Curso comprado com sucesso!'); 
       navigate("/user/courses");
     } else {
-      console.log('redirecting to login');
-      navigate('/login');
+      navigate('login');
     }
   }
 
@@ -85,16 +84,14 @@ export default function ShowCourse() {
                   duration={300}
                   alt=""
                 />
-                <Link to="/courses">
-                  <Button
-                    variant='contained'
-                    fullWidth
-                    onClick={handlePurchase}
-                    sx={buttonSX}
-                  >
-                    Comprar
-                  </Button>
-                </Link>
+                <Button
+                  variant='contained'
+                  fullWidth
+                  onClick={handlePurchase}
+                  sx={buttonSX}
+                >
+                  Comprar
+                </Button>
               </Grid>
               <Grid item xs={6} sx={{ paddingLeft: 5, paddingTop: 2 }} alignSelf='center'>
                 <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3 }}>
