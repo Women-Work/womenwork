@@ -46,7 +46,7 @@ export default function Singup() {
     useEffect(() => {
         if (userResult.error) {
             toast.error(userResult.error);
-        } else if (userResult.id != '') {
+        } else if (userResult.id !== '') {
             toast.success('Usuária cadastrada com sucesso.');
             navigate("/login");
         }
@@ -69,7 +69,7 @@ export default function Singup() {
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
 
-        if (confirmPassword == user.password) {
+        if (confirmPassword === user.password) {
             await userRegister(`/users/register`, user, setUserResult);
         } else {
             toast.error('As senhas informadas não correspondem.');

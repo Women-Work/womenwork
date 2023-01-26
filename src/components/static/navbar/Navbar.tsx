@@ -68,8 +68,8 @@ function Navbar() {
         </div>
       </MenuItem>,
       <Divider key={2} />,
-      <Link to="/user/courses">
-        <MenuItem key={3} sx={{ width: "100%" }} onClick={popupState.close}>
+      <Link to="/user/courses" key={3}>
+        <MenuItem  sx={{ width: "100%" }} onClick={popupState.close}>
           <ListItemIcon>
             <VideoLibraryRounded />
             Meus cursos
@@ -156,7 +156,7 @@ function Navbar() {
               item
               xs={4}
               container
-              className={classes.buttons2}
+              className={classes.buttons}
               justifyContent="flex-end"
               alignItems="center"
             >
