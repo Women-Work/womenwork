@@ -45,7 +45,7 @@ export function Login() {
         e.preventDefault();
         try {
             const request = await login(`/auth/login`, userLogin);
-            const user = await searchUser(`/users/${request.data.user.id}`, request.data.token);
+            const user = await searchUser(`/users/${request.data.user}`, request.data.token);
             dispatch(loginUser(user));
             dispatch(addToken(request.data.token));
             navigate(-1);
