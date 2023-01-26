@@ -35,7 +35,7 @@ export const updateUser = createAsyncThunk<
             id: payload.payload.productId,
           }]
         }
-        response = await update(`${baseURL}/update`, user, getReduxState().token.value);
+        response = await update(`${baseURL}/update`, user, getReduxState().token.token);
         break;
     }
     
