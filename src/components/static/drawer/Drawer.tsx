@@ -76,15 +76,6 @@ export default function SDrawer() {
                         </ListItem>
                     </ListItemButton>
 
-                    <ListItemButton onClick={() => setIsDrawerOpen(false)}>
-                        <ListItem component={Link} to="">
-                            <ListItemIcon>
-                                <ShoppingCartOutlinedIcon />
-                            </ListItemIcon>
-                            <ListItemText primary="Carrinho" className='list-item' />
-                        </ListItem>
-                    </ListItemButton>
-
                 </List>
             </Drawer>
         </>

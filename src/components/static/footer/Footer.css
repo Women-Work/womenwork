@@ -1,8 +1,3 @@
-.footer-color {
-    background-color: #766B8D;
-
-}
-
 .footer-copy {
     background-color: #766B8D;
     width: 100%;
@@ -15,4 +10,15 @@
 .social {
     font-size: 25px;
     color: white;
+}
+
+.mudarnocel {
+
+    width: 40%;
+}
+
+@media (max-width: 600px) {
+    .mudarnocel {
+        width: 130px;
+    }
 }
