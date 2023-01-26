@@ -5,6 +5,7 @@ import Grid from '../../../common/Grid';
 import { useAppSelector } from '../../../common/hooks';
 import { selectUser } from '../../../redux/userSlice';
 import Card from '../../cardCourse/CardCourse';
+import PathValidator from '../../../common/PathValidator';
 
 
 function MyCourses() {
@@ -30,9 +31,12 @@ function MyCourses() {
   }
 
   return (
-    <Grid title='Meus cursos'>
-      {content}
-    </Grid>
+    <>
+      <PathValidator />
+      <Grid title='Meus cursos'>
+        {content}
+      </Grid>
+    </>
   )
 }
 

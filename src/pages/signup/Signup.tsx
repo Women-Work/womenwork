@@ -10,6 +10,7 @@ import { toast } from 'react-toastify';
 
 import { User } from '../../models/User';
 import { userRegister } from '../../services/Service';
+import PathValidator from '../../common/PathValidator';
 
 
 export default function Singup() {
@@ -77,6 +78,7 @@ export default function Singup() {
 
     return (
         <>
+            <PathValidator />
             <Grid container direction='row' justifyContent='center' alignItems='center'>
                 <Grid item xs={4}>
                     <Image

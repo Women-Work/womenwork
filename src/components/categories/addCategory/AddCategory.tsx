@@ -8,6 +8,7 @@ import Category from '../../../models/Category';
 import { post, put, searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
 import { useAppSelector } from '../../../common/hooks';
+import PathValidator from '../../../common/PathValidator';
 
 export default function AddCategory() {
     let navigate = useNavigate();
@@ -73,6 +74,7 @@ export default function AddCategory() {
 
     return (
         <>
+            <PathValidator />
             <Container maxWidth="sm" className="topo">
                 <form onSubmit={onSubmit}>
                     <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro Categoria</Typography>

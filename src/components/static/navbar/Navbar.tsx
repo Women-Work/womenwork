@@ -4,17 +4,15 @@ import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { Grid } from '@mui/material';
 import Box from '@mui/material/Box';
-import React, { ChangeEvent, useEffect, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 import logofooter from '../../../assets/logo-footer.png';
 import logo from '../../../assets/logo.png';
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import { resetToken, selectToken } from '../../../redux/tokenSlice';
-import { styles } from './styles';
 import { logout } from '../../../redux/userSlice';
-
+import { styles } from './styles';
 
 function Navbar() {
   const classes = styles();
@@ -22,17 +20,6 @@ function Navbar() {
   const [search, setSearch] = useState('');
   const token = useAppSelector(selectToken);
   const dispatch = useAppDispatch();
-  const privateRoutes = ['add', 'delete'];
-
-  useEffect(() => {
-    const path = window.location.pathname.split('/')[2];
-    if(token === '' && privateRoutes.includes(path)) {
-      toast.error("Você precisa estar logada para acessar essa página.");
-      navigate("/login");
-    }else if(token !== '' && ['login', 'register'].includes(path)) {
-      navigate("/home");
-    }
-  }, [token]);
 
   function logoutHandle() {
     dispatch(resetToken());
@@ -79,6 +66,10 @@ function Navbar() {
 
               <Link to="/user">
                 <Button color={handlePathColor('/user')}>perfil</Button>
+              </Link>
+
+              <Link to="/user/courses">
+                <Button color={handlePathColor('/user/courses')}>meus cursos</Button>
               </Link>
             </Grid>
             <Grid item xs={4} container className={classes.buttons2} justifyContent='flex-end' alignItems='center'>
