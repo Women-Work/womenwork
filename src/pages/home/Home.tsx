@@ -7,8 +7,6 @@ import { Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typograph
 import Image from 'mui-image';
 import React from 'react';
 
-import { styles } from './styles';
-
 const features = [
   {
     avatar: <WorkRoundedIcon />,
@@ -37,7 +35,6 @@ const features = [
 ]
 
 export default function Home() {
-  const classes = styles();
 
   return (
     <>
