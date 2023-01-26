@@ -55,7 +55,7 @@ export default function ShowCourse() {
       toast.success('Curso comprado com sucesso!'); 
       navigate("/user/courses");
     } else {
-      navigate('login');
+      navigate("/login");
     }
   }
 
