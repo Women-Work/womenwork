@@ -47,9 +47,8 @@ export function Login() {
             const user = await searchUser(`/users/${request.data.user.id}`, request.data.token);
             dispatch(loginUser(user));
             dispatch(addToken(request.data.token));
-            navigate('/home');
+            navigate(-1);
         } catch (error) {
-            console.log(`error: ${error}`);
             toast.error('E-mail ou senha inválidos.');
         }
     }
