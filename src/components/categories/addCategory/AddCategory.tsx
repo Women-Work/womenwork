@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 
 import Category from '../../../models/Category';
 import { post, put, searchId } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 import { useAppSelector } from '../../../common/hooks';
 
 export default function AddCategory() {

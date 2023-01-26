@@ -12,8 +12,8 @@ import { toast } from 'react-toastify';
 import { UserLogin } from '../../models/UserLogin';
 import { login } from '../../services/Service';
 import { searchUser } from '../../services/UserService';
-import { addToken } from '../../store/tokenSlice';
-import { login as loginUser } from '../../store/userSlice';
+import { addToken } from '../../redux/tokenSlice';
+import { login as loginUser } from '../../redux/userSlice';
 
 export function Login() {
     let navigate = useNavigate();

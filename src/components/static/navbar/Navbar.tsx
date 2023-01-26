@@ -11,9 +11,9 @@ import { toast } from 'react-toastify';
 import logofooter from '../../../assets/logo-footer.png';
 import logo from '../../../assets/logo.png';
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
-import { resetToken, selectToken } from '../../../store/tokenSlice';
+import { resetToken, selectToken } from '../../../redux/tokenSlice';
 import { styles } from './styles';
-import { logout } from '../../../store/userSlice';
+import { logout } from '../../../redux/userSlice';
 
 
 function Navbar() {

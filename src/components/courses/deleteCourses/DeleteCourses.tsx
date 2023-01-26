@@ -7,7 +7,7 @@ import { toast } from 'react-toastify';
 import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { deleteId, searchId } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 
 export default function DeleteCourses() {
   let navigate = useNavigate();

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import { search } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 
 function ListCategory() {
   const [categories, setCategories] = useState<Category[]>([]);

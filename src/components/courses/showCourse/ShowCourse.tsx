@@ -9,8 +9,8 @@ import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { UserUpdate } from '../../../models/UserUpdate';
 import { searchId } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
-import { selectUser, updateUser } from '../../../store/userSlice';
+import { selectToken } from '../../../redux/tokenSlice';
+import { selectUser, updateUser } from '../../../redux/userSlice';
 import Loading from '../../static/loading/Loading';
 
 export default function ShowCourse() {

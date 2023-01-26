@@ -4,8 +4,8 @@ import { Box, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
-import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../store/coursesSlice';
-import { selectToken } from '../../../store/tokenSlice';
+import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../redux/coursesSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 import Grid from '../../../common/Grid';

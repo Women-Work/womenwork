@@ -17,7 +17,7 @@ import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import Course from '../../../models/Course';
 import { post, put, search, searchId } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 
 export default function AddCourses() {
   let navigate = useNavigate();

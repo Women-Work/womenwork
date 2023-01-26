@@ -5,7 +5,7 @@ import { useSearchParams } from 'react-router-dom';
 import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { search } from '../../../services/Service';
-import { selectToken } from '../../../store/tokenSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 import CardCourse from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 
