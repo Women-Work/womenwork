@@ -3,6 +3,7 @@ import {
   Controller,
   Get,
   HttpCode,
+  Param,
   Post,
   Put,
   UseGuards,
@@ -30,7 +31,7 @@ export class UserController {
   @UseGuards(JwtAuthGuard)
   @Get('/:user')
   @HttpCode(HttpStatus.OK)
-  findByUser(user: string): Promise<User> {
+  findByUser(@Param('user') user: string): Promise<User> {
     return this.userService.findByUser(user);
   }
 
