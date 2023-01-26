@@ -3,10 +3,10 @@ import './Navbar.css';
 import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import { LogoutRounded, VideoLibraryRounded } from '@mui/icons-material';
-import { Avatar, Divider, Grid, ListItemIcon, Menu, MenuItem } from '@mui/material';
+import { Avatar, Divider, Grid, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
 import Box from '@mui/material/Box';
-import { textTransform } from '@mui/system';
-import PopupState, { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import { usePopupState } from 'material-ui-popup-state/hooks';
 import React, { ChangeEvent, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -44,27 +44,33 @@ function Navbar() {
   }
 
   let userMenu: JSX.Element | JSX.Element[];
-
+  const popupState = usePopupState({ variant: 'popover', popupId: 'menu-user' });
   if(token && token.length > 0) {
     userMenu = [
-        <MenuItem key={1} sx={{ cursor: 'default', color: 'inherit' }}>
+        <MenuItem key={1} sx={{ cursor: 'default' }}>
           <Avatar 
             src={user.photo}
           />
-          <div>
+          <div style={{ overflow: 'hidden', textOverflow: '' }}>
             {user.name} <br />
-            <span style={{color: '#707070'}}>{user.user}</span>
+            <Typography
+              variant="subtitle2"
+              noWrap
+              sx={{color: '#707070'}}
+            >
+              {user.user}
+            </Typography>
           </div> 
         </MenuItem>,
         <Divider key={2} />,
-        <MenuItem key={3}>
-          <Link to="/user/courses">
-            <ListItemIcon>
-              <VideoLibraryRounded />Meus cursos
-            </ListItemIcon>
-          </Link>
-        </MenuItem>,
-        <MenuItem key={4} onClick={logoutHandle}>
+        <Link to="/user/courses" >
+          <MenuItem key={3} sx={{width: '100%'}} onClick={popupState.close}>
+              <ListItemIcon>
+                <VideoLibraryRounded />Meus cursos
+              </ListItemIcon>
+          </MenuItem>
+        </Link>,
+        <MenuItem key={4} onClick={() => {logoutHandle(); popupState.close()}}>
           <ListItemIcon>
             <LogoutRounded /> Sair
           </ListItemIcon>
@@ -73,7 +79,7 @@ function Navbar() {
   } else {
     userMenu =
     <Link to="/login">
-      <MenuItem>
+      <MenuItem onClick={popupState.close}>
         <Avatar /> Entrar
       </MenuItem>
     </Link>
@@ -81,7 +87,6 @@ function Navbar() {
   }
 
   return (
-
     <Box sx={{ flexGrow: 1, height: '80px' }}>
       <AppBar className={classes.navbar}>
         <Toolbar>
@@ -126,69 +131,64 @@ function Navbar() {
               }
 
               <Grid item xs={2} justifyContent='end'>
-                <PopupState variant="popover" popupId="menu-user">
-                  {(popupState) => (
-                    <React.Fragment>
-                      <Avatar
-                        {...bindTrigger(popupState)}
-                        alt={`${user.name} Souza`}
-                        src={user.photo}
-                        sx={{ cursor: 'pointer' }}
-                      />
-                      <Menu
-                        {...bindMenu(popupState)}
-                        PaperProps={{
-                          elevation: 0,
-                          sx: {
-                            width: 220,
-                            overflow: 'visible',
-                            filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-                            mt: 1.5,
-                            '& .MuiAvatar-root': {
-                              width: 32,
-                              height: 32,
-                              ml: -0.5,
-                              mr: 1,
-                              '&:after': {
-                                color: 'red'
-                              }
-                            },
-                            '& .MuiListItemIcon-root': {
-                              svg: {
-                                mr: 1
-                              },
-                              color: '#707070'
-                            },
-                            '&:before': {
-                              content: '""',
-                              display: 'block',
-                              position: 'absolute',
-                              top: 0,
-                              right: 14,
-                              width: 10,
-                              height: 10,
-                              bgcolor: 'background.paper',
-                              transform: 'translateY(-50%) rotate(45deg)',
-                              zIndex: 0,
-                            },
-                            '&:firstChild': {
-                              cursor: 'default'
-                            },
-                            a: {
-                              textTransform: 'capitalize',
-                              textDecoration: 'none',
-                              color: '#404040'
-                            },
-                          },
-                        }}
-                      transformOrigin={{ horizontal: 'right', vertical: 'top' }}
-                      anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                      >
-                        {userMenu}
-                      </Menu>
-                    </React.Fragment>
-                  )}
-                </PopupState>
+                <Avatar
+                  {...bindTrigger(popupState)}
+                  alt={`${user.name} Souza`}
+                  src={user.photo}
+                  sx={{ cursor: 'pointer' }}
+                />
+                <Menu
+                  {...bindMenu(popupState)}
+                  id='menu-user'
+                  PaperProps={{
+                    elevation: 0,
+                    sx: {
+                      width: '16rem',
+                      overflow: 'visible',
+                      filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                      mt: 1.5,
+                      '& .MuiAvatar-root': {
+                        width: 32,
+                        height: 32,
+                        ml: -0.5,
+                        mr: 1,
+                        '&:after': {
+                          color: 'red'
+                        }
+                      },
+                      '& .MuiListItemIcon-root': {
+                        svg: {
+                          mr: 1
+                        },
+                        color: '#707070'
+                      },
+                      '&:before': {
+                        content: '""',
+                        display: 'block',
+                        position: 'absolute',
+                        top: 0,
+                        right: 14,
+                        width: 10,
+                        height: 10,
+                        bgcolor: 'background.paper',
+                        transform: 'translateY(-50%) rotate(45deg)',
+                        zIndex: 0,
+                      },
+                      '&:firstChild': {
+                        cursor: 'default'
+                      },
+                      a: {
+                        textTransform: 'capitalize',
+                        textDecoration: 'none',
+                        color: '#404040'
+                      },
+                    },
+                  }}
+                transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                >
+                  {userMenu}
+                </Menu>
               </Grid>
             </Grid>
           </Grid>
