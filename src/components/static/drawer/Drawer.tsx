@@ -1,3 +1,4 @@
+import { VideoLibraryRounded } from '@mui/icons-material';
 import './Drawer.css';
 
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
@@ -84,6 +85,15 @@ export default function SDrawer() {
                                 <AddCircleOutlineOutlinedIcon />
                             </ListItemIcon>
                             <ListItemText primary="Cadastro" className='list-item' />
+                        </ListItem>
+                    </ListItemButton>
+
+                    <ListItemButton onClick={() => setIsDrawerOpen(false)}>
+                        <ListItem component={Link} to="/user/courses">
+                            <ListItemIcon>
+                                <VideoLibraryRounded />
+                            </ListItemIcon>
+                            <ListItemText primary="Meus cursos" className='list-item' />
                         </ListItem>
                     </ListItemButton>
 
