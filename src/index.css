@@ -6,6 +6,10 @@ body {
   background-color: #F8F0E3
 }
 
+a {
+  text-decoration: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -23,8 +27,8 @@ code {
 
 .transition-hover:hover {
   position: relative;
-  top:0;
-  top: -4px; 
+  top: 0;
+  top: -4px;
   box-shadow: 0 17px 17px #999;
   transition: all .3s ease-in-out;
 }
