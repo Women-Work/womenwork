@@ -1,11 +1,18 @@
-import { Grid } from '@material-ui/core';
-import React from 'react';
 import './NotFound.css';
+
+import { Button } from '@material-ui/core';
+import { Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
-import { Typography } from '@mui/material';
-import Footer from '../../components/static/footer/Footer';
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function NotFound() {
+  const navigate = useNavigate();
+  
+  function handleVoltar(): void {
+    navigate(-1);
+  }
+
   return (
     <>
       <Grid container direction='column' alignItems='center' justifyContent='center'>
@@ -14,11 +21,21 @@ function NotFound() {
         </Grid>
         <Grid item xs={12}>
           <Image
-            style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
-            src='assets/images/notFound.svg'
+            style={{ width: '80%', height: 'auto', padding: 0 }}
+            src='/assets/images/notFound.svg'
             duration={300}
             alt=""
           />
+        </Grid>
+        <Grid item xs={12} sx={{ mt: 4 }}>
+          <Button
+            variant='contained'
+            size='large'
+            color='primary'
+            onClick={() => handleVoltar()}
+          >
+            Voltar
+          </Button>
         </Grid>
       </Grid>
     </>

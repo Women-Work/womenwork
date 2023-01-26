@@ -1,7 +1,7 @@
 import './ListCourses.css';
 
 import { Box, Typography } from '@mui/material';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../redux/coursesSlice';
@@ -9,10 +9,8 @@ import { selectToken } from '../../../redux/tokenSlice';
 import Card from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 import Grid from '../../../common/Grid';
-import { JsxEmit } from 'typescript';
 
 function Courses() {
-  const token: string = useAppSelector(selectToken);
 
   const dispatch = useAppDispatch();
   const courses = useAppSelector(selectAllCourses);
@@ -50,7 +48,7 @@ function Courses() {
   }
 
   let title = (
-    <Typography variant='h4' className='title-poppins'>Cursos</Typography>
+    <Typography variant='h2' className='title-poppins'>Cursos</Typography>
   );
 
   return (

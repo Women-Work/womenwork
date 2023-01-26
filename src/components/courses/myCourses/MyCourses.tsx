@@ -29,9 +29,13 @@ function MyCourses() {
     </Box> )
   }
 
+  let title = (
+    <Typography variant='h2' className='title-poppins'>Meus cursos</Typography>
+  );
+
   return (
     <>
-      <Grid title='Meus cursos'>
+      <Grid title={title}>
         {content}
       </Grid>
     </>
