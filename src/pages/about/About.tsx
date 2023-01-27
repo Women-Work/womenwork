@@ -150,6 +150,7 @@ function About() {
                                 </Link>
                             </Box>
                         </Box>
+
                         <Typography className='title-poppins pad-top-text' >Rafaele Souza</Typography>
                     </Box>
 

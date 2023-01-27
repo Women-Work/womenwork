@@ -69,7 +69,7 @@ function Navbar() {
       </MenuItem>,
       <Divider key={2} />,
       <Link to="/user/courses" key={3}>
-        <MenuItem  sx={{ width: "100%" }} onClick={popupState.close}>
+        <MenuItem sx={{ width: "100%" }} onClick={popupState.close}>
           <ListItemIcon>
             <VideoLibraryRounded />
             Meus cursos
@@ -180,7 +180,7 @@ function Navbar() {
                 </form>
               </Grid>
 
-              <Grid item xs={2} justifyContent="end">
+              <Grid item xs={2} justifyContent="end" sx={{ display: { xs: "none", sm: "block", md: "block" } }}>
                 <Avatar
                   {...bindTrigger(popupState)}
                   alt={`${user.name} Souza`}
