@@ -1,29 +1,22 @@
-import "./Navbar.css";
+import './Navbar.css';
 
-import { AppBar, Button, InputBase, Toolbar } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import { LogoutRounded, VideoLibraryRounded } from "@mui/icons-material";
-import {
-  Avatar,
-  Divider,
-  Grid,
-  ListItemIcon,
-  Menu,
-  MenuItem,
-  Typography,
-} from "@mui/material";
-import Box from "@mui/material/Box";
-import { bindMenu, bindTrigger } from "material-ui-popup-state";
-import { usePopupState } from "material-ui-popup-state/hooks";
-import React, { ChangeEvent, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { styles } from "./styles";
-import logo from "../../../assets/logo.png";
-import logofooter from "../../../assets/logo-footer.png";
-import SDrawer from "../drawer/Drawer";
-import { useAppDispatch, useAppSelector } from "../../../common/hooks";
-import { resetToken, selectToken } from "../../../redux/tokenSlice";
-import { logout, selectUser } from "../../../redux/userSlice";
+import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+import { LogoutRounded, VideoLibraryRounded } from '@mui/icons-material';
+import { Avatar, Divider, Grid, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import { bindMenu, bindTrigger } from 'material-ui-popup-state';
+import { usePopupState } from 'material-ui-popup-state/hooks';
+import React, { ChangeEvent, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
+import logofooter from '../../../assets/logo-footer.png';
+import logo from '../../../assets/logo.png';
+import { useAppDispatch, useAppSelector } from '../../../common/hooks';
+import { resetToken, selectToken } from '../../../redux/tokenSlice';
+import { logout, selectUser } from '../../../redux/userSlice';
+import SDrawer from '../drawer/Drawer';
+import { styles } from './styles';
 
 function Navbar() {
   const classes = styles();
@@ -102,28 +95,58 @@ function Navbar() {
     <Box sx={{ flexGrow: 1, height: "80px" }}>
       <AppBar className={classes.navbar}>
         <Toolbar>
-          <Grid container alignItems="center" justifyContent="center">
-            <Grid item xs={4} alignItems="center" display="flex">
-              <SDrawer />
-              <Link to="/">
-                <Button color={handlePathColor("/home")}>
-                  <img src={logo} alt="logo" height="40px" />
-                </Button>
-              </Link>
-              <Box
-                padding="10px"
-                sx={{ display: { xs: "none", sm: "block", md: "block" } }}
+          <Grid
+            container
+            alignItems="center"
+            sx={{
+              justifyContent: {
+                xs: "space-evenly",
+                sm: "space-between",
+              },
+              spacing: {
+                xs: 0,
+                sm: 1
+              }
+            }}
+          >
+            <Grid
+              item
+              sm={3}
+              md={4}
+              alignItems="center"
+              display="flex"
+              sx={{
+                flexDirection: {
+                  md: 'row-reverse',
+                }
+              }}
+            >
+              <Grid item sm={4}display="flex">
+                <SDrawer />
+              </Grid>
+              <Grid
+                item
+                sm={3}
+                md={12}
+                alignItems="center"
+                display="flex"
               >
-                <img src={logofooter} alt="logo-footer" width="40%" />
-              </Box>
-              <Box
-                padding="5px"
-                sx={{ display: { xs: "block", sm: "none", md: "none" } }}
-              >
-                <img src={logofooter} alt="logo-footer" width="150px" />
-              </Box>
+                <Link to="/">
+                  <Button>
+                    <img
+                      style={{ height: "40px", padding: 0 }}
+                      src={logo}
+                      alt=""
+                    />
+                  </Button>
+                </Link>
+                <Box sx={{ display: { xs: "none", md: "block" } }}>
+                  <img src={logofooter} alt="logo-footer" width="180px" />
+                </Box>
+              </Grid>
             </Grid>
-            <Grid item xs={4} className={classes.centerImg}>
+
+            <Grid item sm={4} md={3} className={classes.centerImg}>
               <Link to="/" color="primary" className="navLink">
                 <Button
                   className={classes.navbutton}
@@ -154,7 +177,9 @@ function Navbar() {
 
             <Grid
               item
-              xs={4}
+              xs={8}
+              sm={3}
+              md={4}
               container
               className={classes.buttons}
               justifyContent="flex-end"
@@ -162,14 +187,15 @@ function Navbar() {
             >
               <Grid
                 item
-                xs={6}
+                xs={12}
+                md={6}
                 className={classes.search}
                 style={{ padding: 0, minWidth: 0, marginRight: 10 }}
               >
                 <SearchIcon className={classes.searchIcon} />
                 <form onSubmit={onSubmit}>
                   <InputBase
-                    placeholder="Pesquisar cursos"
+                    placeholder="Buscar cursos"
                     classes={{
                       root: classes.inputRoot,
                       input: classes.inputInput,
@@ -180,7 +206,12 @@ function Navbar() {
                 </form>
               </Grid>
 
-              <Grid item xs={2} justifyContent="end" sx={{ display: { xs: "none", sm: "block", md: "block" } }}>
+              <Grid
+                item
+                md={2}
+                justifyContent="end"
+                sx={{ display: { xs: "none", md: "block" } }}
+              >
                 <Avatar
                   {...bindTrigger(popupState)}
                   alt={`${user.name} Souza`}
