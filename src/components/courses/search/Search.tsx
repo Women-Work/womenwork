@@ -41,7 +41,7 @@ export default function Search() {
 
   let content;
   let title = (
-    <Typography variant='h2' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
+    <Typography variant='h3' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
   );
   if(status === 'loading') {
     content = <Loading />
