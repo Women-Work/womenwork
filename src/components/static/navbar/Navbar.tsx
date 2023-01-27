@@ -234,6 +234,7 @@ function Navbar() {
                       },
                     },
                   }}
+                  autoFocus={false}
                   transformOrigin={{ horizontal: "right", vertical: "top" }}
                   anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
                 >
