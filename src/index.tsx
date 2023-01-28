@@ -10,11 +10,11 @@ import { createTheme, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
-
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { persistor, store } from './redux/store';
 import { PersistGate } from 'redux-persist/integration/react';
+
+import { persistor, store } from './redux/store';
+import reportWebVitals from './reportWebVitals';
+import Router from './routes/Router';
 
 const theme = createTheme({
   palette: {
@@ -41,7 +41,7 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
-          <App />
+          <Router />
         </ThemeProvider>
       </PersistGate>
     </Provider>
