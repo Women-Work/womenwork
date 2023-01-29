@@ -22,7 +22,7 @@ function About() {
                         <img style={{ width: '60%' }} className='padding-left' src='/assets/images/about/about1.svg' alt='' />
                     </Grid>
 
-                    <Grid item lg={6} xs={6} sm={6}>
+                    <Grid item lg={6} xs={10} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text padding-right no-selection'>Quem somos</Typography>
                         <Typography variant='subtitle1'> WomenWork oferece cursos que irão especializar
                             mulheres que desejam crescer no mercado de trabalho conforme a
@@ -34,7 +34,7 @@ function About() {
 
 
                 <Grid container item className='container-center padding-left no-selection' lg={12} xs={12} sm={6}>
-                    <Grid item xs={6} lg={6} sm={6}>
+                    <Grid item xs={10} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Nossa missão</Typography>
                         <Typography variant='subtitle1'>Promover e contribuir para o desenvolvimento profissional através
                             da educação e do trabalho alcançando o máximo de mulheres do Brasil e exterior.
@@ -53,7 +53,7 @@ function About() {
                     <Grid item xs={6} lg={6} sm={6}>
                         <img style={{ width: '70%' }} className='padding-left' src='/assets/images/about/about4.svg' alt='' />
                     </Grid>
-                    <Grid item xs={6} lg={6} sm={6} className='no-selection'>
+                    <Grid item xs={10} lg={6} sm={6} className='no-selection'>
                         <Typography variant='h5' className='title-poppins mb-text'>Visão</Typography>
                         <Typography variant='subtitle1'>Planejamos estar entre as melhores e mais respeitadas
                             plataformas desse segmento por oferecer de forma consistente cursos que irão inovar e agregar a vida de muitas brasileiras em suas carreiras profissionais.</Typography>
@@ -65,15 +65,15 @@ function About() {
 
 
                 <Grid container item className='container-center padding-left no-selection' lg={12} xs={12} sm={6}>
-                    <Grid item xs={6} lg={6} sm={6}>
+                    <Grid item xs={10} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Valores</Typography>
                         <Typography variant='subtitle1' className='no-selection'> Melhoria contínua dos produtos e a qualidade para
                             atender às necessidades das clientes.
                             Prezamos por igualdade, respeito, confiança, humildade e integridade.</Typography>
                     </Grid>
 
-                    <Grid item className='container-center no-selection' xs={6} lg={6} sm={6}>
-                        <img style={{ width: '70%' }} src='/assets/images/about/about5.svg' alt='' />
+                    <Grid item className='container-center no-selection' xs={6} lg={6} sm={6} >
+                        <img className='mudarcel' style={{ width: '70%' }} src='/assets/images/about/about5.svg' alt='' />
                     </Grid>
                 </Grid>
             </Grid>
