@@ -91,7 +91,7 @@ export default function Singup() {
                     <Box className='margin-cel'>
                         <form onSubmit={onSubmit}>
                             <Typography variant='h2' color='textPrimary' className='title-poppins h2'>Cadastre-se</Typography>
-                            <Typography variant='h3' color='textPrimary' className='title-poppins h3'>Cadastre-se</Typography>
+                            <Typography variant='h4' color='textPrimary' className='title-poppins h3'>Cadastre-se</Typography>
                             <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
                             <TextField value={user.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth type='email' />
                             <TextField
