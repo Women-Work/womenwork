@@ -36,6 +36,8 @@ function PrivateRoutes() {
       <Route path="/user" element={<User />} />
       <Route path="/user/courses" element={<User />} />
       <Route path="/user/favourites" element={<User />} />
+      <Route path='/login' element={<Navigate to="/home" replace />} />
+      <Route path='/signup' element={<Navigate to="/home" replace />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
