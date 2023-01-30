@@ -1,22 +1,31 @@
-import './Navbar.css';
+import "./Navbar.css";
 
-import { AppBar, Button, InputBase, Toolbar } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import { LogoutRounded, VideoLibraryRounded } from '@mui/icons-material';
-import { Avatar, Divider, Grid, ListItemIcon, Menu, MenuItem, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
-import { bindMenu, bindTrigger } from 'material-ui-popup-state';
-import { usePopupState } from 'material-ui-popup-state/hooks';
-import React, { ChangeEvent, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { AppBar, Button, InputBase, Toolbar } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import { LogoutRounded, VideoLibraryRounded } from "@mui/icons-material";
+import {
+  Avatar,
+  Divider,
+  Grid,
+  ListItemIcon,
+  Menu,
+  MenuItem,
+  Typography,
+} from "@mui/material";
+import Box from "@mui/material/Box";
+import { bindMenu, bindTrigger } from "material-ui-popup-state";
+import { usePopupState } from "material-ui-popup-state/hooks";
+import React, { ChangeEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import logofooter from '../../../assets/logo-footer.png';
-import logo from '../../../assets/logo.png';
-import { useAppDispatch, useAppSelector } from '../../../common/hooks';
-import { resetToken, selectToken } from '../../../redux/tokenSlice';
-import { logout, selectUser } from '../../../redux/userSlice';
-import SDrawer from '../drawer/Drawer';
-import { styles } from './styles';
+import logofooter from "../../../assets/logo-footer.png";
+import logo from "../../../assets/logo.png";
+import { useAppDispatch, useAppSelector } from "../../../common/hooks";
+import { resetToken, selectToken } from "../../../redux/tokenSlice";
+import { logout, selectUser } from "../../../redux/userSlice";
+import SDrawer from "../drawer/Drawer";
+import { styles } from "./styles";
+import { s3Config } from "../../../common/utils";
 
 function Navbar() {
   const classes = styles();
@@ -25,6 +34,7 @@ function Navbar() {
   const token = useAppSelector(selectToken);
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
+  const url = s3Config.s3Url;
 
   function logoutHandle() {
     dispatch(resetToken());
@@ -52,7 +62,7 @@ function Navbar() {
   if (token && token.length > 0) {
     userMenu = [
       <MenuItem key={1} sx={{ cursor: "default" }}>
-        <Avatar src={user.photo} />
+        <Avatar src={user.photo === "default.jpg" ? "" : url + user.photo} />
         <div style={{ overflow: "hidden", textOverflow: "" }}>
           {user.name} <br />
           <Typography variant="subtitle2" noWrap sx={{ color: "#707070" }}>
@@ -105,8 +115,8 @@ function Navbar() {
               },
               spacing: {
                 xs: 0,
-                sm: 1
-              }
+                sm: 1,
+              },
             }}
           >
             <Grid
@@ -117,20 +127,14 @@ function Navbar() {
               display="flex"
               sx={{
                 flexDirection: {
-                  md: 'row-reverse',
-                }
+                  md: "row-reverse",
+                },
               }}
             >
-              <Grid item sm={4}display="flex">
+              <Grid item sm={4} display="flex">
                 <SDrawer />
               </Grid>
-              <Grid
-                item
-                sm={3}
-                md={12}
-                alignItems="center"
-                display="flex"
-              >
+              <Grid item sm={3} md={12} alignItems="center" display="flex">
                 <Link to="/">
                   <Button>
                     <img
@@ -214,8 +218,8 @@ function Navbar() {
               >
                 <Avatar
                   {...bindTrigger(popupState)}
-                  alt={`${user.name} Souza`}
-                  src={user.photo}
+                  alt={user.name}
+                  src={user.photo === "default.jpg" ? "" : url + user.photo}
                   sx={{ cursor: "pointer" }}
                 />
                 <Menu
