@@ -37,7 +37,7 @@ export default function Search() {
 
   useEffect(() => {
     getSearchedCourses();
-  }, [query]);
+  }, [courses, query]);
 
   let content;
   let title = (
