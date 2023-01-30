@@ -1,8 +1,7 @@
 import "./Navbar.css";
 
-import { AppBar, Button, InputBase, Toolbar } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import { LogoutRounded, VideoLibraryRounded } from "@mui/icons-material";
+import { AppBar, Button, InputBase, Toolbar } from "@mui/material";
+import { LogoutRounded, Search, VideoLibraryRounded } from "@mui/icons-material";
 import {
   Avatar,
   Divider,
@@ -196,7 +195,7 @@ function Navbar() {
                 className={classes.search}
                 style={{ padding: 0, minWidth: 0, marginRight: 10 }}
               >
-                <SearchIcon className={classes.searchIcon} />
+                <Search className={classes.searchIcon} />
                 <form onSubmit={onSubmit}>
                   <InputBase
                     placeholder="Buscar cursos"

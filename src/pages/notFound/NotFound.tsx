@@ -1,7 +1,6 @@
 import './NotFound.css';
 
-import { Button } from '@material-ui/core';
-import { Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';

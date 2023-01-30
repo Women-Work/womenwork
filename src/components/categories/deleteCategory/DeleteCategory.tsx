@@ -1,13 +1,12 @@
-import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
-import { deleteId, searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
+import { deleteId, searchId } from '../../../services/Service';
 
 export default function DeleteCategory() {
   let navigate = useNavigate();

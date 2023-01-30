@@ -1,8 +1,7 @@
 import './Login.css';
 
-import { Button, TextField, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
+import { Box, Button, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -10,10 +9,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { UserLogin } from '../../models/UserLogin';
-import { login } from '../../services/Service';
-import { searchUser } from '../../services/UserService';
 import { addToken } from '../../redux/tokenSlice';
 import { login as loginUser } from '../../redux/userSlice';
+import { login } from '../../services/Service';
+import { searchUser } from '../../services/UserService';
 
 export function Login() {
     let navigate = useNavigate();
