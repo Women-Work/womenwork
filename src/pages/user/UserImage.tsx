@@ -63,6 +63,8 @@ function UserImage() {
     };
 
     await dispatch(updateUser(update));
+
+    onCloseCropper();
   };
 
   return (
