@@ -1,7 +1,7 @@
 import "./Navbar.css";
 
 import { AppBar, Button, InputBase, Toolbar } from "@mui/material";
-import { LogoutRounded, Search, VideoLibraryRounded } from "@mui/icons-material";
+import { AccountCircle, LogoutRounded, Search, VideoLibraryRounded } from "@mui/icons-material";
 import {
   Avatar,
   Divider,
@@ -71,6 +71,14 @@ function Navbar() {
         </div>
       </MenuItem>,
       <Divider key={2} />,
+      <Link to="/user" key={3}>
+        <MenuItem sx={{ width: "100%" }} onClick={popupState.close}>
+          <ListItemIcon>
+            <AccountCircle />
+            Perfil
+          </ListItemIcon>
+        </MenuItem>
+      </Link>,
       <Link to="/user/courses" key={3}>
         <MenuItem sx={{ width: "100%" }} onClick={popupState.close}>
           <ListItemIcon>
