@@ -34,6 +34,7 @@ function Navbar() {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
   const url = s3Config.s3Url;
+  const userPhoto = ["default.jpg", "", undefined].includes(user.photo) ? "" : url + user.photo;
 
   function logoutHandle() {
     dispatch(resetToken());
@@ -61,7 +62,7 @@ function Navbar() {
   if (token && token.length > 0) {
     userMenu = [
       <MenuItem key={1} sx={{ cursor: "default" }}>
-        <Avatar src={user.photo === "default.jpg" ? "" : url + user.photo} />
+        <Avatar src={userPhoto} />
         <div style={{ overflow: "hidden", textOverflow: "" }}>
           {user.name} <br />
           <Typography variant="subtitle2" noWrap sx={{ color: "#707070" }}>
@@ -218,7 +219,7 @@ function Navbar() {
                 <Avatar
                   {...bindTrigger(popupState)}
                   alt={user.name}
-                  src={user.photo === "default.jpg" ? "" : url + user.photo}
+                  src={userPhoto}
                   sx={{ cursor: "pointer" }}
                 />
                 <Menu
