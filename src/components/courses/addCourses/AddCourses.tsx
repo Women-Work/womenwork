@@ -20,6 +20,10 @@ import { selectToken } from '../../../redux/tokenSlice';
 import { post, put, search, searchId } from '../../../services/Service';
 
 export default function AddCourses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const token = useAppSelector(selectToken);

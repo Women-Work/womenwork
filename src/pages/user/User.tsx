@@ -2,7 +2,7 @@ import "./User.css";
 
 import { BookmarksRounded, VideoLibraryRounded } from "@mui/icons-material";
 import { Box, Grid, Tab, Tabs, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { useAppSelector } from "../../common/hooks";
@@ -12,6 +12,10 @@ import { selectUser } from "../../redux/userSlice";
 import UserImage from "./UserImage";
 
 function User() {
+  useEffect(() => {
+    document.title = 'Perfil — WomenWork';
+  }, []);
+  
   const user = useAppSelector(selectUser);
   const [value, setValue] = useState(0);
 

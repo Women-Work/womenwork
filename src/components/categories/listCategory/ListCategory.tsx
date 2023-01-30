@@ -9,6 +9,10 @@ import { search } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
 
 function ListCategory() {
+  useEffect(() => {
+    document.title = 'Categorias — WomenWork';
+  }, []);
+  
   const [categories, setCategories] = useState<Category[]>([]);
   const token = useAppSelector(selectToken);
 

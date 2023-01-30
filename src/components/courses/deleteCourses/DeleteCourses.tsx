@@ -9,6 +9,10 @@ import { selectToken } from '../../../redux/tokenSlice';
 import { deleteId, searchId } from '../../../services/Service';
 
 export default function DeleteCourses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const token = useAppSelector(selectToken);

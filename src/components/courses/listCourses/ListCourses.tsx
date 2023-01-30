@@ -11,6 +11,9 @@ import Loading from '../../static/loading/Loading';
 import Grid from '../../../common/Grid';
 
 function Courses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
 
   const dispatch = useAppDispatch();
   const courses = useAppSelector(selectAllCourses);

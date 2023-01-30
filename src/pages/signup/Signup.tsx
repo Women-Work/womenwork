@@ -12,6 +12,9 @@ import { userRegister } from '../../services/Service';
 
 
 export default function Signup() {
+    useEffect(() => {
+      document.title = 'Cadastro — WomenWork';
+    }, []);
 
     let navigate = useNavigate();
     const [confirmPassword, setConfirmPassword] = useState<String>("");

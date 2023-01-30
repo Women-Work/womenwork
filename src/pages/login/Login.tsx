@@ -3,7 +3,7 @@ import './Login.css';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { Box, Button, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import Image from 'mui-image';
-import React, { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -15,6 +15,10 @@ import { login } from '../../services/Service';
 import { searchUser } from '../../services/UserService';
 
 export function Login() {
+    useEffect(() => {
+      document.title = 'Login — WomenWork';
+    }, []);
+    
     let navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);

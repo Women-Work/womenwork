@@ -11,6 +11,10 @@ import CardCourse from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 
 export default function Search() {
+  useEffect(() => {
+    document.title = `Pesquisa: ${query} — WomenWork`;
+  }, []);
+  
   const [searchParams] = useSearchParams();
   const query = searchParams.get('q');
   

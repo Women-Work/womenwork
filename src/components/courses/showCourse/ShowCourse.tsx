@@ -13,6 +13,10 @@ import { searchId } from '../../../services/Service';
 import Loading from '../../static/loading/Loading';
 
 export default function ShowCourse() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { id } = useParams<{ id: string }>();

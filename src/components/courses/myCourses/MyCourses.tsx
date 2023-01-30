@@ -1,13 +1,16 @@
 import { Box, Typography } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import Grid from '../../../common/Grid';
 import { useAppSelector } from '../../../common/hooks';
 import { selectUser } from '../../../redux/userSlice';
 import Card from '../../cardCourse/CardCourse';
 
-
 function MyCourses() {
+  useEffect(() => {
+    document.title = 'Meus cursos — WomenWork';
+  }, []);
+  
   const user = useAppSelector(selectUser);
   const userCouses = user.product;
 

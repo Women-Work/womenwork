@@ -10,6 +10,10 @@ import { post, put, searchId } from '../../../services/Service';
 
 
 export default function AddCategory() {
+    useEffect(() => {
+      document.title = 'Categorias — WomenWork';
+    }, []);
+    
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const token = useAppSelector(selectToken);
