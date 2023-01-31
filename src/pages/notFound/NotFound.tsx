@@ -11,26 +11,26 @@ function NotFound() {
   }, []);
   
   const navigate = useNavigate();
-  
+
   function handleVoltar(): void {
     navigate(-1);
   }
 
   return (
     <>
-      <Grid container direction='column' alignItems='center' justifyContent='center'>
+      <Grid container direction='column' alignItems='center' justifyContent='center' sx={{ mt: 0, mb: 0 }} >
         <Grid item xs={12}>
-          <Typography variant='h2' className='not title-poppins'>404: Página não encontrada</Typography>
+          <Typography className='not title-poppins' sx={{ fontSize: { xs: 'h5.fontSize', md: 'h2.fontSize' } }}>404: Página não encontrada</Typography>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ display: { xs: 'block', md: 'block' } }}>
           <Image
-            style={{ width: '80%', height: 'auto', padding: 0 }}
+            style={{ width: '70%', height: 'auto', padding: 0 }}
             src='/assets/images/notFound.svg'
             duration={300}
             alt=""
           />
         </Grid>
-        <Grid item xs={12} sx={{ mt: 4 }}>
+        <Grid item xs={12} sx={{ mt: { xs: 1, md: 1 }, mb: { xs: -50 } }}>
           <Button
             variant='contained'
             size='large'

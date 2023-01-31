@@ -24,7 +24,7 @@ export default function Signup() {
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-    
+
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     const handleClickShowConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
     const handleMouseDownConfirmPassword = () => setShowConfirmPassword(!showConfirmPassword);
@@ -79,8 +79,8 @@ export default function Signup() {
 
     return (
         <>
-            <Grid container direction='row' justifyContent='center' alignItems='center'>
-                <Grid item xs={4}>
+            <Grid container direction='row' justifyContent='center' alignItems='center' className='mudarcel'>
+                <Grid item xs={4} className='mudarcel'>
                     <Image
                         style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
                         src='assets/images/signup.svg'
@@ -89,17 +89,18 @@ export default function Signup() {
                     />
                 </Grid>
                 <Grid item xs={1}></Grid>
-                <Grid item xs={4}>
-                    <Box>
+                <Grid item xs={11} md={4}>
+                    <Box className='margin-cel'>
                         <form onSubmit={onSubmit}>
-                            <Typography variant='h2' color='textPrimary' component='h3' className='title-poppins'>Cadastre-se</Typography>
+                            <Typography variant='h2' color='textPrimary' className='title-poppins h2'>Cadastre-se</Typography>
+                            <Typography variant='h4' color='textPrimary' className='title-poppins h3'>Cadastre-se</Typography>
                             <TextField value={user.name} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='nome' label='Nome' variant='outlined' name='name' margin='normal' required fullWidth />
                             <TextField value={user.user} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)} id='usuario' label='E-mail' variant='outlined' name='user' margin='normal' required fullWidth type='email' />
                             <TextField
                                 inputProps={{ pattern: "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$" }}
                                 helperText='A senha deve ter no mínimo 8 caracteres, conter letras maiúsculas, minúsculas, números e caracteres especiais.'
                                 value={user.password} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                                id='senha' label='Senha' variant='outlined' name='password' margin='normal'required fullWidth 
+                                id='senha' label='Senha' variant='outlined' name='password' margin='normal' required fullWidth
                                 type={showPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
@@ -116,11 +117,11 @@ export default function Signup() {
                                     ),
                                 }}
                             />
-                            
-                            <TextField 
+
+                            <TextField
                                 value={confirmPassword}
                                 onChange={(e: ChangeEvent<HTMLInputElement>) => confirmPasswordHandle(e)}
-                                id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmPassword' margin='normal' required fullWidth 
+                                id='confirmarSenha' label='Confirmar senha' variant='outlined' name='confirmPassword' margin='normal' required fullWidth
                                 type={showConfirmPassword ? 'text' : 'password'}
                                 InputProps={{
                                     endAdornment: (
@@ -137,7 +138,7 @@ export default function Signup() {
                                     ),
                                 }}
                             />
-                            <Box marginTop={2}>
+                            <Box marginTop={2} className='regis-button'>
                                 <Link to='/login' className='text-decorator-none'>
                                     <Button variant='contained' color='primary' className='btnCancelar'>
                                         Cancelar

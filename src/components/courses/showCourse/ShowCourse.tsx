@@ -79,10 +79,21 @@ export default function ShowCourse() {
             item xs={10}
             container
             sx={{ borderTopRightRadius: '10px', borderTopLeftRadius: '10px', padding: 5 }}>
-            <Grid item container xs={12}>
-              <Grid item xs={6}>
+            <Grid item container spacing={3} xs={12}>
+              <Grid item sm={6} xs={12} alignSelf='center'>
+                <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3}}>
+                  {course?.title}
+                </Typography>
+                <Typography variant='h5' className='text-poppins' style={{ marginBottom: 5}}>
+                  R${course?.price.toString().replace('.', ',')}
+                </Typography>
+                <Typography variant='body1' style={{ color: '#353535', textAlign: 'justify' }}>
+                  {course?.description}
+                </Typography>
+              </Grid>
+              <Grid item sm={6} xs={12} sx={{ marginTop: 0, marginBottom: 7}} >
                 <Image
-                  style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
+                  style={{ width: '100%', height: 'auto', padding: 0, marginLeft: 'auto', borderRadius: '5px' }}
                   src={`../assets/images/courses/${id}.png`}
                   duration={300}
                   alt=""
@@ -95,17 +106,6 @@ export default function ShowCourse() {
                 >
                   Comprar
                 </Button>
-              </Grid>
-              <Grid item xs={6} sx={{ paddingLeft: 5, paddingTop: 2 }} alignSelf='center'>
-                <Typography variant='h3' className='title-poppins' style={{ marginBottom: 3 }}>
-                  {course?.title}
-                </Typography>
-                <Typography variant='h5' className='text-poppins' style={{ marginBottom: 5 }}>
-                  R${course?.price.toString().replace('.', ',')}
-                </Typography>
-                <Typography variant='body1' style={{ color: '#353535', textAlign: 'justify' }}>
-                  {course?.description}
-                </Typography>
               </Grid>
             </Grid>
           </Grid>
