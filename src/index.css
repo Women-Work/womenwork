@@ -1,9 +1,9 @@
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F8F0E3
+  background-color: #f8f0e3;
 }
 
 a {
@@ -11,26 +11,31 @@ a {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
 .text-poppins {
-  font-family: 'Poppins', 'Roboto', sans-serif !important;
+  font-family: "Poppins", "Roboto", sans-serif !important;
 }
 
 .title-poppins {
-  font-family: 'Poppins', 'Roboto', sans-serif !important;
-  color: #655A7E !important;
+  font-family: "Poppins", "Roboto", sans-serif !important;
+  color: #655a7e !important;
   font-weight: 700 !important;
 }
 
-.transition-hover:hover {
+.transition-hover {
   position: relative;
   top: 0;
+  box-shadow: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.transition-hover:hover {
   top: -4px;
   box-shadow: 0 17px 17px #999;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 img {
