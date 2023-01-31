@@ -4,11 +4,12 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import { useEffect } from 'react';
 
+
 function About() {
     useEffect(() => {
-      document.title = 'Sobre nós — WomenWork';
+        document.title = 'Sobre nós — WomenWork';
     }, []);
-    
+
     return (
         <>
             <Grid container justifyContent='center'>
@@ -25,7 +26,7 @@ function About() {
                     </Grid>
 
                     <Grid item lg={6} xs={10} sm={6}>
-                        <Typography variant='h5' className='title-poppins mb-text padding-right no-selection'>Quem somos</Typography>
+                        <Typography variant='h5' className='title-poppins mb-text no-selection'>Quem somos</Typography>
                         <Typography variant='subtitle1'> WomenWork oferece cursos que irão especializar
                             mulheres que desejam crescer no mercado de trabalho conforme a
                             necessidade de cada uma. Nosso objetivo é integrar o máximo de mulheres
@@ -35,9 +36,9 @@ function About() {
 
 
 
-                <Grid container item className='container-center padding-left no-selection' lg={12} xs={12} sm={6}>
+                <Grid container item className='container-center no-selection' lg={12} xs={12} sm={6} sx={{ p: { md: 8 } }}>
                     <Grid item xs={10} lg={6} sm={6}>
-                        <Typography variant='h5' className='title-poppins mb-text'>Nossa missão</Typography>
+                        <Typography variant='h5' className='title-poppins mb-text no-selection'>Nossa missão</Typography>
                         <Typography variant='subtitle1'>Promover e contribuir para o desenvolvimento profissional através
                             da educação e do trabalho alcançando o máximo de mulheres do Brasil e exterior.
                         </Typography>
@@ -66,7 +67,7 @@ function About() {
 
 
 
-                <Grid container item className='container-center padding-left no-selection' lg={12} xs={12} sm={6}>
+                <Grid container item className='container-center no-selection' lg={12} xs={12} sm={6} sx={{ p: { md: 8 } }}>
                     <Grid item xs={10} lg={6} sm={6}>
                         <Typography variant='h5' className='title-poppins mb-text'>Valores</Typography>
                         <Typography variant='subtitle1' className='no-selection'> Melhoria contínua dos produtos e a qualidade para
@@ -124,7 +125,7 @@ function About() {
                     <Box className='flip-card no-selection'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
-                                <img className='img' src="https://media.licdn.com/dms/image/D4D03AQHsxjFl9weWBQ/profile-displayphoto-shrink_400_400/0/1675196750994?e=1680739200&v=beta&t=4J7QAHkRwFbkDwNtnBRMNyPAMJvRzf2kdEquKDrhncg" alt="img" />
+                                <img className='img' src="https://camo.githubusercontent.com/c6d5b81643dc4561bb731c018a495869277954400d3e88d1fd1efae94ec295a9/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f44344530334151486d4f6e55757550627256412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636343831333230303733383f653d3136373532393630303026763d6265746126743d4b7359716d464c4f7a6e527476637735634e786b4446376932356850335873304f75486732316d656f6a34" alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
                                 <Link href="https://www.linkedin.com/in/victordnf/" target="_blank">
