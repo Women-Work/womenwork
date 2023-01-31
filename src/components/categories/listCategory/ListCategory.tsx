@@ -1,4 +1,4 @@
-import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
+import { Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import { Box } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -9,6 +9,10 @@ import { search } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
 
 function ListCategory() {
+  useEffect(() => {
+    document.title = 'Categorias — WomenWork';
+  }, []);
+  
   const [categories, setCategories] = useState<Category[]>([]);
   const token = useAppSelector(selectToken);
 

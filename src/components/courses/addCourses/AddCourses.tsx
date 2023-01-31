@@ -8,7 +8,7 @@ import {
   Select,
   TextField,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -16,10 +16,14 @@ import { toast } from 'react-toastify';
 import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import Course from '../../../models/Course';
-import { post, put, search, searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
+import { post, put, search, searchId } from '../../../services/Service';
 
 export default function AddCourses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
   const token = useAppSelector(selectToken);

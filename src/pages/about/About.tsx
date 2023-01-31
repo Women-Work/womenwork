@@ -1,12 +1,14 @@
-import { Grid, Box, Link } from '@material-ui/core';
+import { Grid, Box, Link, Typography } from '@mui/material';
 import './About.css'
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import Typography from '@material-ui/core/Typography';
-
-
+import { useEffect } from 'react';
 
 function About() {
+    useEffect(() => {
+      document.title = 'Sobre nós — WomenWork';
+    }, []);
+    
     return (
         <>
             <Grid container justifyContent='center'>

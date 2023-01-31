@@ -1,15 +1,19 @@
-import { Button, Container, TextField, Typography } from '@material-ui/core';
+import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-import Category from '../../../models/Category';
-import { post, put, searchId } from '../../../services/Service';
-import { selectToken } from '../../../redux/tokenSlice';
 import { useAppSelector } from '../../../common/hooks';
+import Category from '../../../models/Category';
+import { selectToken } from '../../../redux/tokenSlice';
+import { post, put, searchId } from '../../../services/Service';
+
 
 export default function AddCategory() {
+    useEffect(() => {
+      document.title = 'Categorias — WomenWork';
+    }, []);
+    
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
     const token = useAppSelector(selectToken);

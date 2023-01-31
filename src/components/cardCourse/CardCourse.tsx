@@ -1,8 +1,7 @@
 import './CardCourse.css';
 
-import { Box } from '@material-ui/core';
 import { AddRounded } from '@mui/icons-material';
-import { Card as MCard, CardContent, Grid, Typography } from '@mui/material';
+import { Card as MCard, CardContent, Grid, Typography, Box } from '@mui/material';
 import Image from 'mui-image';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';

@@ -5,7 +5,7 @@ import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRigh
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
 import { Box, Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
 import Image from 'mui-image';
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const features = [
   {
@@ -35,6 +35,9 @@ const features = [
 ]
 
 export default function Home() {
+  useEffect(() => {
+    document.title = 'Home — WomenWork';
+  }, []);
 
   return (
     <>

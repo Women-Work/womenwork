@@ -1,5 +1,4 @@
-import { Typography, alpha } from '@material-ui/core';
-import { Button, Grid } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,12 +7,16 @@ import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
 import { UserUpdate } from '../../../models/UserUpdate';
-import { searchId } from '../../../services/Service';
 import { selectToken } from '../../../redux/tokenSlice';
 import { selectUser, updateUser } from '../../../redux/userSlice';
+import { searchId } from '../../../services/Service';
 import Loading from '../../static/loading/Loading';
 
 export default function ShowCourse() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const { id } = useParams<{ id: string }>();

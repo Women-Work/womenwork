@@ -1,8 +1,7 @@
 import './Signup.css';
 
-import { Box, Button, Grid, TextField, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { IconButton, InputAdornment } from '@mui/material';
+import { Box, Button, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
@@ -12,7 +11,10 @@ import { User } from '../../models/User';
 import { userRegister } from '../../services/Service';
 
 
-export default function Singup() {
+export default function Signup() {
+    useEffect(() => {
+      document.title = 'Cadastro — WomenWork';
+    }, []);
 
     let navigate = useNavigate();
     const [confirmPassword, setConfirmPassword] = useState<String>("");
