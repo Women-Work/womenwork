@@ -13,9 +13,9 @@ import UserImage from "./UserImage";
 
 function User() {
   useEffect(() => {
-    document.title = 'Perfil — WomenWork';
+    document.title = "Perfil — WomenWork";
   }, []);
-  
+
   const user = useAppSelector(selectUser);
   const [value, setValue] = useState(0);
 
@@ -39,7 +39,7 @@ function User() {
           <UserImage />
 
           <Typography
-            variant="h3"
+            variant="h4"
             align="center"
             className="title-poppins"
             sx={{ mt: 2 }}

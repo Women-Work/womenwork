@@ -15,6 +15,7 @@ import { persistor, store } from "./redux/store";
 import reportWebVitals from "./reportWebVitals";
 import Router from "./routes/Router";
 import { ThemeProvider, createTheme } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 
 const theme = createTheme({
   palette: {
@@ -41,7 +42,9 @@ root.render(
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <ThemeProvider theme={theme}>
-          <Router />
+          <BrowserRouter>
+            <Router />
+          </BrowserRouter>
         </ThemeProvider>
       </PersistGate>
     </Provider>
