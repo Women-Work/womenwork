@@ -101,7 +101,7 @@ export default function SDrawer() {
               <Divider />
             </>
           )}
-
+          <Divider />
           <ListItemButton onClick={() => setIsDrawerOpen(false)}>
             <ListItem component={Link} to="/">
               <ListItemIcon>
@@ -129,7 +129,7 @@ export default function SDrawer() {
             </ListItem>
           </ListItemButton>
         </List>
-
+        <Divider />
         <List>
           {token === "" ? (
             <>
@@ -165,7 +165,7 @@ export default function SDrawer() {
                   <ListItemText primary="Logout" className="list-item" />
                 </ListItem>
               </ListItemButton> */}
-
+              <Divider />
               <ListItem>
                 <ListItemIcon sx={{ alignItems: "center" }}>
                   <Avatar src={userPhoto} sx={{ ml: 1 }} />
