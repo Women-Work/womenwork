@@ -12,9 +12,7 @@ const bucket = new AWS.S3({
 });
 
 export async function uploadImage(file: File) {
-  console.log(file);
   if (file) {
-    console.log(s3Config);
     const filename = `${file.name}.${file.type.split('/')[1]}`;
 
     const params = {
