@@ -125,7 +125,7 @@ function About() {
                     <Box className='flip-card no-selection'>
                         <Box className='flip-card-inner'>
                             <Box className='flip-card-front'>
-                                <img className='img' src="https://camo.githubusercontent.com/c6d5b81643dc4561bb731c018a495869277954400d3e88d1fd1efae94ec295a9/68747470733a2f2f6d656469612d657870312e6c6963646e2e636f6d2f646d732f696d6167652f44344530334151486d4f6e55757550627256412f70726f66696c652d646973706c617970686f746f2d736872696e6b5f3830305f3830302f302f313636343831333230303733383f653d3136373532393630303026763d6265746126743d4b7359716d464c4f7a6e527476637735634e786b4446376932356850335873304f75486732316d656f6a34" alt="img" />
+                                <img className='img' src="https://media.licdn.com/dms/image/D4D03AQHsxjFl9weWBQ/profile-displayphoto-shrink_800_800/0/1675196750994?e=1680739200&v=beta&t=o6ivqR9rba7iqdQXjrK1igINMf_xXIjxmOsntdop0NY" alt="img" />
                             </Box>
                             <Box className='flip-card-back' >
                                 <Link href="https://www.linkedin.com/in/victordnf/" target="_blank">
