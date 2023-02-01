@@ -43,7 +43,7 @@ function About() {
                             da educação e do trabalho alcançando o máximo de mulheres do Brasil e exterior.
                         </Typography>
                     </Grid>
-                    <Grid item className='container-center' xs={6} lg={6} sm={6}>
+                    <Grid item className='container-center' xs={6} lg={6} sm={6} sx={{ display: { xs: 'none', sm: 'block' } }}>
 
                         <img style={{ width: '70%' }} className='padding-left' src='/assets/images/about/about2.svg' alt='' />
 
