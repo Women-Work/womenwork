@@ -21,19 +21,17 @@ const styles = makeStyles((theme: Theme) => createStyles({
   },
 
   centerImg: {
-    display: 'flex',
+    display: 'none',
     justifyContent: 'center',
     alignItems: 'center',
     width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      display: 'flex',
+    },
   },
 
 
-  buttons2: {
-    color: theme.palette.primary.contrastText,
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
-    },
+  navbutton: {
 
   },
   search: {
@@ -44,11 +42,6 @@ const styles = makeStyles((theme: Theme) => createStyles({
       backgroundColor: alpha(theme.palette.common.white, 0.25),
     },
     marginLeft: 2,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
   },
   searchIcon: {
     padding: theme.spacing(0, 2),

@@ -3,11 +3,9 @@ import BarChartRoundedIcon from '@mui/icons-material/BarChartRounded';
 import HandymanRoundedIcon from '@mui/icons-material/HandymanRounded';
 import KeyboardArrowRightRoundedIcon from '@mui/icons-material/KeyboardArrowRightRounded';
 import WorkRoundedIcon from '@mui/icons-material/WorkRounded';
-import { Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
+import { Box, Button, Card, CardContent, CardHeader, Grid, Link as MuiLink, Typography } from '@mui/material';
 import Image from 'mui-image';
-import React from 'react';
-
-import { styles } from './styles';
+import React, { useEffect } from 'react';
 
 const features = [
   {
@@ -37,25 +35,30 @@ const features = [
 ]
 
 export default function Home() {
-  const classes = styles();
+  useEffect(() => {
+    document.title = 'Home — WomenWork';
+  }, []);
 
   return (
     <>
-      <Grid container justifyContent='center' alignContent='center'>
+      <Grid container justifyContent='center' alignContent='center' >
         <Grid item xs={12} container justifyContent='center' paddingY={2} marginY={8} >
-          <Grid item xs={5}>
-            <Typography variant='h1' className='title-poppins' >Delas</Typography>
-            <Typography variant='h1' className='title-poppins' >para elas.</Typography>
-            <Typography variant='h6' sx={{ marginTop: 3, marginBottom: 3, color: '#303030' }}>Transformando mulheres através da educação.</Typography>
+          <Grid item xs={10} md={5}>
+            <Typography variant='h1' className='title-poppins' sx={{ fontSize: { xs: 'h2.fontSize', md: 'h1.fontSize' } }}
+            >Delas</Typography>
+            <Typography variant='h1' className='title-poppins' sx={{ fontSize: { xs: 'h2.fontSize', md: 'h1.fontSize' } }}
+            >para elas.</Typography>
+            <Typography variant='h6' sx={{ marginTop: 3, marginBottom: 3, color: '#303030', textAlign: { xs: 'center', md: 'left' } }}
+            >Transformando mulheres através da educação.</Typography>
 
             <MuiLink href='#recursos' underline='none'>
               <Button variant='text' color='secondary' size='large' sx={{ marginRight: 2, color: '#C8857F' }} endIcon={<KeyboardArrowRightRoundedIcon />}>
-                Saiba mais 
+                Saiba mais
               </Button>
             </MuiLink>
 
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={6} sx={{ display: { xs: 'none', sm: 'none', md: 'block' } }}>
             <Image
               style={{ width: '100%', height: 'auto', padding: 0, marginRight: 'auto', borderRadius: '5px' }}
               src='assets/images/home.svg'

@@ -1,0 +1,76 @@
+.hover-img {
+  color: #fff;
+  margin: 8px;
+  max-width: 200px;
+  min-width: 200px;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.hover-img * {
+  box-sizing: border-box;
+  transition: all 0.45s ease;
+}
+
+.hover-img::before,
+.hover-img::after {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  content: "";
+  transition: all 0.3s ease;
+  z-index: 1;
+  opacity: 0;
+}
+
+.hover-img img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  vertical-align: top;
+  backface-visibility: hidden;
+}
+
+.hover-img .overlay {
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  z-index: 2;
+  transition-delay: 0.1s;
+}
+
+.hover-img:hover::before,
+.hover-img:hover::after {
+  opacity: 0.5;
+}
+
+.hover-img:hover img {
+  opacity: 0.7;
+}
+
+.hover-img:hover .overlay {
+  opacity: 0.5;
+}
+
+input[type="file"] {
+  display: none;
+}

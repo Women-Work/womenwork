@@ -13,6 +13,7 @@
   height: 150px;
   perspective: 1000px;
   text-align: center;
+  margin-bottom: 50px;
 }
 
 .flip-card-inner {
@@ -96,16 +97,15 @@
   padding-bottom: 10px;
 }
 
-.c2 {
+.mudarcel {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-
-
 }
 
-.border {
-  border: 5px;
+@media (max-width: 600px) {
+  .mudarcel {
+    display: none;
+
+  }
 }
 
 .membros {
@@ -115,39 +115,12 @@
   padding-bottom: 4%;
 }
 
-.nome {
-  text-align: center;
-}
+@media (max-width: 600px) {
+  .membros {
+    padding-right: 6%;
+    padding-left: 5%;
 
-.gitbutton {
-  color: white !important;
-  background: black !important;
-  font-size: x-small !important;
-
-
-}
-
-.button-linkedin {
-  color: white !important;
-  background: #0e76a8 !important;
-  font-size: x-small !important;
-}
-
-.button {
-  display: flex !important;
-  align-items: flex-start !important;
-  justify-content: space-evenly !important;
-  justify-items: center !important;
-  margin-bottom: 10px !important;
-
-}
-
-.pad {
-  padding-right: 10px !important;
-}
-
-.padding-img {
-  padding-top: 0px;
+  }
 }
 
 .container-center {
@@ -157,10 +130,27 @@
   padding: 20px;
 }
 
+@media (max-width: 600px) {
+  .container-center {
+    flex-direction: column;
+    text-align: left;
+  }
+}
+
 .padding-left {
   padding-left: 60px;
 }
 
+@media (max-width: 600px) {
+  .padding-left {
+    display: none;
+  }
+}
+
 .pad-top-text {
   padding-top: 15px;
+}
+
+#membros-img {
+  margin-bottom: 100px;
 }

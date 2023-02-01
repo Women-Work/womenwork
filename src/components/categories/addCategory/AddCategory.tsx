@@ -1,30 +1,28 @@
-import { Button, Container, TextField, Typography, } from '@material-ui/core';
+import { Button, Container, TextField, Typography } from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
+
+import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
-import { post, put, search, searchId } from '../../../services/Service';
+import { selectToken } from '../../../redux/tokenSlice';
+import { post, put, searchId } from '../../../services/Service';
+
 
 export default function AddCategory() {
+    useEffect(() => {
+      document.title = 'Categorias — WomenWork';
+    }, []);
+    
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
-    const [token, setToken] = useLocalStorage('token');
-
-
+    const token = useAppSelector(selectToken);
 
     const [category, setCategory] = useState<Category>({
         id: 0,
         name: '',
-        icon: 'teste'
-    })
-
-    useEffect(() => {
-        if (token == '') {
-            toast.error("Você precisa estar logado para acessar essa página.");
-            navigate("/login");
-        }
-    }, [token]);
+        icon: ''
+    });
 
     useEffect(() => {
         if (id !== undefined) {

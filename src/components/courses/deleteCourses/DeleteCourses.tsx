@@ -1,26 +1,22 @@
-import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core';
-import { Box } from '@mui/material';
+import { Box, Button, Card, CardActions, CardContent, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
+import { useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
+import { selectToken } from '../../../redux/tokenSlice';
 import { deleteId, searchId } from '../../../services/Service';
-import Footer from '../../static/footer/Footer';
 
 export default function DeleteCourses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage('token');
+  const token = useAppSelector(selectToken);
   const [course, setCourse] = useState<Course>();
-
-  useEffect(() => {
-    if (token == '') {
-      toast.warn('Você precisa estar logada para acessar essa página');
-      navigate('/login');
-    }
-  }, [token]);
 
   useEffect(() => {
     if(id !== undefined){

@@ -1,28 +1,31 @@
 import './Login.css';
 
-import { Button, TextField, Typography } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Box, Grid, IconButton, InputAdornment } from '@mui/material';
+import { Box, Button, Grid, IconButton, InputAdornment, TextField, Typography } from '@mui/material';
 import Image from 'mui-image';
 import React, { ChangeEvent, useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
 
 import { UserLogin } from '../../models/UserLogin';
+import { addToken } from '../../redux/tokenSlice';
+import { login as loginUser } from '../../redux/userSlice';
 import { login } from '../../services/Service';
-
-
+import { searchUser } from '../../services/UserService';
 
 export function Login() {
+    useEffect(() => {
+      document.title = 'Login — WomenWork';
+    }, []);
+    
     let navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword(!showPassword);
     const handleMouseDownPassword = () => setShowPassword(!showPassword);
 
-
-    const [token, setToken] = useLocalStorage('token');
+    const dispatch = useDispatch();
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: '',
@@ -40,18 +43,16 @@ export function Login() {
         });
     }
 
-    useEffect(() => {
-        if (token != '') {
-            navigate('/courses');
-        }
-    }, [token]);
-
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
         e.preventDefault();
         try {
-            await login(`/auth/login`, userLogin, setToken);
+            const request = await login(`/auth/login`, userLogin);
+            const user = await searchUser(`/users/${request.data.user}`, request.data.token);
+            dispatch(loginUser(user));
+            dispatch(addToken(request.data.token));
+            navigate(-1);
         } catch (error) {
-            toast.error('E-mail ou senha inválido.');
+            toast.error('Ocorreu um erro, tente novamente.');
         }
     }
 

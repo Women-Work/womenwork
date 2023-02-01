@@ -1,4 +1,44 @@
-
-.btnCancelar{
+.btnCancelar {
     margin-right: 20px !important;
+}
+
+.margin-cel {
+    margin-top: 0%;
+
+}
+
+.mudarcel {
+    display: block;
+}
+
+.regis-button {
+    margin-bottom: 10%;
+}
+
+.h3 {
+    display: none;
+}
+
+.h2 {
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .mudarcel {
+        display: none;
+    }
+
+    .margin-cel {
+        padding-right: 10%;
+        margin-top: 10%
+    }
+
+    .h3 {
+        display: block;
+    }
+
+    .h2 {
+        display: none;
+        margin-bottom: 10%;
+    }
 }

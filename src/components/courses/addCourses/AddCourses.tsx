@@ -8,27 +8,26 @@ import {
   Select,
   TextField,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
+
+import { useAppSelector } from '../../../common/hooks';
 import Category from '../../../models/Category';
 import Course from '../../../models/Course';
+import { selectToken } from '../../../redux/tokenSlice';
 import { post, put, search, searchId } from '../../../services/Service';
 
 export default function AddCourses() {
+  useEffect(() => {
+    document.title = 'Cursos — WomenWork';
+  }, []);
+  
   let navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
-  const [token, setToken] = useLocalStorage('token', '');
+  const token = useAppSelector(selectToken);
   const [categories, setCategories] = useState<Category[]>([]);
-
-  useEffect(() => {
-    if (token == '') {
-      toast.warn('Você precisa estar logada para acessar essa página');
-      navigate('/login');
-    }
-  }, [token]);
 
   const [category, setCategory] = useState<Category>({
     id: 0,
@@ -58,19 +57,11 @@ export default function AddCourses() {
   }, [id]);
 
   async function getCategories() {
-    await search('/categories', setCategories, {
-      headers: {
-        'Authorization': token
-      }
-    });
+    await search('/categories', setCategories, token);
   }
 
   async function findCourseById(id: string) {
-    await search(`/products/${id}`, setCourse, {
-      headers: {
-        'Authorization': token
-      }
-    });
+    await search(`/products/${id}`, setCourse, token);
   }
 
   function updatedCourse(e: ChangeEvent<HTMLInputElement>) {
@@ -104,36 +95,36 @@ export default function AddCourses() {
   
   return (
     <>
-        <Container maxWidth="sm" className="topo">
-            <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro curso</Typography>
-                <TextField value={course.title} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)} id="title" label="Título" variant="outlined" name="title" margin="normal" fullWidth />
-                <TextField value={course.description} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)}  id="description" label="Descrição" name="description" variant="outlined" margin="normal" fullWidth />
-                <TextField value={course.price} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)}  id="price" label="Preço" name="price" variant="outlined" margin="normal" fullWidth />
+      <Container maxWidth="sm" className="topo">
+          <form onSubmit={onSubmit}>
+              <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro curso</Typography>
+              <TextField value={course.title} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)} id="title" label="Título" variant="outlined" name="title" margin="normal" fullWidth />
+              <TextField value={course.description} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)}  id="description" label="Descrição" name="description" variant="outlined" margin="normal" fullWidth />
+              <TextField value={course.price} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedCourse(e)}  id="price" label="Preço" name="price" variant="outlined" margin="normal" fullWidth />
 
-                <FormControl >
-                    <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
-                    <Select
-                        labelId="demo-simple-select-helper-label"
-                        id="demo-simple-select-helper"
-                        onChange={(e) => searchId(`/categories/${e.target.value}`, setCategory, {
-                            headers: {
-                                'Authorization': token
-                            }})
-                        }>
-                        {
-                            categories.map(category => (
-                                <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>
-                            ))
-                        }
-                    </Select>
-                    <FormHelperText>Escolha uma categoria para o curso</FormHelperText>
-                    <Button type="submit" variant="contained" color="primary">
-                        Finalizar
-                    </Button>
-                </FormControl>
-            </form>
-        </Container>
+              <FormControl >
+                  <InputLabel id="demo-simple-select-helper-label">Tema </InputLabel>
+                  <Select
+                      labelId="demo-simple-select-helper-label"
+                      id="demo-simple-select-helper"
+                      onChange={(e) => searchId(`/categories/${e.target.value}`, setCategory, {
+                          headers: {
+                              'Authorization': token
+                          }})
+                      }>
+                      {
+                          categories.map(category => (
+                              <MenuItem key={category.id} value={category.id}>{category.name}</MenuItem>
+                          ))
+                      }
+                  </Select>
+                  <FormHelperText>Escolha uma categoria para o curso</FormHelperText>
+                  <Button type="submit" variant="contained" color="primary">
+                      Finalizar
+                  </Button>
+              </FormControl>
+          </form>
+      </Container>
     </>
     )
 }

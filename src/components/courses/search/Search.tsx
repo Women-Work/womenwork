@@ -1,73 +1,87 @@
-import { Box, Grid, Typography } from '@mui/material';
+import { Box, Grid as MGrid, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useSearchParams } from 'react-router-dom';
-import { toast } from 'react-toastify';
-import useLocalStorage from 'react-use-localstorage';
+import { useSearchParams } from 'react-router-dom';
+
+import Grid from '../../../common/Grid';
+import { useAppDispatch, useAppSelector } from '../../../common/hooks';
 import Course from '../../../models/Course';
-import { search } from '../../../services/Service';
+import { fetchCourses, getCoursesError, getCoursesStatus, selectAllCourses } from '../../../redux/coursesSlice';
+import { selectToken } from '../../../redux/tokenSlice';
 import CardCourse from '../../cardCourse/CardCourse';
 import Loading from '../../static/loading/Loading';
 
 export default function Search() {
-  const [token] = useLocalStorage('token');
+  useEffect(() => {
+    document.title = `Pesquisa: ${query} — WomenWork`;
+  }, []);
+  
   const [searchParams] = useSearchParams();
-  const [courses, setCourses] = useState<Course[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  let navigate = useNavigate();
+  const query = searchParams.get('q');
+  
+  const dispatch = useAppDispatch();
+  const token = useAppSelector(selectToken);
+  const courses = useAppSelector(selectAllCourses);
+  const status = useAppSelector(getCoursesStatus);
+  const error = useAppSelector(getCoursesError);
+
+  const [searchedCourses, setSearchedCourses] = useState<Course[]>([]);
 
   useEffect(() => {
-    if (token == '') {
-      toast.error("Você precisa estar logada para pesquisar um curso.");
-      navigate("/login");
+    if (status === 'idle') {
+      dispatch(fetchCourses());
     }
-  }, [token]);
+  }, [status, dispatch]);
 
-
-  const query = searchParams.get('q');
-
-  const getSearchedCourses = async () => {
-    await search(`/products/title/${query}`, setCourses, {
-      headers: {
-        'Authorization': token
-      }
-    }).then(() => {
-      setIsLoading(false);
-    });
+  const getSearchedCourses = () => {
+    setSearchedCourses(
+      courses.filter((course: Course) => 
+        course.title.toLowerCase().includes(query?.toLowerCase() as string)
+      ));
   }
 
   useEffect(() => {
     getSearchedCourses();
-  }, [query]);
+  }, [courses, query]);
 
+  let content;
+  let title = (
+    <Typography variant='h3' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
+  );
+  if(status === 'loading') {
+    content = <Loading />
+  } else if(status === 'succeeded') {
+    if(searchedCourses.length > 0) {
+      content = searchedCourses.map((course) => (
+        <CardCourse
+          key={course.id}
+          id={course.id}
+          title={course.title}
+          description={course.description}
+          price={course.price}
+        />
+      ));
+    } else {
+      content = 
+      <Box marginTop={5}>
+        <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
+      </Box>
+    }
+  }
 
   return (
     <>
-      <Grid container justifyContent='center' alignItems='flex-start'>
-        <Grid item container xs={12} sx={{ marginX: 5 }}>
-          <Typography variant='h4' className='title-poppins'>Resultados para: <span style={{ color: '#E1A6A0' }}>{query}</span></Typography>
+      <MGrid container justifyContent='center' alignItems='flex-start'>
+        <Grid
+          title={title}
+          item
+          container
+          xs={12}
+          sx={{ marginX: 5 }}
+        >
+          {content}
+          
         </Grid>
-        {
-          isLoading ?
-            <Loading />
-            :
-            courses.length > 0 ?
-              courses.map((course) => (
-                <Grid key={course.id} item xs={10} md={5} lg={3}>
-                  <CardCourse
-                    id={course.id}
-                    title={course.title}
-                    description={course.description}
-                    price={course.price}
-                  />
-                </Grid>
-              ))
-              :
-              <Box marginTop={5}>
-                <Typography variant='h4' className='title-poppins'>Nenhum resultado encontrado</Typography>
-              </Box>
-
-        }
-      </Grid>
+      </MGrid>
     </>
   )
 }
