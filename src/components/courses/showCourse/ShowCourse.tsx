@@ -11,6 +11,7 @@ import { selectToken } from "../../../redux/tokenSlice";
 import { selectUser, updateUser } from "../../../redux/userSlice";
 import { searchId } from "../../../services/Service";
 import Loading from "../../static/loading/Loading";
+import { ArrowBackIosRounded } from "@mui/icons-material";
 
 export default function ShowCourse() {
   useEffect(() => {
@@ -72,6 +73,21 @@ export default function ShowCourse() {
   };
   return (
     <Grid container justifyContent="center" alignItems="center">
+      <Grid
+        item
+        xs={12}
+        container
+        justifyContent="flex-start"
+        alignItems="center"
+        sx={{ pl: 5, pt: 2 }}
+      >
+        <Button
+          onClick={() => navigate("/courses")}
+          startIcon={<ArrowBackIosRounded />}
+        >
+          Todos os cursos
+        </Button>
+      </Grid>
       {isLoading ? (
         <Loading />
       ) : (
