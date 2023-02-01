@@ -1,13 +1,30 @@
-import { AccountCircle, LogoutRounded, VideoLibraryRounded } from "@mui/icons-material";
+import {
+  AccountCircle,
+  LogoutRounded,
+  VideoLibraryRounded,
+} from "@mui/icons-material";
 import "./Drawer.css";
-import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
-import PersonAddAltRoundedIcon from '@mui/icons-material/PersonAddAltRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import MenuBookRoundedIcon from "@mui/icons-material/MenuBookRounded";
+import PersonAddAltRoundedIcon from "@mui/icons-material/PersonAddAltRounded";
+import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
+import InfoRoundedIcon from "@mui/icons-material/InfoRounded";
+import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Avatar, Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, MenuItem, Typography, } from "@mui/material";
+import {
+  Avatar,
+  Box,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  MenuItem,
+  Typography,
+} from "@mui/material";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../../common/hooks";
@@ -17,7 +34,6 @@ import { usePopupState } from "material-ui-popup-state/hooks";
 import { s3Config } from "../../../common/utils";
 import logo from "../../../assets/ww-logo.png";
 
-
 export default function SDrawer() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const token = useAppSelector(selectToken);
@@ -25,58 +41,15 @@ export default function SDrawer() {
   const dispatch = useAppDispatch();
   const user = useAppSelector(selectUser);
   const url = s3Config.s3Url;
-  const userPhoto = ["default.jpg", "", undefined].includes(user.photo) ? "" : url + user.photo;
+  const userPhoto = ["default.jpg", "", undefined].includes(user.photo)
+    ? ""
+    : url + user.photo;
 
   function logoutHandle() {
     dispatch(resetToken());
     dispatch(logout());
+    setIsDrawerOpen(false);
     navigate("/login");
-
-  }
-
-  let userMenu: JSX.Element | JSX.Element[];
-  const popupState = usePopupState({
-    variant: "popover",
-    popupId: "menu-user",
-  });
-  if (token && token.length > 0) {
-    userMenu = [
-      <MenuItem key={1} sx={{ cursor: "default" }}>
-        <Avatar src={userPhoto} />
-        <div style={{ overflow: "hidden", textOverflow: "" }}>
-          {user.name} <br />
-          <Typography variant="subtitle2" noWrap sx={{ color: "#707070" }}>
-            {user.user}
-          </Typography>
-        </div>
-      </MenuItem>,
-      <Divider key={2} />,
-      <Link to="/user" key={3}>
-
-      </Link>,
-      <Link to="/user/courses" key={3}>
-
-      </Link>,
-      <MenuItem
-        key={4}
-        onClick={() => {
-          logoutHandle();
-          popupState.close();
-        }}
-      >
-        <ListItemIcon>
-          <LogoutRounded /> Sair
-        </ListItemIcon>
-      </MenuItem>,
-    ];
-  } else {
-    userMenu = (
-      <Link to="/login">
-        <MenuItem onClick={popupState.close}>
-          <Avatar /> Entrar
-        </MenuItem>
-      </Link>
-    );
   }
 
   return (
@@ -98,28 +71,14 @@ export default function SDrawer() {
       >
         <Box p={2} textAlign="center" role="presentation">
           <Typography>
-
             <img width="250px" src={logo} alt="logo do Drawer" />
-
           </Typography>
         </Box>
 
         <List>
-          {(token != '') &&
+          {token !== "" && (
             <>
-
-              <ListItemIcon>
-                <ListItem>
-                  <Avatar src={userPhoto} />
-                  <div style={{ overflow: "hidden", textOverflow: "", padding: "10px" }}>
-                    {user.name} <br />
-                    <Typography variant="subtitle2" noWrap sx={{ color: "#707070" }}>
-                      {user.user}
-                    </Typography>
-                  </div>
-                </ListItem>
-              </ListItemIcon>
-
+              <Divider />
 
               <ListItemButton onClick={() => setIsDrawerOpen(false)}>
                 <ListItem component={Link} to="/user">
@@ -129,7 +88,6 @@ export default function SDrawer() {
                   <ListItemText primary="Perfil" className="list-item" />
                 </ListItem>
               </ListItemButton>
-
 
               <ListItemButton onClick={() => setIsDrawerOpen(false)}>
                 <ListItem component={Link} to="/user/courses">
@@ -142,14 +100,14 @@ export default function SDrawer() {
 
               <Divider />
             </>
-          }
+          )}
 
           <ListItemButton onClick={() => setIsDrawerOpen(false)}>
             <ListItem component={Link} to="/">
               <ListItemIcon>
                 <HomeRoundedIcon />
               </ListItemIcon>
-              <ListItemText primary="Home" className='list-item' />
+              <ListItemText primary="Home" className="list-item" />
             </ListItem>
           </ListItemButton>
 
@@ -173,11 +131,8 @@ export default function SDrawer() {
         </List>
 
         <List>
-
-          {(token == '') ?
-
+          {token === "" ? (
             <>
-
               <ListItemButton onClick={() => setIsDrawerOpen(false)}>
                 <ListItem component={Link} to="/signup">
                   <ListItemIcon>
@@ -196,19 +151,54 @@ export default function SDrawer() {
                 </ListItem>
               </ListItemButton>
             </>
-
-            :
+          ) : (
             <>
-              <ListItemButton onClick={() => setIsDrawerOpen(false)}>
-                <ListItem onClick={() => { logoutHandle(); }}>
+              {/* <ListItemButton onClick={() => setIsDrawerOpen(false)}>
+                <ListItem
+                  onClick={() => {
+                    logoutHandle();
+                  }}
+                >
                   <ListItemIcon>
                     <LogoutRoundedIcon />
                   </ListItemIcon>
                   <ListItemText primary="Logout" className="list-item" />
                 </ListItem>
-              </ListItemButton>
+              </ListItemButton> */}
+
+              <ListItem>
+                <ListItemIcon sx={{ alignItems: "center" }}>
+                  <Avatar src={userPhoto} sx={{ ml: 1 }} />
+                  <div
+                    style={{
+                      overflow: "hidden",
+                      textOverflow: "",
+                      padding: "0 20px",
+                      color: "black !important",
+                    }}
+                  >
+                    <Typography
+                      variant="subtitle1"
+                      noWrap
+                      sx={{ color: "#101010" }}
+                    >
+                      {user.name}
+                    </Typography>
+                    <Typography
+                      variant="subtitle2"
+                      noWrap
+                      sx={{ color: "#707070" }}
+                    >
+                      {user.user}
+                    </Typography>
+                  </div>
+                </ListItemIcon>
+                <ListItemButton onClick={logoutHandle}>
+                  <LogoutRoundedIcon className="list-item" />
+                </ListItemButton>
+              </ListItem>
             </>
-          }
+          )}
         </List>
       </Drawer>
     </>
