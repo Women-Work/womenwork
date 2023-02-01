@@ -14,8 +14,10 @@ function UserImage() {
   const [openCropper, setOpenCropper] = useState(false);
   const [file, setFile] = useState<File>();
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
   const url = s3Config.s3Url;
+  const userPhoto = ["default.jpg", "", undefined].includes(user.photo)
+    ? ""
+    : url + user.photo;
 
   const onCloseCropper = () => setOpenCropper(false);
 
@@ -49,8 +51,6 @@ function UserImage() {
     };
 
     await dispatch(updateUser(update));
-
-    navigate(0);
   };
 
   const updatePhoto = async (photo: File) => {
@@ -71,7 +71,7 @@ function UserImage() {
     <>
       <Box className="hover-img" onClick={handleClick}>
         <Avatar
-          src={user.photo === "default.jpg" ? "" : url + user.photo}
+          src={userPhoto}
           alt={user.name}
           sx={{ width: "200px", height: "200px" }}
         />
