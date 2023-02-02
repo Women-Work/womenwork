@@ -41,21 +41,23 @@ O projeto, um e-commerce pautado na [ODS 5 da ONU](https://brasil.un.org/pt-br/s
 
 ### Back-end
 
-- [x] Criação de usuários, produtos e categorias
-- [x] Consulta de usuários, produtos e categorias
-- [x] Atualização de usuários, produtos e categorias
-- [x] Remoção de produtos e categorias
+- [x] Criação de usuários, cursos e categorias
+- [x] Consulta de usuários, cursos e categorias
+- [x] Atualização de usuários, cursos e categorias
+- [x] Remoção de cursos e categorias
 
 <!--<img src=".github/assets/ERD.svg" alt="Diagrama ERD" height="800px"/>-->
 
 ### Front-end
-- [ ] Criação de conta (usuário)
-- [ ] Exibição de produtos
-- [ ] Compra de produtos
+- [x] Criação de conta e login
+- [x] Cadastro, atualização e exibição de cursos
+- [x] Compra de cursos e listagem de cursos comprados
+- [x] Barra de pesquisa
+- [x] Alteração de imagem de perfil do usuário (upload e remoção)
 
 
 
-## 🚀 Tecnologias e ferramentas utilizadas
+## 🔧 Tecnologias e ferramentas utilizadas
 
 <table>
   <tbody>
@@ -84,45 +86,22 @@ O projeto, um e-commerce pautado na [ODS 5 da ONU](https://brasil.un.org/pt-br/s
 
 ## 📟 Layout
 
-🚧 Em desenvolvimento 🚧
-<!--O layout das telas da aplicação **WomenWork** foi desenvolvido pela nossa equipe através da ferramenta [**Figma**](https://www.figma.com).
-Você pode acessar o layout através deste link: [**WomenWork**](https://www.figma.com/).-->
+<img src=".github/assets/mockup.png">
 
-## 🔧 Instalação e execução
+## 🚀 Deploy
 
-🚧 Em desenvolvimento 🚧
-<!--Para baixar o código-fonte do projeto em sua máquina, primeiramente terá que ter instalado o [**Git**](https://git-scm.com/).
-
-Com o Git instalado, em seu terminal execute o seguinte comando:
-
-```bash
-git clone https://github.com/Women-Work/womenwork
-```
-
-Para instalar as dependências e executar o projeto terá que ter instalado em sua máquina o [**Node.js**](https://nodejs.org/en/), que vem acompanhado do NPM, e o [Yarn](https://yarnpkg.com/). Com ele instalado:
-
-Navegue para as subpastas separadas para cada projeto (web/server/mobile) e rode o comando a seguir:
-
-```bash
-npm install
-```
-
-Executar o projeto web:
-
-```bash
-npm run dev
-
-```
-
-Executar o servidor node:
-
-```bash
-npm run dev
-
-```
-
-```
--->
+<table>
+  <tbody>
+    <tr>
+      <td style="font-weight: bold">API (SwaggerUI)</td>
+      <td>http://womenwork.onrender.com/</td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold">Front-end</td>
+      <td>https://womenwork.vercel.app/</td>
+    </tr>
+  </tbody>
+</table>
 
 
 ## 🤝 Colaboradores
@@ -140,7 +119,7 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/D4D03AQFATLx-6dBh3g/profile-displayphoto-shrink_800_800/0/1669152123927?e=1675296000&v=beta&t=g9lpRZ__JAqSGgzQrc7ulj6u1U83rywHS4Yot-DFUX0" width="100px;" alt="Foto da Rafaele Souza no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1669152123927.jpg" style="border-radius: 50%" width="100px;" alt="Foto da Rafaele Souza no LinkedIn"/><br>
 
 <sub>
 
@@ -158,11 +137,11 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQGLG6IUxs14hg/profile-displayphoto-shrink_800_800/0/1652114561045?e=1675296000&v=beta&t=PNDoO2EHXr5moc69hSt_vJXbdwWus3ZfNWrq2ypSnLk" width="100px;" alt="Foto do João Vitor Estevam no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1652114561045.jpeg" style="border-radius: 50%" width="100px;" alt="Foto do João Vitor Estevam no LinkedIn"/><br>
 
 <sub>
 
-<b>João Vitor Estevam</b>
+<b>João V. Estevam</b>
 
 </sub>
 
@@ -175,7 +154,7 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/D4D03AQGovXgFI9Q_-Q/profile-displayphoto-shrink_800_800/0/1663330916197?e=1675296000&v=beta&t=UaL9UsS6DUZQ2hbTLQCGAvYcZQzf4jKOLECnnrM3Gqw" width="100px;" alt="Foto do Henrique Oliveira no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1663330916197.jpg" style="border-radius: 50%" width="100px;" alt="Foto do Henrique Oliveira no LinkedIn"/><br>
 
 <sub>
 
@@ -192,7 +171,7 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/C5603AQE2MKct0wgzYQ/profile-displayphoto-shrink_800_800/0/1648154893734?e=1675296000&v=beta&t=8sSJ57kbtIgw-N2Jl592S4zj1KVGyyG38tegnUS1Jvk" width="100px;" alt="Foto do Júlio Cesar no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1648154893734.jpg" style="border-radius: 50%" width="100px;" alt="Foto do Júlio Cesar no LinkedIn"/><br>
 
 <sub>
 
@@ -209,7 +188,7 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/D4E03AQHmOnUuuPbrVA/profile-displayphoto-shrink_800_800/0/1664813200738?e=1675296000&v=beta&t=KsYqmFLOznRtvcw5cNxkDF7i25hP3Xs0OuHg21meoj4" width="100px;" alt="Foto do Victor França no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1675196750994.jpg" style="border-radius: 50%" width="100px;" alt="Foto do Victor França no LinkedIn"/><br>
 
 <sub>
 
@@ -226,7 +205,7 @@ A equipe **WomenWork** é composta pelas seguintes pessoas:
 
 <a href="#">
 
-<img src="https://media-exp1.licdn.com/dms/image/C4D03AQF2znypybPwKQ/profile-displayphoto-shrink_800_800/0/1660923014407?e=1675296000&v=beta&t=2WuhtpnJlHX32aKtQ75lm8ju3O5sUnVv3d_pjut08GA" width="100px;" alt="Foto do Carlos Eduardo no LinkedIn"/><br>
+<img src="https://womenworkaws.s3.amazonaws.com/team/1660923014407.jpg" style="border-radius: 50%" width="100px;" alt="Foto do Carlos Eduardo no LinkedIn"/><br>
 
 <sub>
 
